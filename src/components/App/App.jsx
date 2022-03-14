@@ -69,13 +69,15 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
+
           <ProtectedRoute
-            // logged in shows timesheets
+            // logged in shows UserPage else shows LoginPage
             exact
             path="/timesheet"
           >
             <Timesheet />
           </ProtectedRoute>
+
 
           <Route
             exact
