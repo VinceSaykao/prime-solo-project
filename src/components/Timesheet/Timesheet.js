@@ -5,25 +5,26 @@ import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
 
 export default function Timesheet() {
 
+    const dispatch = useDispatch();
+    const timesheetReducer = useSelector(store => store.timesheetReducer);
+
     useEffect(() => {
-        dispatchEvent({ type: 'FETCH_TIMESHEET'});
-    }, []); // end of useEffect
+        dispatch({ type: 'FETCH_TIMESHEET'})
+    }, []) // end of useEffect
 
-    const timesheetReducer = useSelector(store => store.timesheetReducer)
-
-
+    
+    console.log('this is', timesheetReducer)
     return (
         <div id="timesheet-div">
         <p>Employee Timesheet</p>
         <ul>
-
-        {timesheetReducer.map((timesheetItem) => {
+        {timesheetReducer.map((timesheetItem, i) => {
                 return (
-                    <TimesheetItem key={timesheetItem.id} timesheetItem={timesheetItem} />
+                    <TimesheetItem 
+                    key={i} 
+                    timesheetItem={timesheetItem} />
                 );
             })}
-
-
         </ul>
         </div>
     )
