@@ -3,7 +3,7 @@ import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import fetchTimesheet from './fetchTimesheet.saga';
-import addTimesheet from './addTimesheet.saga';
+import addWatcherSaga from './addTimesheet.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -18,6 +18,6 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     fetchTimesheet(),
-    addTimesheet(),
+    addWatcherSaga(),
   ]);
 }
