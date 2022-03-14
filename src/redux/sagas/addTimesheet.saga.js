@@ -1,12 +1,25 @@
-import axios from "axios";
-import { put } from "redux-saga/effects";
+import { put, takeEvery } from 'redux-saga/effects';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
-export default function* addTimesheet() {
+
+function* AddSaga(action) {
+    console.log('action payload is', action.payload);
+
     try {
-        yield axios.post('/api/timesheet', action.payload);
-        yield put({type: 'FETCH_TIMESHEET'});
 
-    } catch(error) {
-        console.log('posting in addtimesheet error', error);
+        yield axios.post('/api/timesheet', action.payload);
+    } catch (error) {
+        console.log('Error on addsaga post', error);
+
     }
-}; // end of addTimesheet
+    yield put ({type: 'FETCH_BOOKS'});
+}
+
+function* AddWatcherSaga() {
+    yield takeEvery('ADD_TIMESHEET', AddSaga);
+
+}
+
+
+export default AddWatcherSaga;
