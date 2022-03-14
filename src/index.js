@@ -12,6 +12,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import App from './components/App/App';
 import { takeEvery } from 'redux-saga/effects';
 
+import fetchTimesheet from './redux/sagas/fetchTimesheet';
+
 // RootSaga 
 function* rootSaga() {
   yield takeEvery('FETCH_TIMESHEET', fetchTimesheet);
