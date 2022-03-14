@@ -5,6 +5,8 @@ const router = express.Router();
 /**
  * GET route template
  */
+
+// this will GET the timesheet from the database
 router.get('/', (req, res) => {
     // GET route code here
     if (req.isAuthenticated()) {
