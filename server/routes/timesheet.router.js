@@ -9,6 +9,7 @@ const router = express.Router();
 // this will GET the timesheet from the database
 router.get('/', (req, res) => {
     // GET route code here
+
     if (req.isAuthenticated()) {
         pool
             .query(`select * from timesheet;`)
@@ -22,5 +23,27 @@ router.get('/', (req, res) => {
     };
 });
 
+// this will POST the timesheet Form inputs to the database
+router.post('/', (req, res) => {
+    let queryText = `insert into timesheet ("date","client_name","in","out","mileage","notes") values
+    ($1,$2,$3,$4,$5,$6);
+    `;
+    console.log('req.user.id is', req.user.id)
 
-        module.exports = router;
+let queryInserts = [req.user.id,req.body.date,req.body.name,req.body.in,req.body.out,req.body.mileage.req.body.notes];
+    if (req.isAuthenticated()) {
+        pool
+        .query(queryText, queryInserts)
+        .then((results) => {
+        })
+        .catch((error) => {
+            console.log('error in post server', error);
+            res.sendStatus(500);
+        });
+    } else {
+        res.sendStatus(403);
+    }
+});
+
+
+module.exports = router;

@@ -4,9 +4,8 @@ export default function TimesheetItem({timesheetItem}) {
     return (
         <div>
             <li>
-                {timesheetItem.client_name}
+            {timesheetItem.date} {timesheetItem.client_name} {timesheetItem.in} {timesheetItem.out} {timesheetItem.mileage} {timesheetItem.notes}
             </li>
-
         </div>
     )
 
