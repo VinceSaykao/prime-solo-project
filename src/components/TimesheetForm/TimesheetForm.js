@@ -16,8 +16,9 @@ export default function TimesheetForm() {
 
     // when submit is pressed, will post all input values
     function handleSubmit() {
-        dispatch ({type: 'ADD_TIMESHEET', payload: {date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes}})
 
+        console.log('clicked submit')
+        dispatch ({type: 'ADD_TIMESHEET', payload: {date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes}})
         // empty the input fields
         setClientName('');
         setDate('');
