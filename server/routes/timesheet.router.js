@@ -6,14 +6,19 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  // GET route code here
+    // GET route code here
+    if (req.isAuthenticated()) {
+        pool
+            .query(`select * from timesheet;`)
+            .then((results) => res.send(results.rows))
+            .catch((error) => {
+                console.log('Error making SELECT for secrets:', error);
+                res.sendStatus(500);
+            });
+    } else {
+        res.sendStatus(403); // Forbidden
+    };
 });
 
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
-  // POST route code here
-});
 
-module.exports = router;
+        module.exports = router;
