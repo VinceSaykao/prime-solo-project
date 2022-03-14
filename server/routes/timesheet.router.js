@@ -9,6 +9,7 @@ const router = express.Router();
 // this will GET the timesheet from the database
 router.get('/', (req, res) => {
     // GET route code here
+
     if (req.isAuthenticated()) {
         pool
             .query(`select * from timesheet;`)
