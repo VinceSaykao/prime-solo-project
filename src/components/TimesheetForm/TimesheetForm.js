@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import './TimesheetForm.css';
+
 export default function TimesheetForm() {
+
+    const dispatch = useDispatch();
 
     const [clientName, setClientName] = useState('');
     const [date, setDate] = useState('');
@@ -9,14 +13,32 @@ export default function TimesheetForm() {
     const [timeOut, setTimeOut] = useState('');
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
+
+    // when submit is pressed, will post all input values
+    function handleSubmit() {
+        dispatch ({type: 'ADD_TIMESHEET', payload: {date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes}})
+
+        // empty the input fields
+        setClientName('');
+        setDate('');
+        setTimeIn('');
+        setTimeOut('');
+        setMileage('');
+        setNotes('');
+
+        // history.push('/timesheet');
+    }
+
+
+
+
     return (
         <div>
-
-            <p>Hello World</p>
+            <p>TimeSheet Form</p>
             <input
                 placeholder="Client Name"
                 value={clientName}
-                onChange={evt => setClientNAme(evt.target.value)}
+                onChange={evt => setClientName(evt.target.value)}
             />
             <input
                 placeholder="Date"
@@ -43,7 +65,9 @@ export default function TimesheetForm() {
                 value={notes}
                 onChange={evt => setNotes(evt.target.value)}
             />
-            <button>
+            <button
+            onClick={handleSubmit}
+            >
                 Submit
             </button>
 
