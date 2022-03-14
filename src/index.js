@@ -5,6 +5,14 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 
 import App from './components/App/App';
+import { takeEvery } from 'redux-saga/effects';
+
+// RootSaga 
+function* rootSaga() {
+  yield takeEvery('FETCH_TIMESHEET', fetchTimesheet);
+}; // end of rootSaga
+
+
 
 ReactDOM.render(
   <Provider store={store}>
