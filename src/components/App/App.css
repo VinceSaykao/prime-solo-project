@@ -4,6 +4,7 @@ body,
   position: relative;
 width: 375px;
 height: 667px;
+margin: 0 auto;
 }
 
 body {
@@ -102,15 +103,7 @@ Alert
 Form Treatment
 -------------------------------------------------------------------------------- */
 
-.formPanel {
-  box-sizing: border-box;
-  width: 400px;
-  max-width: 90%;
-  padding: 25px;
-  margin: 0 auto 20px;
-  background-color: #61a5686e;
-  border-radius: 54px;
-}
+
 
 input {
   margin: 5px;

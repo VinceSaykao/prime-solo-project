@@ -31,7 +31,7 @@ function LoginForm() {
     <form className="formPanel" onSubmit={login}>
       <h2
       id="welcome"
-      >Welcome!</h2>
+      >Welcome</h2>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
@@ -41,6 +41,7 @@ function LoginForm() {
         <label htmlFor="username">
           Username:
           <input
+          id='user-input'
             type="text"
             name="username"
             required
@@ -53,6 +54,7 @@ function LoginForm() {
         <label htmlFor="password">
           Password:
           <input
+          id='password-input'
             type="password"
             name="password"
             required
