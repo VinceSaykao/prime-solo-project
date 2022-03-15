@@ -14,7 +14,7 @@ export default function TimesheetItem({timesheetItem}) {
 
     const handleDelete = () => {
         console.log('clicked delete');
-        dispatch({type: 'DELETE_TIMESHEET', payload: timesheetItem})
+        dispatch({type: 'DELETE_TIMESHEET', payload: timesheetItem.id})
     }; // end of handleDelete
 
     return (
