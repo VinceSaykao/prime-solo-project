@@ -1,0 +1,13 @@
+#welcome {
+    position: absolute;
+width: 213px;
+height: 65px;
+left: 124px;
+top: 239px;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 800;
+font-size: 35px;
+line-height: 41px;
+}
