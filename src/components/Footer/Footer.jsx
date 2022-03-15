@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
-import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -10,8 +10,13 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 
 export default function Footer() {
   return <footer>
-    <span id='home-button'>Home</span>
-    <LogOutButton id='logout-button' />
+    <HomeRoundedIcon 
+    id="home-icon"
+    // fontSize="large"
+    sx={{ fontSize: 100 }} 
+    
+    />
+    {/* <LogOutButton id='logout-button' /> */}
     
 
   </footer>;

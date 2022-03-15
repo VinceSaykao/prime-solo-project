@@ -2,87 +2,30 @@ html,
 body,
 #react-root {
   position: relative;
-width: 375px;
-height: 667px;
-margin: 0 auto;
+width: 100%;
+height: 100%;
 }
 
 body {
   /* background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=626&q=80');
   background-size: cover; */
   background-color: #9FAE93;
-  border: 1px solid white;
   border-radius: 10px;
   /* background-image: url('login-man.png'); */
 
 }
 
-img {
-  display: inline-block;
-  max-width: 100%;
-}
 
 /* --------------------------------------------------------------------------------
 Container
 -------------------------------------------------------------------------------- */
 
-.container {
-  padding: 20px;
-}
+
 
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
 
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-color: #014041;
-  border-width: 1px 1px 3px;
-  border-radius: 4px;
-  background-color: #00acb0;
-  color: #f8f8f8;
-  font-size: 1.1rem;
-  outline: 0;
-  cursor: pointer;
-}
-
-.btn_sizeMin {
-  min-height: 50px;
-  min-width: 100px;
-}
-
-.btn_sizeSm {
-  padding: 10px 15px;
-  font-size: 0.8rem;
-}
-
-.btn_sizeFull {
-  display: block;
-  width: 100%;
-}
-
-.btn:hover {
-  background-color: #008183;
-  text-decoration: none;
-}
-
-/* This line makes the "Register" and "Login" buttons look like links */
-.btn_asLink {
-  padding: 0;
-  border-width: 0;
-  border-bottom: 1px solid #444;
-  border-radius: 0;
-  background: none;
-  font: inherit;
-  color: #444;
-}
-
-.btn_asLink:hover {
-  background-color: transparent;
-  border-color: #008183;
-  color: #008183;
-}
 
 /* --------------------------------------------------------------------------------
 Alert

@@ -64,7 +64,9 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <input 
+        id='login'
+        type="submit" name="submit" value="Log In" />
       </div>
       <button
           type="button"
