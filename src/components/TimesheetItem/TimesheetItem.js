@@ -10,9 +10,12 @@ export default function TimesheetItem({timesheetItem}) {
         console.log('clicked edit');
         dispatch ({type: 'SET_UPDATE_TIMESHEET', payload: timesheetItem})
         history.push('/updateTimesheetForm');
-
-
     }; // end of handleEdit
+
+    const handleDelete = () => {
+        console.log('clicked delete');
+        dispatch({type: 'DELETE_TIMESHEET', payload: timesheetItem})
+    }; // end of handleDelete
 
     return (
         <div>
@@ -21,6 +24,9 @@ export default function TimesheetItem({timesheetItem}) {
             <button
             onClick={handleEdit}
             >Edit</button>
+            <button
+            onClick={handleDelete}
+            >Delete</button>
             </li>
         </div>
     )
