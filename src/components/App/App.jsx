@@ -146,7 +146,13 @@ function App() {
         </Switch>
 
       </div>
+            
+      {user.id && (
       <Footer />
+      )}
+
+    
+    
     </Router>
   );
 }
