@@ -39,35 +39,42 @@ export default function TimesheetForm() {
         <div
         id='timesheet-form'
         >
-            <p>TimeSheet Form</p>
+            <h1
+            id='timesheet-form-header'
+            >TimeSheet Form</h1>
             <div id='form-inputs'>
             <input
-                id='client-name'
+                id='form-name'
                 placeholder="Client Name"
                 value={clientName}
                 onChange={evt => setClientName(evt.target.value)}
             />
             <input
+                id='form-date'
                 placeholder="Date"
                 value={date}
                 onChange={evt => setDate(evt.target.value)}
             />
             <input
+                id='form-in'
                 placeholder="Time In"
                 value={timeIn}
                 onChange={evt => setTimeIn(evt.target.value)}
             />
             <input
+                id='form-out'
                 placeholder="Time Out"
                 value={timeOut}
                 onChange={evt => setTimeOut(evt.target.value)}
             />
             <input
+                id='form-mileage'
                 placeholder="Mileage"
                 value={mileage}
                 onChange={evt => setMileage(evt.target.value)}
             />
             <input
+                id='form-notes'
                 placeholder="Notes"
                 value={notes}
                 onChange={evt => setNotes(evt.target.value)}
