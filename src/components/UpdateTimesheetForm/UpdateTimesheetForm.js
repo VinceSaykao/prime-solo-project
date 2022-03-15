@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 export default function UpdateTimesheetForm() {
 
     
     const timesheetFormUpdateReducer = useSelector(store => store.timesheetFormUpdateReducer);
+    const history = useHistory();
     const dispatch = useDispatch();
     
     const [clientName, setClientName] = useState(timesheetFormUpdateReducer.client_name);
@@ -37,7 +39,7 @@ export default function UpdateTimesheetForm() {
         setMileage('');
         setNotes('');
 
-        // history.push('/timesheet');
+        history.push('/timesheet');
     }
 
 
