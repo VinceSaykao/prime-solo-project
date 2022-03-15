@@ -148,9 +148,9 @@ function App() {
 
       </div>
             
-      {user.id && (
+      {/* {user.id && (
       <Footer />
-      )}
+      )} */}
 
 <Link exact to="/about">
 {!user.id && (

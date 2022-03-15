@@ -2,5 +2,7 @@
     background-color: #444;
     margin: 0 auto;
     text-align: center;
+    margin-left: -8px;
+    width: 100%
 }
 

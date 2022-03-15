@@ -20,6 +20,7 @@ export default function Timesheet() {
     return (
         <div id="timesheet-div">
         <p>Employee Timesheet</p>
+        
         <ul>
         {timesheetReducer.map((timesheetItem, i) => {
                 return (
@@ -29,6 +30,7 @@ export default function Timesheet() {
                 );
             })}
         </ul>
+        <Footer />
         </div>
     )
 
