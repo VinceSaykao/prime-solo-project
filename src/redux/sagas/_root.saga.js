@@ -5,6 +5,7 @@ import userSaga from './user.saga';
 import fetchTimesheet from './fetchTimesheet.saga';
 import addWatcherSaga from './addTimesheet.saga';
 import updateTimesheetSaga from './updateTimesheet.saga';
+import deleteTimesheetWatcherSaga from './deleteTimesheet.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     fetchTimesheet(),
     addWatcherSaga(),
     updateTimesheetSaga(),
+    deleteTimesheetWatcherSaga(),
   ]);
 }

@@ -57,7 +57,7 @@ router.put('/:id', (req, res) => {
     "notes" = $6
     where id = $7;`;
 
-    const queryValues = [req.body.date, req.body.client_name,req.body.in,req.body.out,req.body.mileage,req.body.notes, req.params.id];
+    const queryValues = [req.body.date, req.body.client_name, req.body.in, req.body.out, req.body.mileage, req.body.notes, req.params.id];
 
     pool.query(queryText, queryValues).then(() => {
         res.sendStatus(200)
@@ -65,6 +65,30 @@ router.put('/:id', (req, res) => {
         console.log('Error updating item', error);
         res.sendStatus(500);
     })
+});
+
+/**
+ * Delete an item if it's something the logged in user added
+ */
+router.delete("/:id", (req, res) => {
+    let queryText = `DELETE FROM timesheet WHERE id = $1;`;
+    let queryInsert = req.params.id;
+    console.log('this is params.id', req.params.id);
+
+    if (req.isAuthenticated()) {
+        pool
+            .query(queryText, [queryInsert])
+            .then((results) => {
+                console.log("Success on delete", results);
+                res.sendStatus(200);
+            })
+            .catch((err) => {
+                console.log("Error on delete,", err);
+                res.sendStatus(500);
+            });
+    } else {
+        res.sendStatus(403);
+    }
 });
 
 module.exports = router;
