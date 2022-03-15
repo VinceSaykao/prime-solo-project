@@ -13,7 +13,6 @@ export default function Footer() {
     <HomeRoundedIcon 
     id="home-icon"
     // fontSize="large"
-    sx={{ fontSize: 100 }} 
     
     />
     {/* <LogOutButton id='logout-button' /> */}
