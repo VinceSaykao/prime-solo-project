@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Timesheet from '../Timesheet/Timesheet';
 import TimesheetForm from '../TimesheetForm/TimesheetForm';
+import UpdateTimesheetForm from '../UpdateTimesheetForm/UpdateTimesheetForm';
 
 import './App.css';
 
@@ -85,6 +86,14 @@ function App() {
             path="/timesheetform"
           >
             <TimesheetForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/updatetimesheetform"
+          >
+            <UpdateTimesheetForm />
           </ProtectedRoute>
 
 
