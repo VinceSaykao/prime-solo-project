@@ -13,7 +13,7 @@ function* AddSaga(action) {
         console.log('Error on addsaga post', error);
 
     }
-    yield put ({type: 'FETCH_BOOKS'});
+    yield put ({type: 'FETCH_TIMESHEET'});
 }
 
 function* AddWatcherSaga() {
