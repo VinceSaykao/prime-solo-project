@@ -8,12 +8,11 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is, so it doesn't need 'connect()'
 
-function Footer() {
+export default function Footer() {
   return <footer>
     <span id='home-button'>Home</span>
     
-    <LogOutButton className="navLink" />
+    <LogOutButton id='logout-button' />
   </footer>;
 }
 
-export default Footer;
