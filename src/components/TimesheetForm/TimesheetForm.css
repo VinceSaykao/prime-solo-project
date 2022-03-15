@@ -1,8 +1,50 @@
 #timesheet-form {
     background-color: red;
-    height: 640px;
+    height: 844px;
     margin-left: -8px;
-    margin-top: 100px;
+    margin-top: -38px;
     background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=652&q=80');
+    background-size: cover;
+    background-position: -80px 0px;
+}
 
+#form-inputs {
+    background-color: #4444;
+    height: 650px;
+    width: 300px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 2px solid white;
+
+
+}
+
+#client-name {
+    width: 250px;
+    height: 20px;
+    border-radius: 10px;
+    display: flex;
+    
+}
+
+#submit-form {
+    outline: 0;
+cursor: pointer;
+padding: 1;
+border: 1px solid white;
+color: white;
+border-radius: 5px;
+background-color: transparent;
+
+font-weight: 900;
+font-size: 20px;
+text-shadow: 1px 1px 1px black;
+
+height: 30px;
+width: 300px;
+
+margin-top: 10px;
+margin-left: 48px;
+
+letter-spacing: 5px;
 }

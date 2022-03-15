@@ -40,7 +40,9 @@ export default function TimesheetForm() {
         id='timesheet-form'
         >
             <p>TimeSheet Form</p>
+            <div id='form-inputs'>
             <input
+                id='client-name'
                 placeholder="Client Name"
                 value={clientName}
                 onChange={evt => setClientName(evt.target.value)}
@@ -70,12 +72,14 @@ export default function TimesheetForm() {
                 value={notes}
                 onChange={evt => setNotes(evt.target.value)}
             />
+            
+            </div>
             <button
+            id='submit-form'
             onClick={handleSubmit}
             >
                 Submit
             </button>
-
         </div>
     )
 }; // end of TimesheetForm
