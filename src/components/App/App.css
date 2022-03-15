@@ -11,7 +11,9 @@ body {
   background-size: cover; */
   background-color: #9FAE93;
   border-radius: 10px;
-  /* background-image: url('login-man.png'); */
+  background-image: url('login-man.png');
+  background-size: cover;
+  background-position: -350px 0px;
 
 }
 

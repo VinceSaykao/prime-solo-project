@@ -58,10 +58,16 @@ border: 1px solid white;
 color: white;
 border-radius: 5px;
 background-color: transparent;
+
 font-weight: 900;
+font-size: 20px;
+
 height: 30px;
 width: 300px;
 
 margin-top: 10px;
 margin-left: 20px;
+
+letter-spacing: 5px;
+
 }
