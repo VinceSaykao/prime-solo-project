@@ -3,22 +3,32 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function UpdateTimesheetForm() {
 
+    
+    const timesheetFormUpdateReducer = useSelector(store => store.timesheetFormUpdateReducer);
     const dispatch = useDispatch();
-
-    const timesheetReducer = useSelector(store => store.timesheetReducer);
-
-    const [clientName, setClientName] = useState(timesheetReducer.client_name);
-    const [date, setDate] = useState(timesheetReducer.date);
-    const [timeIn, setTimeIn] = useState(timesheetReducer.in);
-    const [timeOut, setTimeOut] = useState(timesheetReducer.out);
-    const [mileage, setMileage] = useState(timesheetReducer.mileage);
-    const [notes, setNotes] = useState(timesheetReducer.notes);
+    
+    const [clientName, setClientName] = useState(timesheetFormUpdateReducer.client_name);
+    const [date, setDate] = useState(timesheetFormUpdateReducer.date);
+    const [timeIn, setTimeIn] = useState(timesheetFormUpdateReducer.in);
+    const [timeOut, setTimeOut] = useState(timesheetFormUpdateReducer.out);
+    const [mileage, setMileage] = useState(timesheetFormUpdateReducer.mileage);
+    const [notes, setNotes] = useState(timesheetFormUpdateReducer.notes);
 
     // when submit is pressed, will post all input values
     function handleSubmit() {
 
         console.log('clicked submit')
-        dispatch ({type: 'UPDATE_TIMESHEET', payload: {date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes}})
+
+        const updateInfo = {
+            id: timesheetFormUpdateReducer.id,
+            date: date,
+            client_name: clientName,
+            in: timeIn,
+            out: timeOut,
+            mileage: mileage,
+            notes: notes
+        }
+        dispatch ({type: 'UPDATE_TIMESHEET', payload: updateInfo})
         // empty the input fields
         setClientName('');
         setDate('');
@@ -30,7 +40,7 @@ export default function UpdateTimesheetForm() {
         // history.push('/timesheet');
     }
 
-    console.log(timesheetReducer)
+
     return (
         <div>
             <p>TimeSheet Form</p>

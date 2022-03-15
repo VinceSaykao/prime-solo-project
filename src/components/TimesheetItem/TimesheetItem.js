@@ -1,12 +1,17 @@
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 export default function TimesheetItem({timesheetItem}) {
 
     const history = useHistory();
+    const dispatch = useDispatch();
 
-    function handleEdit() {
+    const handleEdit = () => {
         console.log('clicked edit');
-        history.push('/updateTimesheetForm')
+        dispatch ({type: 'SET_UPDATE_TIMESHEET', payload: timesheetItem})
+        history.push('/updateTimesheetForm');
+
+
     }; // end of handleEdit
 
     return (
