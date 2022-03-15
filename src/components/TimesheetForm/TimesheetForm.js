@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import './TimesheetForm.css';
 
 export default function TimesheetForm() {
 
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const [clientName, setClientName] = useState('');
@@ -27,7 +29,7 @@ export default function TimesheetForm() {
         setMileage('');
         setNotes('');
 
-        // history.push('/timesheet');
+        history.push('/timesheet');
     }
 
 

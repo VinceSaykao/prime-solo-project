@@ -2,4 +2,13 @@ footer {
   margin-top: 80px;
   padding: 20px;
   text-align: center;
+  background-color: #4d4d4d6c;
+}
+
+#home-button {
+  background-color: #879B36;
+  height: 200px;
+  width: 200px;
+  color: white;
+  
 }

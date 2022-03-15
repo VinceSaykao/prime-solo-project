@@ -6,6 +6,7 @@ export default function TimesheetItem({timesheetItem}) {
     const history = useHistory();
     const dispatch = useDispatch();
 
+
     const handleEdit = () => {
         console.log('clicked edit');
         dispatch ({type: 'SET_UPDATE_TIMESHEET', payload: timesheetItem})
@@ -30,5 +31,4 @@ export default function TimesheetItem({timesheetItem}) {
             </li>
         </div>
     )
-
 }; // end of TimesheetItem
