@@ -150,6 +150,14 @@ function App() {
       {user.id && (
       <Footer />
       )}
+      
+
+{!user.id && (
+<h1
+id='about-button'
+>About Us</h1>
+
+)}
 
     
     
