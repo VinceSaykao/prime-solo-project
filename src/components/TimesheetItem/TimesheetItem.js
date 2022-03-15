@@ -1,10 +1,12 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import './TimesheetItem.css';
 
 export default function TimesheetItem({timesheetItem}) {
 
     const history = useHistory();
     const dispatch = useDispatch();
+
 
     const handleEdit = () => {
         console.log('clicked edit');
@@ -19,7 +21,7 @@ export default function TimesheetItem({timesheetItem}) {
 
     return (
         <div>
-            <li>
+            <li id='timesheet-item-list'>
             {timesheetItem.date} {timesheetItem.client_name} {timesheetItem.in} {timesheetItem.out} {timesheetItem.mileage} {timesheetItem.notes}
             <button
             onClick={handleEdit}
@@ -30,5 +32,4 @@ export default function TimesheetItem({timesheetItem}) {
             </li>
         </div>
     )
-
 }; // end of TimesheetItem

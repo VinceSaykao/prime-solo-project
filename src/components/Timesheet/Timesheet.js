@@ -3,17 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, {useEffect} from 'react';
 import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
 
+import Footer from '../Footer/Footer';
+
 export default function Timesheet() {
+    
+    
+    const dispatch = useDispatch();
+    const timesheetReducer = useSelector(store => store.timesheetReducer);
+    
     
     useEffect(() => {
         dispatch({ type: 'FETCH_TIMESHEET'})
     }, []) // end of useEffect
 
-    const dispatch = useDispatch();
-    const timesheetReducer = useSelector(store => store.timesheetReducer);
-
-
-    
     console.log('this is', timesheetReducer)
     return (
         <div id="timesheet-div">

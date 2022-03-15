@@ -32,24 +32,24 @@ function Nav() {
               Info Page
             </Link>
 
-            <LogOutButton className="navLink" />
+        
 
             <Link className="timesheet" to="/timesheet">
-          Timesheet
-        </Link>
+              Timesheet
+            </Link>
 
-        <Link className="timesheetForm" to="/timesheetForm">
-          Timesheet Form
-        </Link>
+            <Link className="timesheetForm" to="/timesheetForm">
+              Timesheet Form
+            </Link>
           </>
-          
+
         )}
 
         <Link className="navLink" to="/about">
           About
         </Link>
 
-    
+
       </div>
     </div>
   );
