@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import './TimesheetItem.css';
 
 export default function TimesheetItem({timesheetItem}) {
 
@@ -20,7 +21,7 @@ export default function TimesheetItem({timesheetItem}) {
 
     return (
         <div>
-            <li>
+            <li id='timesheet-item-list'>
             {timesheetItem.date} {timesheetItem.client_name} {timesheetItem.in} {timesheetItem.out} {timesheetItem.mileage} {timesheetItem.notes}
             <button
             onClick={handleEdit}

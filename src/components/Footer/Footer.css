@@ -2,7 +2,7 @@ footer {
   margin-top: 80px;
   padding: 20px;
   text-align: center;
-  background-color: #4d4d4d6c;
+  background-color: #5555555b;
 }
 
 #home-button {
@@ -12,6 +12,10 @@ footer {
   color: white;
 }
 
-#logout-button {
-  
+#logout-button{
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  color: white;
+  background-color: red;
 }

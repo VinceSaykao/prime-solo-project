@@ -11,8 +11,9 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 export default function Footer() {
   return <footer>
     <span id='home-button'>Home</span>
-    
     <LogOutButton id='logout-button' />
+    
+
   </footer>;
 }
 

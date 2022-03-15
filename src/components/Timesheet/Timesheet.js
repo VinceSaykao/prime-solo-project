@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, {useEffect} from 'react';
 import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
 
+import Footer from '../Footer/Footer';
+
 export default function Timesheet() {
     
     
