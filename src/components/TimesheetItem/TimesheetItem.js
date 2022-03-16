@@ -21,7 +21,7 @@ export default function TimesheetItem({timesheetItem}) {
 
     return (
         <div>
-            <td id='timesheet-item-list'>
+            <li id='timesheet-item-list'>
             {timesheetItem.date} {timesheetItem.client_name} {timesheetItem.in} {timesheetItem.out} {timesheetItem.mileage} {timesheetItem.notes}
             <button
             onClick={handleEdit}
@@ -29,7 +29,7 @@ export default function TimesheetItem({timesheetItem}) {
             <button
             onClick={handleDelete}
             >Delete</button>
-            </td>
+            </li>
         </div>
     )
 }; // end of TimesheetItem

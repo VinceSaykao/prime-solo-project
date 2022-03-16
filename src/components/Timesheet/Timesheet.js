@@ -1,11 +1,10 @@
 import './Timesheet.scss';
+import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
 
 
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
-import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
-
-
+import { useHistory } from 'react-router-dom';
 
 import { DataGrid } from '@mui/x-data-grid';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -16,6 +15,7 @@ import Footer from '../Footer/Footer';
 
 export default function Timesheet() {
 
+    const history = useHistory();
 
     const dispatch = useDispatch();
     const timesheetReducer = useSelector(store => store.timesheetReducer);
@@ -77,6 +77,10 @@ export default function Timesheet() {
         dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetItem.id })
     }; // end of handleDelete
 
+    const handleAdd = () => {
+        history.push('/timesheetform');
+    }
+
 
 
     console.log('this is', timesheetReducer)
@@ -93,27 +97,21 @@ export default function Timesheet() {
                     checkboxSelection
                     disableSelectionOnClick
                 /> */}
-            <table>
-                <tr>
-                    <th>Date</th>
-                    <th>Client Name</th>
-                    <th>Time In</th>
-                    <th>Time Out</th>
-                    <th>Mileage</th>
-                    <th>Notes</th>
-                </tr>
 
-                <tr>
-                    {timesheetReducer.map((timesheetItem, i) => {
-                        return (
-                            <TimesheetItem
-                                key={i}
-                                timesheetItem={timesheetItem} />
-                        );
-                    })}
-                </tr>
 
-            </table>
+            {timesheetReducer.map((timesheetItem, i) => {
+                return (
+                    <TimesheetItem
+                        key={i}
+                        timesheetItem={timesheetItem} />
+                );
+            })}
+            <button
+            onClick={handleAdd}
+            > + Add Timesheet</button>
+
+
+
             <Footer />
             {/* </div> */}
             {/* <Box sx={{ display: 'flex' }}>
@@ -121,7 +119,7 @@ export default function Timesheet() {
                     color="success"
                 />
             </Box> */}
-        </div>
+        </div >
     )
 
 }; // end of Timesheet
