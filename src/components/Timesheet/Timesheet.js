@@ -86,39 +86,46 @@ export default function Timesheet() {
     console.log('this is', timesheetReducer)
     return (
         <div id="timesheet-div">
-            {/* <div style={{ height: 400, width: '100%' }}> */}
-            <p>Employee Timesheet</p>
+            <div style={{ height: 400, width: '100%' }}>
+                <p>Employee Timesheet</p>
 
-            {/* <DataGrid
+                <DataGrid
                     rows={timesheetReducer}
                     columns={columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
                     disableSelectionOnClick
-                /> */}
+                />
+
+                <table>
+                    <th>Date</th>
+                    <th>Client Name</th>
+                    <tr>
+                        {timesheetReducer.map((timesheetItem, i) => {
+                            return (
+                                <TimesheetItem
+                                    key={i}
+                                    timesheetItem={timesheetItem} />
+                            );
+                        })}
+                    </tr>
+                </table>
 
 
-            {timesheetReducer.map((timesheetItem, i) => {
-                return (
-                    <TimesheetItem
-                        key={i}
-                        timesheetItem={timesheetItem} />
-                );
-            })}
-            <button
-            onClick={handleAdd}
-            > + Add Timesheet</button>
+                <button
+                    onClick={handleAdd}
+                > + Add Timesheet</button>
 
 
 
-            <Footer />
-            {/* </div> */}
-            {/* <Box sx={{ display: 'flex' }}>
+                <Footer />
+            </div>
+            <Box sx={{ display: 'flex' }}>
                 <CircularProgress
                     color="success"
                 />
-            </Box> */}
+            </Box>
         </div >
     )
 

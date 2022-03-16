@@ -22,6 +22,8 @@ export default function TimesheetItem({ timesheetItem }) {
     return (
         <div>
 
+      
+        
             <div id='timesheet-item-list'>
                 {timesheetItem.date} {timesheetItem.client_name} {timesheetItem.in} {timesheetItem.out} {timesheetItem.mileage} {timesheetItem.notes}
                 <button
@@ -31,6 +33,8 @@ export default function TimesheetItem({ timesheetItem }) {
                     onClick={handleDelete}
                 >Delete</button>
             </div>
+           
+    
 
         </div>
     )
