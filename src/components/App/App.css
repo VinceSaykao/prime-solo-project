@@ -1,21 +1,23 @@
 html,
 body,
 #react-root {
-  position: relative;
-width: 100%;
 height: 100%;
-
+width: 100%
 }
 
 body {
   /* background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=626&q=80');
   background-size: cover; */
-  background-color: #9FAE93;
+  /* background-color: #9FAE93; */
   background-image: linear-gradient(#9FAE93, rgb(71, 104, 10),rgb(17, 130, 175));
   border-radius: 10px;
   /* background-image: url('login-man.png'); */
   background-size: cover;
   background-position: -350px 0px;
+  min-height: 100%;
+  min-width: 100%;
+  display: block;
+  margin: 0;
 
 }
 
