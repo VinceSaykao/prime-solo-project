@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, {useEffect} from 'react';
 import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
 
+import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+
 import Footer from '../Footer/Footer';
 
 export default function Timesheet() {
@@ -20,6 +23,7 @@ export default function Timesheet() {
     return (
         <div id="timesheet-div">
         <p>Employee Timesheet</p>
+        
         <ul>
         {timesheetReducer.map((timesheetItem, i) => {
                 return (
@@ -29,6 +33,7 @@ export default function Timesheet() {
                 );
             })}
         </ul>
+        <Footer />
         </div>
     )
 
