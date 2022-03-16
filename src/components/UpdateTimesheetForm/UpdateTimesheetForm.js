@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
+
+import { MobileDatePicker } from '@mui/lab';
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+
 export default function UpdateTimesheetForm() {
 
-    
+
     const timesheetFormUpdateReducer = useSelector(store => store.timesheetFormUpdateReducer);
     const history = useHistory();
     const dispatch = useDispatch();
-    
+
     const [clientName, setClientName] = useState(timesheetFormUpdateReducer.client_name);
     const [date, setDate] = useState(timesheetFormUpdateReducer.date);
     const [timeIn, setTimeIn] = useState(timesheetFormUpdateReducer.in);
@@ -30,7 +34,7 @@ export default function UpdateTimesheetForm() {
             mileage: mileage,
             notes: notes
         }
-        dispatch ({type: 'UPDATE_TIMESHEET', payload: updateInfo})
+        dispatch({ type: 'UPDATE_TIMESHEET', payload: updateInfo })
         // empty the input fields
         setClientName('');
         setDate('');
@@ -51,11 +55,20 @@ export default function UpdateTimesheetForm() {
                 value={clientName}
                 onChange={evt => setClientName(evt.target.value)}
             />
-            <input
+             <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <MobileDatePicker
+                label="Date mobile"
+                inputFormat="MM/dd/yyyy"
+                value={date}
+                onChange={evt => setDate(evt.target.value)}
+                renderInput={(params) => <TextField {...params} />}
+            />
+             </MuiPickersUtilsProvider>
+            {/* <input
                 placeholder="Date"
                 value={date}
                 onChange={evt => setDate(evt.target.value)}
-            />
+            /> */}
             <input
                 placeholder="Time In"
                 value={timeIn}
@@ -77,7 +90,7 @@ export default function UpdateTimesheetForm() {
                 onChange={evt => setNotes(evt.target.value)}
             />
             <button
-            onClick={handleSubmit}
+                onClick={handleSubmit}
             >
                 Submit
             </button>
