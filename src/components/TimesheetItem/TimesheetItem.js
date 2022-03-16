@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import './TimesheetItem.css';
+import './TimesheetItem.scss';
 
 export default function TimesheetItem({timesheetItem}) {
 

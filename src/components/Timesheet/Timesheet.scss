@@ -1,0 +1,9 @@
+@import '../Variables/Variables.scss';
+
+#timesheet-div {
+    background-color: $windowBack;
+
+    button {
+        background-color: rgba(103, 103, 255, 0.685);
+    }
+}

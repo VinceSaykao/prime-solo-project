@@ -1,7 +1,10 @@
-import './Timesheet.css';
+import './Timesheet.scss';
+
+
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
+
 
 
 import { DataGrid } from '@mui/x-data-grid';
