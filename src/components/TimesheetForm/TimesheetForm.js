@@ -20,7 +20,7 @@ export default function TimesheetForm() {
     function handleSubmit() {
 
         console.log('clicked submit')
-        dispatch ({type: 'ADD_TIMESHEET', payload: {date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes}})
+        dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
         // empty the input fields
         setClientName('');
         setDate('');
@@ -37,53 +37,72 @@ export default function TimesheetForm() {
 
     return (
         <div
-        id='timesheet-form'
+            id='timesheet-form'
         >
             <h1
-            id='timesheet-form-header'
-            >TimeSheet Form</h1>
+                id='timesheet-form-header'
+            ><span id='header-form'>TimeSheet Form</span></h1>
             <div id='form-inputs'>
-            <input
-                id='form-name'
-                placeholder="Client Name"
-                value={clientName}
-                onChange={evt => setClientName(evt.target.value)}
-            />
-            <input
-                id='form-date'
-                placeholder="Date"
-                value={date}
-                onChange={evt => setDate(evt.target.value)}
-            />
-            <input
-                id='form-in'
-                placeholder="Time In"
-                value={timeIn}
-                onChange={evt => setTimeIn(evt.target.value)}
-            />
-            <input
-                id='form-out'
-                placeholder="Time Out"
-                value={timeOut}
-                onChange={evt => setTimeOut(evt.target.value)}
-            />
-            <input
-                id='form-mileage'
-                placeholder="Mileage"
-                value={mileage}
-                onChange={evt => setMileage(evt.target.value)}
-            />
-            <input
-                id='form-notes'
-                placeholder="Notes"
-                value={notes}
-                onChange={evt => setNotes(evt.target.value)}
-            />
-            
+
+                <p
+                    id='name-label'
+                >Client Name</p>
+                <input
+                    id='form-name'
+                    value={clientName}
+                    onChange={evt => setClientName(evt.target.value)}
+                />
+
+                <p
+                    id='date-label'
+                >Date</p>
+                <input
+                    id='form-date'
+                    placeholder="Date"
+                    value={date}
+                    onChange={evt => setDate(evt.target.value)}
+                />
+
+                <p
+                    id='date-in'
+                >In</p>
+                <input
+                    id='form-in'
+                    placeholder="Time In"
+                    value={timeIn}
+                    onChange={evt => setTimeIn(evt.target.value)}
+                />
+
+                <p
+                    id='date-out'
+                >Out</p>
+                <input
+                    id='form-out'
+                    placeholder="Time Out"
+                    value={timeOut}
+                    onChange={evt => setTimeOut(evt.target.value)}
+                />
+
+                <p
+                    id='date-out'
+                >Out</p>
+                <input
+                    id='form-mileage'
+                    placeholder="Mileage"
+                    value={mileage}
+                    onChange={evt => setMileage(evt.target.value)}
+                />
+                <input
+                    id='form-notes'
+                    placeholder="Notes"
+                    value={notes}
+                    onChange={evt => setNotes(evt.target.value)}
+                />
+
             </div>
             <button
-            id='submit-form'
-            onClick={handleSubmit}
+                id='submit-form'
+                onClick={handleSubmit}
             >
                 Submit
             </button>

@@ -1,8 +1,8 @@
 #timesheet-div {
-    background-color: #444;
-    margin: 0 auto;
+    background-color: rgba(68, 68, 68, 0.562);
+    margin: 0;
+    padding: 0;
     text-align: center;
-    margin-left: -8px;
-    width: 100%
+    width: 100%;
 }
 
