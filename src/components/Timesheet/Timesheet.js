@@ -5,13 +5,9 @@ import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
 
 
 import { DataGrid } from '@mui/x-data-grid';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
 
 import Footer from '../Footer/Footer';
 
@@ -26,11 +22,57 @@ export default function Timesheet() {
         dispatch({ type: 'FETCH_TIMESHEET' })
     }, []) // end of useEffect
 
-    
 
 
+    const columns = [
+        { field: 'id', headerName: 'Id', width: 100 },
+        {
+            field: 'date',
+            headerName: 'Date',
+            width: 150,
+            editable: true,
+        },
+        {
+            field: 'client_name',
+            headerName: 'Client Name',
+            width: 150,
+            editable: true,
+        },
+        {
+            field: 'in',
+            headerName: 'Time In',
+            width: 150,
+            editable: true,
+        },
+        {
+            field: 'out',
+            headerName: 'Time Out',
+            type: 'number',
+            width: 110,
+            editable: true,
+        },
+        {
+            field: 'mileage',
+            headerName: 'Mileage',
+            description: 'This column has a value getter and is not sortable.',
+            sortable: false,
+            width: 160,
+            
+        },
+        {
+            field: 'notes',
+            headerName: 'Notes',
+            description: 'This column has a value getter and is not sortable.',
+            sortable: false,
+            width: 160,
+        
+        },
+    ];
 
-
+    const handleDelete = () => {
+        console.log('clicked delete');
+        dispatch({type: 'DELETE_TIMESHEET', payload: timesheetItem.id})
+    }; // end of handleDelete
 
 
 
@@ -38,19 +80,22 @@ export default function Timesheet() {
     return (
         <div id="timesheet-div">
             <div style={{ height: 400, width: '100%' }}>
-            <p>Employee Timesheet</p>
-{/* 
-            <DataGrid
-                rows={rows}
-                columns={columns}
-                pageSize={5}
-                rowsPerPageOptions={[5]}
-                checkboxSelection
-                disableSelectionOnClick
-            /> */}
+                <p>Employee Timesheet</p>
+
+                <DataGrid
+                    rows={timesheetReducer}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                />
+                <button
+            onClick={handleDelete}
+            >Delete</button>
 
 
-            <ul>
+                {/* <ul>
                 {timesheetReducer.map((timesheetItem, i) => {
                     return (
                         <TimesheetItem
@@ -58,9 +103,14 @@ export default function Timesheet() {
                             timesheetItem={timesheetItem} />
                     );
                 })}
-            </ul>
-            <Footer />
-        </div>
+            </ul> */}
+                <Footer />
+            </div>
+            <Box sx={{ display: 'flex' }}>
+                <CircularProgress
+                    color="success"
+                />
+            </Box>
         </div>
     )
 
