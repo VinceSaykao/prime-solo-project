@@ -82,20 +82,18 @@ export default function Timesheet() {
             <div style={{ height: 400, width: '100%' }}>
                 <p>Employee Timesheet</p>
 
-                <DataGrid
+                {/* <DataGrid
                     rows={timesheetReducer}
                     columns={columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
                     disableSelectionOnClick
-                />
-                <button
-            onClick={handleDelete}
-            >Delete</button>
+                /> */}
+    
 
 
-                {/* <ul>
+                <ul>
                 {timesheetReducer.map((timesheetItem, i) => {
                     return (
                         <TimesheetItem
@@ -103,14 +101,14 @@ export default function Timesheet() {
                             timesheetItem={timesheetItem} />
                     );
                 })}
-            </ul> */}
+            </ul>
                 <Footer />
             </div>
-            <Box sx={{ display: 'flex' }}>
+            {/* <Box sx={{ display: 'flex' }}>
                 <CircularProgress
                     color="success"
                 />
-            </Box>
+            </Box> */}
         </div>
     )
 
