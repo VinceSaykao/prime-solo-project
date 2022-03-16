@@ -57,7 +57,7 @@ export default function Timesheet() {
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
             width: 160,
-            
+
         },
         {
             field: 'notes',
@@ -65,13 +65,13 @@ export default function Timesheet() {
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
             width: 160,
-        
+
         },
     ];
 
     const handleDelete = () => {
         console.log('clicked delete');
-        dispatch({type: 'DELETE_TIMESHEET', payload: timesheetItem.id})
+        dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetItem.id })
     }; // end of handleDelete
 
 
@@ -79,10 +79,10 @@ export default function Timesheet() {
     console.log('this is', timesheetReducer)
     return (
         <div id="timesheet-div">
-            <div style={{ height: 400, width: '100%' }}>
-                <p>Employee Timesheet</p>
+            {/* <div style={{ height: 400, width: '100%' }}> */}
+            <p>Employee Timesheet</p>
 
-                {/* <DataGrid
+            {/* <DataGrid
                     rows={timesheetReducer}
                     columns={columns}
                     pageSize={5}
@@ -90,20 +90,29 @@ export default function Timesheet() {
                     checkboxSelection
                     disableSelectionOnClick
                 /> */}
-    
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Client Name</th>
+                    <th>Time In</th>
+                    <th>Time Out</th>
+                    <th>Mileage</th>
+                    <th>Notes</th>
+                </tr>
 
+                <tr>
+                    {timesheetReducer.map((timesheetItem, i) => {
+                        return (
+                            <TimesheetItem
+                                key={i}
+                                timesheetItem={timesheetItem} />
+                        );
+                    })}
+                </tr>
 
-                <ul>
-                {timesheetReducer.map((timesheetItem, i) => {
-                    return (
-                        <TimesheetItem
-                            key={i}
-                            timesheetItem={timesheetItem} />
-                    );
-                })}
-            </ul>
-                <Footer />
-            </div>
+            </table>
+            <Footer />
+            {/* </div> */}
             {/* <Box sx={{ display: 'flex' }}>
                 <CircularProgress
                     color="success"
