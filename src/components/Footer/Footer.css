@@ -25,6 +25,8 @@ footer {
 
 #home-icon:active {
   box-shadow: 1px 1px 10px 3px rgb(124, 255, 255); 
+  left: 0;
+  position: absolute;
 }
 
 

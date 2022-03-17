@@ -4,6 +4,8 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import { useHistory } from 'react-router-dom';
 
+import FormatLineSpacingIcon from '@mui/icons-material/FormatLineSpacing';
+
 
 
 // This is one of our simplest components
@@ -25,12 +27,18 @@ export default function Footer() {
 
 
   return <footer>
+
+<FormatLineSpacingIcon 
+    id="format-lines"
+    fontSize='large'
+    />
+    
     <HomeRoundedIcon 
     id="home-icon"
     onClick={handleClick}
     fontSize="small"
-    
     />
+
     {/* <LogOutButton id='logout-button' /> */}
     
 

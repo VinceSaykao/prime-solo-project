@@ -60,6 +60,7 @@ export default function Timesheet() {
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
             width: 160,
+            editable: true
 
         },
         {
@@ -68,6 +69,7 @@ export default function Timesheet() {
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
             width: 160,
+            editable: true
 
         },
     ];
