@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.css';
+import './Footer.scss';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import { useHistory } from 'react-router-dom';
@@ -32,7 +32,7 @@ export default function Footer() {
     id="format-lines"
     fontSize='large'
     />
-    
+
     <HomeRoundedIcon 
     id="home-icon"
     onClick={handleClick}

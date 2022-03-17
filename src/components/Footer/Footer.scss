@@ -1,5 +1,6 @@
+@import "../Variables/Variables.scss";
+
 footer {
-  text-align: center;
   background-color: #363636ec;
   position: fixed;
   bottom: 0;
@@ -21,14 +22,20 @@ footer {
   border-radius: 10px;
   align-items: center;
   box-shadow: 1px 1px 10px 3px rgb(2, 2, 2);
+  margin-right: 65px;
 }
 
 #home-icon:active {
-  box-shadow: 1px 1px 10px 3px rgb(124, 255, 255); 
-  left: 0;
-  position: absolute;
+  box-shadow: 1px 1px 10px 3px rgb(124, 255, 255);
 }
 
+#format-lines {
+  margin-top: 5px;
+  margin-left: 10px;
+  float: left;
+  font-size: 60px;
+  color: $windowBack;
+}
 
 #logout-button {
   border: none;
