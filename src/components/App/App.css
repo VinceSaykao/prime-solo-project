@@ -9,8 +9,9 @@ body {
   /* background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=626&q=80');
   background-size: cover; */
   /* background-color: #9FAE93; */
-  background-image: linear-gradient(#9FAE93, rgb(71, 104, 10),rgb(17, 130, 175));
+  /* background-image: linear-gradient(#9FAE93, rgb(71, 104, 10),rgb(17, 130, 175)); */
   border-radius: 10px;
+  background-color: #579471;
   /* background-image: url('login-man.png'); */
   background-size: cover;
   background-position: -350px 0px;

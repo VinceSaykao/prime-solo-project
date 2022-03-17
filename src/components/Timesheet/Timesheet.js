@@ -15,24 +15,24 @@ import Footer from '../Footer/Footer';
 
 export default function Timesheet() {
 
+    useEffect(() => {
+        dispatch({ type: 'FETCH_TIMESHEET' })
+    }, []) // end of useEffect
     const history = useHistory();
 
     const dispatch = useDispatch();
     const timesheetReducer = useSelector(store => store.timesheetReducer);
 
 
-    useEffect(() => {
-        dispatch({ type: 'FETCH_TIMESHEET' })
-    }, []) // end of useEffect
 
 
 
     const columns = [
-        { field: 'id', headerName: 'Id', width: 100 },
+        { field: 'id', headerName: 'Id', width: 30 },
         {
             field: 'to_char',
             headerName: 'Date',
-            width: 150,
+            width: 100,
             editable: true,
         },
         {
@@ -44,14 +44,14 @@ export default function Timesheet() {
         {
             field: 'in',
             headerName: 'Time In',
-            width: 150,
+            width: 100,
             editable: true,
         },
         {
             field: 'out',
             headerName: 'Time Out',
             type: 'number',
-            width: 110,
+            width: 100,
             editable: true,
         },
         {
@@ -59,7 +59,7 @@ export default function Timesheet() {
             headerName: 'Mileage',
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
-            width: 160,
+            width: 80,
             editable: true
 
         },
@@ -79,21 +79,22 @@ export default function Timesheet() {
         history.push('/timesheetform');
     }
 
-
-
     console.log('this is new', timesheetReducer.client_name);
     console.log('timesheet is', timesheetReducer);
     return (
+        <>
+        <div id='timesheet-header-div'>
+                <p
+                    className='timesheet-header'
+                >Timesheet</p>
+                </div>
         <div id="timesheet-div">
             <div style={{ height: 450, width: '100%' }}>
-                <p
-                className='timesheet-header'
-                >Employee Timesheet</p>
 
                 <DataGrid
                     rows={timesheetReducer}
                     columns={columns}
-                    pageSize={5}
+                    pageSize={4}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
                     disableSelectionOnClick
@@ -101,31 +102,26 @@ export default function Timesheet() {
                 />
 
 
-<button
+                <button
                     onClick={handleAdd}
                 > + Add Timesheet</button>
 
-        <div className='tablestuff'>
-                <table>
-                    {/* <th>Date</th>
+                <div className='tablestuff'>
+                    <table>
+                        {/* <th>Date</th>
                     <th>Client Name</th> */}
-                    <tr>
-                        {timesheetReducer.map((timesheetItem, i) => {
-                            return (
-                                <TimesheetItem
-                                    key={i}
-                                    timesheetItem={timesheetItem} />
-                            );
-                        })}
-                    </tr>
-                </table>
+                        <tr>
+                            {timesheetReducer.map((timesheetItem, i) => {
+                                return (
+                                    <TimesheetItem
+                                        key={i}
+                                        timesheetItem={timesheetItem} />
+                                );
+                            })}
+                        </tr>
+                    </table>
                 </div>
 
-
-
-
-
-                <Footer />
             </div>
             <Box sx={{ display: 'flex' }}>
                 <CircularProgress
@@ -133,6 +129,8 @@ export default function Timesheet() {
                 />
             </Box>
         </div >
+                <Footer />
+        </>
     )
 
 }; // end of Timesheet

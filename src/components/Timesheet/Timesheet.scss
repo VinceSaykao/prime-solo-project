@@ -1,44 +1,55 @@
-@import '../Variables/Variables.scss';
+@import "../Variables/Variables.scss";
 
 #timesheet-div {
-    background-color: $windowBack;
-    text-align: center;
-    height: 500px;
+  background-color: rgba(255, 131, 131, 0.363);
+  text-align: center;
+  height: 800px;
+  width: 90%;
+  margin: 0 auto;
+  border: 5px solid $whiteColor;
+  border-radius: 10px;
+  box-shadow: 1px 1px 20px 3px white, 1px 1px 20px 10px black;
+}
 
-
-    // button {
-    //     background-color: rgba(103, 103, 255, 0.685);
-    // }
-
-    
+#timesheet-header-div {
+  font-size: 50px;
+  text-shadow: 1px 1px 1px black;
+  text-align: center;
+  margin: -50px 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  // background-color: rgb(107, 151, 42);
+  background-position: -90px -20px;
+  background-size: cover;
+  background-image: url('https://media.istockphoto.com/photos/home-caregiver-helping-a-senior-man-standing-up-at-home-picture-id1313001485?b=1&k=20&m=1313001485&s=170667a&w=0&h=gf59mcgLFPf5_y2OVC_B2Drfgkq2nvG18IN-rgBDQ1s=');
+  
+//   background-size: cover;
+//   background-position: 0px -90px;
+//   background-image: url("https://images.unsplash.com/photo-1513553404607-988bf2703777?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b2NlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60");
+  
+  box-shadow: 1px 1px 20px rgb(0, 65, 3);
+  height: 200px;
+  border-radius: 10px;
+  border: 4px solid white;
 }
 
 .timesheet-header {
-    color: white;
-    font-size: 50px;
-    text-shadow: 1px 1px 1px black;
-    background-color: rgb(255, 81, 81);
-    border-radius: 10px;
-
-
-    display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin: 0 0 30px;
-  background-color: #00adb06e;
-  overflow: hidden;
+  color: rgb(161, 151, 255);
+  position: absolute;
+  margin-top: 170px;
+  margin-left: 10px;
+  font-weight: 900;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 1px 1px 1px black;
+    backdrop-filter: blur(4px);
 }
 
 table {
-    // margin-top: 500px;
-    margin-bottom: 10px;
-    height: 200px
+  // margin-top: 500px;
+  margin-bottom: 10px;
+  height: 200px;
 }
 
 .tablestuff {
-    background-color: rgb(74, 74, 161);
+  background-color: rgba(74, 74, 161, 0.322);
 }
-
-
-
