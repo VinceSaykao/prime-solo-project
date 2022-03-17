@@ -30,7 +30,7 @@ export default function Timesheet() {
     const columns = [
         { field: 'id', headerName: 'Id', width: 100 },
         {
-            field: 'date',
+            field: 'to_char',
             headerName: 'Date',
             width: 150,
             editable: true,

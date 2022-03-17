@@ -18,7 +18,6 @@ import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
 
 
-
 export default function UpdateTimesheetForm() {
 
 
@@ -27,9 +26,9 @@ export default function UpdateTimesheetForm() {
     const dispatch = useDispatch();
 
     const [clientName, setClientName] = useState(timesheetFormUpdateReducer.client_name);
-    const [date, setDate] = useState(timesheetFormUpdateReducer.date);
-    const [timeIn, setTimeIn] = useState(timesheetFormUpdateReducer.in);
-    const [timeOut, setTimeOut] = useState(timesheetFormUpdateReducer.out);
+    const [date, setDate] = useState(); //timesheetFormUpdateReducer.date
+    // const [timeIn, setTimeIn] = useState(timesheetFormUpdateReducer.in);
+    // const [timeOut, setTimeOut] = useState(timesheetFormUpdateReducer.out);
     const [mileage, setMileage] = useState(timesheetFormUpdateReducer.mileage);
     const [notes, setNotes] = useState(timesheetFormUpdateReducer.notes);
 
@@ -59,47 +58,94 @@ export default function UpdateTimesheetForm() {
         history.push('/timesheet');
     }
 
-    const [value, setValue] = React.useState(new Date('2014-08-18T21:11:54'));
-    const [newDate, setNewDate] = React.useState(new Date('2014-08-18T21:11:54'));
+    // const [value, setValue] = React.useState(new Date('2014-08-18T21:11:54'));
+    // const [newDate, setNewDate] = React.useState(new Date('2014-08-18T21:11:54'));
+
+        const [timeIn, setTimeIn] = React.useState(new Date('2014-08-18T21:11:54'));
+    const [timeOut, setTimeOut] = React.useState(new Date('2014-08-18T21:11:54'));
 
 
     const handleChange = (newValue) => {
-        setValue(newValue);
+        setTimeIn(newValue);
     };
 
     const handleNewChange = (newDateValue) => {
-        setNewDate(newDateValue);
+        setTimeOut(newDateValue);
     };
+
+
+    function handleEditSubmit() {
+
+        console.log('clicked submit')
+        dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
+        // empty the input fields
+        setClientName('');
+        setDate('');
+        setTimeIn('');
+        setTimeOut('');
+        setMileage('');
+        setNotes('');
+
+        history.push('/timesheet');
+    }
 
     return (
         <div>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <Stack spacing={3}>
 
+
+                    <TextField
+                        id="outlined-basic"
+                        label="Client Name"
+                        variant="outlined"
+                        value={clientName}
+                    />
+
+
+
                     <MobileDatePicker
                         label="Date mobile"
                         inputFormat="MM/dd/yyyy"
-                        value={value}
+                        value={date}
                         onChange={handleChange}
                         renderInput={(params) => <TextField {...params} />}
                     />
                     <TimePicker
                         label="Time"
-                        value={value}
+                        value={timeIn}
                         onChange={handleChange}
                         renderInput={(params) => <TextField {...params} />}
                     />
                     <TimePicker
                         label="Time"
-                        value={newDate}
+                        value={timeOut}
                         onChange={handleNewChange}
                         renderInput={(params) => <TextField {...params} />}
                     />
 
+                    <TextField
+                        id="outlined-basic"
+                        label="Mileage"
+                        variant="outlined" />
+
+                    <TextField
+                        id="outlined-basic"
+                        label="Notes"
+                        variant="outlined" />
+
+
+                    <button
+                        id='submit-form'
+                        // onClick={handleEditSubmit}
+                    >
+                        Submit
+                    </button>
+
                 </Stack>
             </LocalizationProvider>
 
-            
+
         </div>
     )
 
