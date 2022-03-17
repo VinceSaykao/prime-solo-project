@@ -26,7 +26,7 @@ export default function UpdateTimesheetForm() {
     const dispatch = useDispatch();
 
     const [clientName, setClientName] = useState(timesheetFormUpdateReducer.client_name);
-    const [date, setDate] = useState(timesheetFormUpdateReducer.date); //timesheetFormUpdateReducer.date
+    const [date, setDate] = useState(); //timesheetFormUpdateReducer.date
     const [timeIn, setTimeIn] = useState(timesheetFormUpdateReducer.in);
     const [timeOut, setTimeOut] = useState(timesheetFormUpdateReducer.out);
     const [mileage, setMileage] = useState(timesheetFormUpdateReducer.mileage);
@@ -65,13 +65,15 @@ export default function UpdateTimesheetForm() {
     // const [timeOut, setTimeOut] = React.useState(new Date('2014-08-18T21:11:54'));
 
 
-    // const handleChange = (newValue) => {
-    //     setTimeIn(newValue);
-    // };
+    const handleChange = (newValue) => {
+        setDate(newValue);
+    };
 
     // const handleNewChange = (newDateValue) => {
     //     setTimeOut(newDateValue);
     // };
+
+
 
 
 
@@ -86,59 +88,68 @@ export default function UpdateTimesheetForm() {
                         value={clientName}
                     /> */}
 
-<input
-                    id='form-name'
-                    value={clientName}
-                    onChange={evt => setClientName(evt.target.value)}
-                />
 
-                <p
-                    id='date-label'
-                >Date</p>
-                <input
-                    id='form-date'
-                    placeholder="Date"
-                    value={date}
-                    onChange={evt => setDate(evt.target.value)}
-                />
 
-                <p
-                    id='date-in'
-                >In</p>
-                <input
-                    id='form-in'
-                    placeholder="Time In"
-                    value={timeIn}
-                    onChange={evt => setTimeIn(evt.target.value)}
-                />
+                    <TextField
+                        label='Client Name'
+                        id="outlined-basic"
+                        variant="outlined"
+                        value={clientName}
+                        onChange={evt => setClientName(evt.target.value)}
+                    />
 
-                <p
-                    id='date-out'
-                >Out</p>
-                <input
-                    id='form-out'
-                    placeholder="Time Out"
-                    value={timeOut}
-                    onChange={evt => setTimeOut(evt.target.value)}
-                />
+                    <MobileDatePicker
+                        label="Date mobile"
+                        inputFormat="MM/dd/yyyy"
+                        value={date}
+                        onChange={handleChange}
+                        renderInput={(params) => <TextField {...params} />}
+                    />
 
-                <p
-                    id='date-out'
-                >Out</p>
-                <input
-                    id='form-mileage'
-                    placeholder="Mileage"
-                    value={mileage}
-                    onChange={evt => setMileage(evt.target.value)}
-                />
-                <input
-                    id='form-notes'
-                    placeholder="Notes"
-                    value={notes}
-                    onChange={evt => setNotes(evt.target.value)}
-                />
-                    
-                    
+
+
+
+                    {/* <input
+                        id='form-date'
+                        placeholder="Date"
+                        value={date}
+                        onChange={evt => setDate(evt.target.value)}
+                    /> */}
+
+                    <input
+                        id='form-in'
+                        placeholder="Time In"
+                        value={timeIn}
+                        onChange={evt => setTimeIn(evt.target.value)}
+                    />
+
+                    <p
+                        id='date-out'
+                    >Out</p>
+                    <input
+                        id='form-out'
+                        placeholder="Time Out"
+                        value={timeOut}
+                        onChange={evt => setTimeOut(evt.target.value)}
+                    />
+
+                    <p
+                        id='date-out'
+                    >Out</p>
+                    <input
+                        id='form-mileage'
+                        placeholder="Mileage"
+                        value={mileage}
+                        onChange={evt => setMileage(evt.target.value)}
+                    />
+                    <input
+                        id='form-notes'
+                        placeholder="Notes"
+                        value={notes}
+                        onChange={evt => setNotes(evt.target.value)}
+                    />
+
+
 
 
 
