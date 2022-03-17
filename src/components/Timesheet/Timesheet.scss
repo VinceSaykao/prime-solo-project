@@ -1,7 +1,7 @@
 @import "../Variables/Variables.scss";
 
 #timesheet-div {
-  background-color: rgba(197, 197, 197, 0.363);
+  background-color: rgba(255, 131, 131, 0.363);
   text-align: center;
   height: 800px;
   width: 90%;
@@ -20,9 +20,14 @@
   letter-spacing: 10px;
   font-family: Arial, Helvetica, sans-serif;
   // background-color: rgb(107, 151, 42);
+  background-position: -90px -20px;
   background-size: cover;
-  background-position: 0px -90px;
-  background-image: url("https://images.unsplash.com/photo-1513553404607-988bf2703777?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b2NlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60");
+  background-image: url('https://media.istockphoto.com/photos/home-caregiver-helping-a-senior-man-standing-up-at-home-picture-id1313001485?b=1&k=20&m=1313001485&s=170667a&w=0&h=gf59mcgLFPf5_y2OVC_B2Drfgkq2nvG18IN-rgBDQ1s=');
+  
+//   background-size: cover;
+//   background-position: 0px -90px;
+//   background-image: url("https://images.unsplash.com/photo-1513553404607-988bf2703777?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b2NlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60");
+  
   box-shadow: 1px 1px 20px rgb(0, 65, 3);
   height: 200px;
   border-radius: 10px;
@@ -30,12 +35,13 @@
 }
 
 .timesheet-header {
-  color: rgb(241, 113, 113);
+  color: rgb(161, 151, 255);
   position: absolute;
   margin-top: 170px;
   margin-left: 10px;
   font-weight: 900;
-  text-shadow: 1px 1px 10px rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 1px 1px 1px black;
+    backdrop-filter: blur(4px);
 }
 
 table {

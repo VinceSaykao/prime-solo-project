@@ -122,7 +122,6 @@ export default function Timesheet() {
                     </table>
                 </div>
 
-                <Footer />
             </div>
             <Box sx={{ display: 'flex' }}>
                 <CircularProgress
@@ -130,6 +129,7 @@ export default function Timesheet() {
                 />
             </Box>
         </div >
+                <Footer />
         </>
     )
 
