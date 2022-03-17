@@ -12,7 +12,7 @@ const timesheetFormUpdateReducer = (state = {
             console.log('This book is:', action.payload);
             return {...state,
                 id: action.payload.id,
-                date: action.payload.date,
+                to_char: action.payload.to_char,
                 client_name: action.payload.client_name,
                 in: action.payload.in,
                 out: action.payload.out,

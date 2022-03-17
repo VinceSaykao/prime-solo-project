@@ -30,7 +30,7 @@ export default function Timesheet() {
     const columns = [
         { field: 'id', headerName: 'Id', width: 100 },
         {
-            field: 'date',
+            field: 'to_char',
             headerName: 'Date',
             width: 150,
             editable: true,
@@ -81,7 +81,8 @@ export default function Timesheet() {
 
 
 
-    console.log('this is', timesheetReducer)
+    console.log('this is new', timesheetReducer.client_name);
+    console.log('timesheet is', timesheetReducer);
     return (
         <div id="timesheet-div">
             <div style={{ height: 450, width: '100%' }}>
