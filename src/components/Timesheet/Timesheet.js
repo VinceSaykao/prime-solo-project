@@ -28,11 +28,11 @@ export default function Timesheet() {
 
 
     const columns = [
-        { field: 'id', headerName: 'Id', width: 100 },
+        { field: 'id', headerName: 'Id', width: 30 },
         {
             field: 'to_char',
             headerName: 'Date',
-            width: 150,
+            width: 100,
             editable: true,
         },
         {
@@ -44,14 +44,14 @@ export default function Timesheet() {
         {
             field: 'in',
             headerName: 'Time In',
-            width: 150,
+            width: 100,
             editable: true,
         },
         {
             field: 'out',
             headerName: 'Time Out',
             type: 'number',
-            width: 110,
+            width: 100,
             editable: true,
         },
         {
@@ -59,7 +59,7 @@ export default function Timesheet() {
             headerName: 'Mileage',
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
-            width: 160,
+            width: 80,
             editable: true
 
         },
