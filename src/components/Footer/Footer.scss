@@ -1,0 +1,53 @@
+@import "../Variables/Variables.scss";
+
+footer {
+  background-color: #363636ec;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 1px 1px 10px 3px rgb(153, 197, 83);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#home-icon {
+  background-color: #879b36;
+  height: 100%;
+  width: 80px;
+  color: white;
+  border: 3px solid rgba(255, 255, 255, 0.83);
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  align-items: center;
+  box-shadow: 1px 1px 10px 3px rgb(2, 2, 2);
+  margin-right: 85px;
+}
+
+#home-icon:active {
+  box-shadow: 1px 1px 10px 3px rgb(124, 255, 255);
+}
+
+#format-lines {
+  margin-left: 10px;
+  float: left;
+  font-size: 60px;
+  border-radius: 10px;
+  color: $windowBack;
+  height: 100%;
+  width: 80px;
+}
+
+#format-lines:active {
+  color: $whiteColor;
+  box-shadow: 1px 1px 10px 3px rgb(124, 255, 255);
+}
+
+#logout-button {
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  color: white;
+  background-color: red;
+}

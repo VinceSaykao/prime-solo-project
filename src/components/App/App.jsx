@@ -5,6 +5,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -146,7 +147,22 @@ function App() {
         </Switch>
 
       </div>
+            
+      {/* {user.id && (
       <Footer />
+      )} */}
+
+<Link exact to="/about">
+{!user.id && (
+<h1
+id='about-button'
+>About Us</h1>
+
+)}
+</Link>
+
+
+
     </Router>
   );
 }

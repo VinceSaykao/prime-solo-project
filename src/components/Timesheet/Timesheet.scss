@@ -1,0 +1,44 @@
+@import '../Variables/Variables.scss';
+
+#timesheet-div {
+    background-color: $windowBack;
+    text-align: center;
+    height: 500px;
+
+
+    // button {
+    //     background-color: rgba(103, 103, 255, 0.685);
+    // }
+
+    
+}
+
+.timesheet-header {
+    color: white;
+    font-size: 50px;
+    text-shadow: 1px 1px 1px black;
+    background-color: rgb(255, 81, 81);
+    border-radius: 10px;
+
+
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 0 30px;
+  background-color: #00adb06e;
+  overflow: hidden;
+}
+
+table {
+    // margin-top: 500px;
+    margin-bottom: 10px;
+    height: 200px
+}
+
+.tablestuff {
+    background-color: rgb(74, 74, 161);
+}
+
+
+

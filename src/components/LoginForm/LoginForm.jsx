@@ -41,7 +41,7 @@ function LoginForm() {
         </h3>
       )}
       <div>
-  
+
         <input
           id='user-input'
           placeholder='| Username'
@@ -73,14 +73,19 @@ function LoginForm() {
           type="submit" name="submit" value="Log In" />
       </div>
       <button
+        id='register'
         type="button"
         className="btn btn_asLink"
         onClick={() => {
           history.push('/registration');
         }}
       >
-        Register
+        Create Account 
       </button>
+
+      {/* <button
+      id='trouble'
+      >Can't Log In</button> */}
     </form>
   );
 }
