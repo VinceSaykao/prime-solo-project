@@ -22,12 +22,18 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import GroupIcon from '@mui/icons-material/Group';
 
 
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import ForumIcon from '@mui/icons-material/Forum';
+
+
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is, so it doesn't need 'connect()'
 
-
+//date.now
 
 export default function Footer() {
 
@@ -57,35 +63,38 @@ export default function Footer() {
   };
 
   const list = (anchor) => (
-    <Box
+    <Box id='box'
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {['Profile','Client Info'].map((text, index) => (
+      <List id='footer-list'>
+        {[<p id='footer-profile-label'>Profile</p>,<p id='footer-client-label'>Client Info</p>].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <AccountBoxIcon /> : <GroupIcon />}
+              {index % 2 === 0 ? <AccountBoxIcon 
+              id='footer-profile'
+              fontSize='large'
+              /> : <GroupIcon id='footer-client'/>}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
       </List>
       <Divider />
-      <List>
-        {['Profile','Client Info'].map((text, index) => (
+      <List id='second-footer-list'>
+        {[<p id='footer-add-label'>Add Timesheet</p>, <p id='footer-chat-label'>Chat</p>].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <AccountBoxIcon /> : <GroupIcon />}
+              {index % 2 === 0 ? <AddCircleOutlineIcon id='footer-add'/> : <ForumIcon id='footer-chat'/>}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
       </List>
       <Divider />
-      <List>
+      <List id='footer-footer'>
         {[<h2
         onClick={handleLogout}>Logout</h2>].map((text, index) => (
           <ListItem button key={text}>

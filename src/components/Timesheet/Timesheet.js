@@ -86,7 +86,7 @@ export default function Timesheet() {
             <div style={{ height: 450, width: '100%' }}>
                 <p
                     className='timesheet-header'
-                >Employee Timesheet</p>
+                >Timesheet</p>
 
                 <DataGrid
                     rows={timesheetReducer}
