@@ -72,10 +72,6 @@ export default function Timesheet() {
         },
     ];
 
-    const handleDelete = () => {
-        console.log('clicked delete');
-        dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetItem.id })
-    }; // end of handleDelete
 
     const handleAdd = () => {
         history.push('/timesheetform');
@@ -86,8 +82,10 @@ export default function Timesheet() {
     console.log('this is', timesheetReducer)
     return (
         <div id="timesheet-div">
-            <div style={{ height: 400, width: '100%' }}>
-                <p>Employee Timesheet</p>
+            <div style={{ height: 450, width: '100%' }}>
+                <p
+                className='timesheet-header'
+                >Employee Timesheet</p>
 
                 <DataGrid
                     rows={timesheetReducer}
@@ -96,11 +94,18 @@ export default function Timesheet() {
                     rowsPerPageOptions={[5]}
                     checkboxSelection
                     disableSelectionOnClick
+
                 />
 
+
+<button
+                    onClick={handleAdd}
+                > + Add Timesheet</button>
+
+        <div className='tablestuff'>
                 <table>
-                    <th>Date</th>
-                    <th>Client Name</th>
+                    {/* <th>Date</th>
+                    <th>Client Name</th> */}
                     <tr>
                         {timesheetReducer.map((timesheetItem, i) => {
                             return (
@@ -111,11 +116,9 @@ export default function Timesheet() {
                         })}
                     </tr>
                 </table>
+                </div>
 
 
-                <button
-                    onClick={handleAdd}
-                > + Add Timesheet</button>
 
 
 

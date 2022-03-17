@@ -32,9 +32,6 @@ export default function TimesheetForm() {
         history.push('/timesheet');
     }
 
-
-
-
     return (
         <div
             id='timesheet-form'

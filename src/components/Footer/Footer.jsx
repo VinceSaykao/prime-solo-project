@@ -28,7 +28,7 @@ export default function Footer() {
     <HomeRoundedIcon 
     id="home-icon"
     onClick={handleClick}
-    // fontSize="large"
+    fontSize="small"
     
     />
     {/* <LogOutButton id='logout-button' /> */}
