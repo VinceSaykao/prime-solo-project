@@ -82,11 +82,14 @@ export default function Timesheet() {
     console.log('this is new', timesheetReducer.client_name);
     console.log('timesheet is', timesheetReducer);
     return (
-        <div id="timesheet-div">
-            <div style={{ height: 450, width: '100%' }}>
+        <>
+        <div id='timesheet-header-div'>
                 <p
                     className='timesheet-header'
                 >Timesheet</p>
+                </div>
+        <div id="timesheet-div">
+            <div style={{ height: 450, width: '100%' }}>
 
                 <DataGrid
                     rows={timesheetReducer}
@@ -127,6 +130,7 @@ export default function Timesheet() {
                 />
             </Box>
         </div >
+        </>
     )
 
 }; // end of Timesheet

@@ -1,21 +1,41 @@
 @import "../Variables/Variables.scss";
 
 #timesheet-div {
-  background-color: $windowBack;
+  background-color: rgba(197, 197, 197, 0.363);
   text-align: center;
-  height: 1000px;
+  height: 800px;
+  width: 90%;
+  margin: 0 auto;
+  border: 5px solid $whiteColor;
+  border-radius: 10px;
+  box-shadow: 1px 1px 20px 3px white, 1px 1px 20px 10px black;
 }
 
-.timesheet-header {
-  color: white;
+#timesheet-header-div {
   font-size: 50px;
   text-shadow: 1px 1px 1px black;
   text-align: center;
-  margin: 0 0 30px;
-  overflow: hidden;
+  margin: -50px 0 20px 0;
   text-transform: uppercase;
   letter-spacing: 10px;
   font-family: Arial, Helvetica, sans-serif;
+  // background-color: rgb(107, 151, 42);
+  background-size: cover;
+  background-position: 0px -90px;
+  background-image: url("https://images.unsplash.com/photo-1513553404607-988bf2703777?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b2NlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60");
+  box-shadow: 1px 1px 20px rgb(0, 65, 3);
+  height: 200px;
+  border-radius: 10px;
+  border: 4px solid white;
+}
+
+.timesheet-header {
+  color: rgb(241, 113, 113);
+  position: absolute;
+  margin-top: 170px;
+  margin-left: 10px;
+  font-weight: 900;
+  text-shadow: 1px 1px 10px rgb(255, 255, 255);
 }
 
 table {
@@ -25,5 +45,5 @@ table {
 }
 
 .tablestuff {
-  background-color: rgb(74, 74, 161);
+  background-color: rgba(74, 74, 161, 0.322);
 }

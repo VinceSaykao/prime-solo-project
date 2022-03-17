@@ -84,10 +84,10 @@ export default function Footer() {
       </List>
       <Divider />
       <List id='second-footer-list'>
-        {[<p id='footer-add-label'>Add Timesheet</p>, <p id='footer-chat-label'>Chat</p>].map((text, index) => (
+        {[<p id='footer-add-label' onClick={handleAdd}>Add Timesheet</p>, <p id='footer-chat-label'>Chat</p>].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <AddCircleOutlineIcon id='footer-add'/> : <ForumIcon id='footer-chat'/>}
+              {index % 2 === 0 ? <AddCircleOutlineIcon id='footer-add' onClick={handleAdd}/> : <ForumIcon id='footer-chat'/>}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -115,6 +115,10 @@ export default function Footer() {
                 const handleLogout = () => {
                     console.log('logout');
                     history.push('/home');
+                }
+
+                const handleAdd = () => {
+                  history.push('/timesheetform');
                 }
 
   return <footer>
