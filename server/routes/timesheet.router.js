@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
     if (req.isAuthenticated()) {
         pool
-            .query(`select * from timesheet;`)
+            .query(`SELECT id, TO_CHAR("date",'MM-DD-YYYY'), client_name, "in","out",mileage,notes from timesheet;`)
             .then((results) => res.send(results.rows))
             .catch((error) => {
                 console.log('Error making SELECT for secrets:', error);
