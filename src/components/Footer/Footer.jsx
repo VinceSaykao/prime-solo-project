@@ -21,7 +21,7 @@ export default function Footer() {
 
 
   const handleClick = () => {
-    history.push('/home');
+    // history.push('/home');
   }
 
 

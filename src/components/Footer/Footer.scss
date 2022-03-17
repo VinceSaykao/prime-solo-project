@@ -22,7 +22,7 @@ footer {
   border-radius: 10px;
   align-items: center;
   box-shadow: 1px 1px 10px 3px rgb(2, 2, 2);
-  margin-right: 65px;
+  margin-right: 85px;
 }
 
 #home-icon:active {
@@ -30,11 +30,18 @@ footer {
 }
 
 #format-lines {
-  margin-top: 5px;
   margin-left: 10px;
   float: left;
   font-size: 60px;
+  border-radius: 10px;
   color: $windowBack;
+  height: 100%;
+  width: 80px;
+}
+
+#format-lines:active {
+  color: $whiteColor;
+  box-shadow: 1px 1px 10px 3px rgb(124, 255, 255);
 }
 
 #logout-button {
