@@ -18,9 +18,9 @@ export default function TimesheetForm() {
     const dispatch = useDispatch();
 
     const [clientName, setClientName] = useState('');
-    const [date, setDate] = useState();
+    const [date, setDate] = useState(date);
     // const [timeIn, setTimeIn] = useState();
-    const [timeOut, setTimeOut] = useState('');
+    // const [timeOut, setTimeOut] = useState('');
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
 
@@ -45,8 +45,10 @@ export default function TimesheetForm() {
         setDate(newValue);
 
     };
-    
+
+
     const [timeIn, setTimeIn] = React.useState(new Date());
+    const [timeOut, setTimeOut] = React.useState(new Date());
 
     return (
         <div id='TimeSheetForm'>
@@ -80,6 +82,15 @@ export default function TimesheetForm() {
                         renderInput={(params) => <TextField {...params} />}
                     />
 
+                    <MobileTimePicker
+                        label="Time Out"
+                        value={timeOut}
+                        onChange={(newValue2) => {
+                            setTimeOut(newValue2);
+                        }}
+                        renderInput={(params) => <TextField {...params} />}
+                    />
+
 
                     {/* <TextField
                 label='In'
@@ -88,13 +99,13 @@ export default function TimesheetForm() {
                 value={timeIn}
                 onChange={evt => setTimeIn(evt.target.value)}
             /> */}
-                    <TextField
+                    {/* <TextField
                         label='Out'
                         id="outlined-basic"
                         variant="outlined"
                         value={timeOut}
                         onChange={evt => setTimeOut(evt.target.value)}
-                    />
+                    /> */}
                     <TextField
                         label='Mileage'
                         id="outlined-basic"

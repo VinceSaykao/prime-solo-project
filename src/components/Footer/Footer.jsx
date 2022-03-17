@@ -17,7 +17,9 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import LogoutIcon from '@mui/icons-material/Logout';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import GroupIcon from '@mui/icons-material/Group';
 
 
 // This is one of our simplest components
@@ -62,10 +64,10 @@ export default function Footer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {['Profile','Client Info'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              {index % 2 === 0 ? <AccountBoxIcon /> : <GroupIcon />}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -73,10 +75,24 @@ export default function Footer() {
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        {['Profile','Client Info'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              {index % 2 === 0 ? <AccountBoxIcon /> : <GroupIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {[<h2
+        onClick={handleLogout}>Logout</h2>].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <LogoutIcon 
+              onClick={handleLogout}
+              /> : <MailIcon />}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -87,7 +103,10 @@ export default function Footer() {
 
   // end of drawer *****
 
-
+                const handleLogout = () => {
+                    console.log('logout');
+                    history.push('/home');
+                }
 
   return <footer>
 
