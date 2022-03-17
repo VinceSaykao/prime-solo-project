@@ -1,11 +1,10 @@
 import './Timesheet.scss';
+import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
 
 
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
-import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
-
-
+import { useHistory } from 'react-router-dom';
 
 import { DataGrid } from '@mui/x-data-grid';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -16,6 +15,7 @@ import Footer from '../Footer/Footer';
 
 export default function Timesheet() {
 
+    const history = useHistory();
 
     const dispatch = useDispatch();
     const timesheetReducer = useSelector(store => store.timesheetReducer);
@@ -60,6 +60,7 @@ export default function Timesheet() {
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
             width: 160,
+            editable: true
 
         },
         {
@@ -68,60 +69,69 @@ export default function Timesheet() {
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
             width: 160,
+            editable: true
 
         },
     ];
 
-    const handleDelete = () => {
-        console.log('clicked delete');
-        dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetItem.id })
-    }; // end of handleDelete
+
+    const handleAdd = () => {
+        history.push('/timesheetform');
+    }
 
 
 
     console.log('this is', timesheetReducer)
     return (
         <div id="timesheet-div">
-            {/* <div style={{ height: 400, width: '100%' }}> */}
-            <p>Employee Timesheet</p>
+            <div style={{ height: 450, width: '100%' }}>
+                <p
+                className='timesheet-header'
+                >Employee Timesheet</p>
 
-            {/* <DataGrid
+                <DataGrid
                     rows={timesheetReducer}
                     columns={columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
                     disableSelectionOnClick
-                /> */}
-            <table>
-                <tr>
-                    <th>Date</th>
-                    <th>Client Name</th>
-                    <th>Time In</th>
-                    <th>Time Out</th>
-                    <th>Mileage</th>
-                    <th>Notes</th>
-                </tr>
 
-                <tr>
-                    {timesheetReducer.map((timesheetItem, i) => {
-                        return (
-                            <TimesheetItem
-                                key={i}
-                                timesheetItem={timesheetItem} />
-                        );
-                    })}
-                </tr>
+                />
 
-            </table>
-            <Footer />
-            {/* </div> */}
-            {/* <Box sx={{ display: 'flex' }}>
+
+<button
+                    onClick={handleAdd}
+                > + Add Timesheet</button>
+
+        <div className='tablestuff'>
+                <table>
+                    {/* <th>Date</th>
+                    <th>Client Name</th> */}
+                    <tr>
+                        {timesheetReducer.map((timesheetItem, i) => {
+                            return (
+                                <TimesheetItem
+                                    key={i}
+                                    timesheetItem={timesheetItem} />
+                            );
+                        })}
+                    </tr>
+                </table>
+                </div>
+
+
+
+
+
+                <Footer />
+            </div>
+            <Box sx={{ display: 'flex' }}>
                 <CircularProgress
                     color="success"
                 />
-            </Box> */}
-        </div>
+            </Box>
+        </div >
     )
 
 }; // end of Timesheet
