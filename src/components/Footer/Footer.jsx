@@ -16,6 +16,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import MenuIcon from '@mui/icons-material/Menu';
 
 
 
@@ -90,7 +91,7 @@ export default function Footer() {
 
   return <footer>
 
-{['left', 'right', 'top', 'bottom'].map((anchor) => (
+{['left'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
           <Drawer
@@ -104,7 +105,7 @@ export default function Footer() {
       ))}
     
 
-<FormatLineSpacingIcon 
+<MenuIcon
     id="format-lines"
     fontSize='large'
     />
