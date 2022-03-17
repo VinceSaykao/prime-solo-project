@@ -26,7 +26,7 @@ export default function UpdateTimesheetForm() {
     const dispatch = useDispatch();
 
     const [clientName, setClientName] = useState(timesheetFormUpdateReducer.client_name);
-    const [date, setDate] = useState(); //timesheetFormUpdateReducer.date
+    const [date, setDate] = useState(timesheetFormUpdateReducer.to_char); //timesheetFormUpdateReducer.date
     const [timeIn, setTimeIn] = useState(timesheetFormUpdateReducer.in);
     const [timeOut, setTimeOut] = useState(timesheetFormUpdateReducer.out);
     const [mileage, setMileage] = useState(timesheetFormUpdateReducer.mileage);
@@ -75,133 +75,75 @@ export default function UpdateTimesheetForm() {
 
 
 
+    console.log('this is the date', timesheetFormUpdateReducer)
 
 
     return (
         <div>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <Stack spacing={3}>
-                    {/* <TextField
-                        id="outlined-basic"
-                        label="Client Name"
-                        variant="outlined"
-                        value={clientName}
-                    /> */}
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+
+<Stack spacing={3}>
+
+            <TextField
+                label='Client Name'
+                id="outlined-basic"
+                variant="outlined"
+                value={clientName}
+                onChange={evt => setClientName(evt.target.value)}
+            />
+
+
+            <MobileDatePicker
+                label="Date"
+                inputFormat="MM/dd/yyyy"
+                value={date}
+                onChange={handleChange}
+                renderInput={(params) => <TextField {...params} />}
+            />
+
+            <TextField
+                label='In'
+                id="outlined-basic"
+                variant="outlined"
+                value={timeIn}
+                onChange={evt => setTimeIn(evt.target.value)}
+            />
+            <TextField
+                label='Out'
+                id="outlined-basic"
+                variant="outlined"
+                value={timeOut}
+                onChange={evt => setTimeOut(evt.target.value)}
+            />
+            <TextField
+                label='Mileage'
+                id="outlined-basic"
+                variant="outlined"
+                value={mileage}
+                onChange={evt => setMileage(evt.target.value)}
+            />
+            <TextField
+                label='Notes'
+                id="outlined-basic"
+                variant="outlined"
+                value={notes}
+                onChange={evt => setNotes(evt.target.value)}
+            />
 
 
 
-                    <TextField
-                        label='Client Name'
-                        id="outlined-basic"
-                        variant="outlined"
-                        value={clientName}
-                        onChange={evt => setClientName(evt.target.value)}
-                    />
-
-                    <MobileDatePicker
-                        label="Date mobile"
-                        inputFormat="MM/dd/yyyy"
-                        value={date}
-                        onChange={handleChange}
-                        renderInput={(params) => <TextField {...params} />}
-                    />
+            <button
+                id='submit-form'
+                onClick={handleSubmit}
+            >
+                Submit
+            </button>
 
 
-
-
-                    {/* <input
-                        id='form-date'
-                        placeholder="Date"
-                        value={date}
-                        onChange={evt => setDate(evt.target.value)}
-                    /> */}
-
-                    <input
-                        id='form-in'
-                        placeholder="Time In"
-                        value={timeIn}
-                        onChange={evt => setTimeIn(evt.target.value)}
-                    />
-
-                    <p
-                        id='date-out'
-                    >Out</p>
-                    <input
-                        id='form-out'
-                        placeholder="Time Out"
-                        value={timeOut}
-                        onChange={evt => setTimeOut(evt.target.value)}
-                    />
-
-                    <p
-                        id='date-out'
-                    >Out</p>
-                    <input
-                        id='form-mileage'
-                        placeholder="Mileage"
-                        value={mileage}
-                        onChange={evt => setMileage(evt.target.value)}
-                    />
-                    <input
-                        id='form-notes'
-                        placeholder="Notes"
-                        value={notes}
-                        onChange={evt => setNotes(evt.target.value)}
-                    />
-
-
-
-
-
-
-
-                    {/* <MobileDatePicker
-                        label="Date mobile"
-                        inputFormat="MM/dd/yyyy"
-                        value={date}
-                        onChange={handleChange}
-                        renderInput={(params) => <TextField {...params} />}
-                    />
-                    <TimePicker
-                        label="Time"
-                        value={timeIn}
-                        onChange={handleChange}
-                        renderInput={(params) => <TextField {...params} />}
-                    />
-                    <TimePicker
-                        label="Time"
-                        value={timeOut}
-                        onChange={handleNewChange}
-                        renderInput={(params) => <TextField {...params} />}
-                    /> */}
-
-                    {/* <TextField
-                        id="outlined-basic"
-                        label="Mileage"
-                        variant="outlined" 
-                        value={mileage}
-                        />
-
-                    <TextField
-                        id="outlined-basic"
-                        label="Notes"
-                        variant="outlined" 
-                        value={notes}
-                        /> */}
-
-
-                    <button
-                        id='submit-form'
-                        onClick={handleSubmit}
-                    >
-                        Submit
-                    </button>
-
-                </Stack>
-            </LocalizationProvider>
-
-
+            </Stack>
+        </LocalizationProvider>
         </div>
+
     )
 
 }; // end of UpdateTimesheetForm
