@@ -38,10 +38,11 @@
   color: rgb(161, 151, 255);
   position: absolute;
   margin-top: 170px;
-  margin-left: 10px;
+  margin-left: 5px;
   font-weight: 900;
   text-shadow: 1px 1px 2px rgb(255, 255, 255), 1px 1px 1px black;
     backdrop-filter: blur(4px);
+    border-radius: 100px;
 }
 
 table {
@@ -53,3 +54,25 @@ table {
 .tablestuff {
   background-color: rgba(74, 74, 161, 0.322);
 }
+
+#add-timesheet-button {
+    outline: 0;
+    cursor: pointer;
+    padding: 1;
+    border: 2px solid white;
+    color: white;
+    border-radius: 5px;
+    background-color: transparent;
+    backdrop-filter: blur(1px);
+    
+    font-weight: 900;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px black;
+    
+    height: 50px;
+    width: 300px;
+    
+    
+    letter-spacing: 5px;
+}
+

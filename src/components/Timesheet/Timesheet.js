@@ -11,6 +11,10 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
 
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+
+
 import Footer from '../Footer/Footer';
 
 export default function Timesheet() {
@@ -101,10 +105,15 @@ export default function Timesheet() {
 
                 />
 
-
-                <button
+<Fab color="primary" aria-label="add">
+        <AddIcon 
+        onClick={handleAdd}
+        />
+      </Fab>
+                {/* <button
+                    id='add-timesheet-button'
                     onClick={handleAdd}
-                > + Add Timesheet</button>
+                > + Add Timesheet</button> */}
 
                 <div className='tablestuff'>
                     <table>
