@@ -27,6 +27,7 @@ export default function Timesheet() {
         dispatch({ type: 'FETCH_TIMESHEET' })
     }, [location]) // end of useEffect
 
+    
     const history = useHistory();
 
     const dispatch = useDispatch();

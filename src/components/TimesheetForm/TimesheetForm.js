@@ -30,6 +30,8 @@ export default function TimesheetForm() {
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
 
+    const [timeIn, setTimeIn] = React.useState(new Date());
+    const [timeOut, setTimeOut] = React.useState(new Date());
     // when submit is pressed, will post all input values
     function handleSubmit() {
 
@@ -53,8 +55,6 @@ export default function TimesheetForm() {
     };
 
 
-    const [timeIn, setTimeIn] = React.useState(new Date());
-    const [timeOut, setTimeOut] = React.useState(new Date());
 
 
     return (
