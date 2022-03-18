@@ -28,6 +28,8 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import ForumIcon from '@mui/icons-material/Forum';
 
 
+
+
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -41,7 +43,7 @@ export default function Footer() {
 
 
   const handleClick = () => {
-    // history.push('/home');
+    history.push('/timesheet');
   }
 
 
@@ -70,11 +72,12 @@ export default function Footer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List id='footer-list'>
-        {[<p id='footer-profile-label'>Profile</p>,<p id='footer-client-label'>Client Info</p>].map((text, index) => (
+        {[<p id='footer-profile-label' onClick={profileView}>Profile</p>,<p id='footer-client-label'>Client Info</p>].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <AccountBoxIcon 
               id='footer-profile'
+              onClick={profileView}
               fontSize='large'
               /> : <GroupIcon id='footer-client'/>}
             </ListItemIcon>
@@ -95,11 +98,11 @@ export default function Footer() {
       </List>
       <Divider />
       <List id='footer-footer'>
-        {[<h2
-        onClick={handleLogout}>Logout</h2>].map((text, index) => (
+        {[<h4 id='logout-footer'><LogOutButton /></h4>].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <LogoutIcon 
+              id='logout-footer-icon'
               onClick={handleLogout}
               /> : <MailIcon />}
             </ListItemIcon>
@@ -114,11 +117,15 @@ export default function Footer() {
 
                 const handleLogout = () => {
                     console.log('logout');
-                    history.push('/home');
-                }
+                    LogOutButton();
+                };
 
                 const handleAdd = () => {
                   history.push('/timesheetform');
+                };
+
+                const profileView = () => {
+                  history.push('/home')
                 }
 
   return <footer>

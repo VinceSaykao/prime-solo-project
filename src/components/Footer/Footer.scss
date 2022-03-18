@@ -83,10 +83,12 @@ footer {
   box-shadow: 1px 1px 10px 3px rgb(124, 255, 255);
 }
 
-#logout-button {
-  border: none;
-  cursor: pointer;
-  outline: 0;
-  color: white;
-  background-color: red;
+#logout-footer {
+  color: $flamingoColor;
+  font-size: 20px;
+}
+
+#logout-footer-icon {
+  color: $flamingoColor;
+  font-size: 50px;
 }

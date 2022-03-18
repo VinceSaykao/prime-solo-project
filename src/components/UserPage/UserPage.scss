@@ -1,8 +1,38 @@
 @import '../Variables/Variables.scss';
 
 #welcome-header {
-    background: url("http://web3canvas.com/wp-content/uploads/2014/02/littlevisuals-high-quality-hd-banner-images-stock-photos-free-laptop-topview-download.jpg") no-repeat; 
+    margin-top: 0px;
+    margin-bottom: 80px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    text-transform: uppercase;
+
+}
+
+#avatar {
+
+// margin-top: -500px;
+margin: 0 auto;
+border: 2px solid white;
+box-shadow: 1px 1px 50px 10px white,
+1px 1px 80px 20px rgb(84, 84, 240),
+1px 1px 100px 30px $flamingoColor
+;
+}
+
+#calender {
+    background-image: url('Calender.png');
+    position: absolute;
+    width: 100%;
+    margin-top: 1000px;
+    height: 1000px;
     background-size: cover;
-    min-width: 100%;
-    min-height: 100%;
+}
+
+#card1 {
+    margin-top: 420px;
 }
