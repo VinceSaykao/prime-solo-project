@@ -91,7 +91,7 @@ export default function Timesheet() {
         <>
                     <Helmet>
                 <style>{`body { background-image: url("https://images.unsplash.com/photo-1584463623578-37726932ba2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aG9tZSUyMGhlYWx0aGNhcmV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"); 
-                background-repeat: no-repeat; background-size: cover; background-position: -60px 120px; }`}
+                background-repeat: no-repeat; background-size: cover; background-position: -80px 120px; }`}
 
                 </style>
             </Helmet>
@@ -105,7 +105,6 @@ export default function Timesheet() {
             <div style={{ height: 450, width: '100%' }}>
 
                 <DataGrid
-                
                     rows={timesheetReducer}
                     columns={columns}
                     pageSize={4}

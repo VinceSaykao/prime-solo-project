@@ -11,6 +11,10 @@ import Stack from '@mui/material/Stack';
 import MobileTimePicker from '@mui/lab/MobileTimePicker';
 import { Helmet } from 'react-helmet';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
+import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import Alert from '@mui/material/Alert';
 
 import './TimesheetForm.scss';
 
@@ -38,7 +42,7 @@ export default function TimesheetForm() {
         setTimeOut('');
         setMileage('');
         setNotes('');
-
+        // setOpen(true);
         history.push('/timesheet');
     }
 
@@ -52,6 +56,7 @@ export default function TimesheetForm() {
     const [timeIn, setTimeIn] = React.useState(new Date());
     const [timeOut, setTimeOut] = React.useState(new Date());
 
+
     return (
 
         <> <Helmet>
@@ -61,6 +66,7 @@ export default function TimesheetForm() {
 
             </style>
         </Helmet>
+          
             <div id='TimeSheetForm'>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
 
@@ -156,9 +162,11 @@ export default function TimesheetForm() {
             <button
                 id='submit-form'
                 onClick={handleSubmit}
+            // onClick={handleClick}
             >
                 Submit
             </button>
+
         </>
     )
 }; // end of TimesheetForm
