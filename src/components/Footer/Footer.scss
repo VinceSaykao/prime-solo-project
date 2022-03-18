@@ -11,6 +11,45 @@ footer {
   border-top-right-radius: 10px;
 }
 
+#box {
+  border: 10px solid white;;
+}
+
+#footer-list {
+  background-color: #879b36;
+  border-bottom: 10px solid rgb(252, 252, 252);
+  border-radius: 10px;
+}
+
+#second-footer-list {
+  background-color: #879b36;
+  border-bottom: 10px solid rgb(252, 252, 252);
+  border-radius: 10px;
+}
+
+#footer-profile {
+  color: $whiteColor;
+  font-size: 50px;
+  margin: 0;
+}
+
+#footer-client,#footer-add-label,#footer-chat-label, #footer-client-label,#footer-add,#footer-chat {
+  color: $whiteColor;
+  font-size: 20px;
+  margin: 0 auto;
+}
+
+#footer-profile-label {
+  color: $whiteColor;
+  font-size: 30px;
+}
+
+
+
+#footer-footer {
+  background-color: #E5E059;
+  border-radius: 10px;
+}
 #home-icon {
   background-color: #879b36;
   height: 100%;
@@ -44,10 +83,12 @@ footer {
   box-shadow: 1px 1px 10px 3px rgb(124, 255, 255);
 }
 
-#logout-button {
-  border: none;
-  cursor: pointer;
-  outline: 0;
-  color: white;
-  background-color: red;
+#logout-footer {
+  color: $flamingoColor;
+  font-size: 20px;
+}
+
+#logout-footer-icon {
+  color: $flamingoColor;
+  font-size: 50px;
 }

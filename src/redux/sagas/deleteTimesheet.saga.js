@@ -5,9 +5,9 @@ import axios from 'axios';
 function* DeleteTimesheetSaga(action) {
     try {
         yield axios.delete(`/api/timesheet/${action.payload}`)
+        yield put ({type: 'FETCH_TIMESHEET'});
     } catch (error) {
     }
-    yield put ({type: 'FETCH_TIMESHEET'});
 }
 
 // delete watcher saga

@@ -1,0 +1,45 @@
+@import '../Variables/Variables.scss';
+
+#welcome-header {
+    margin-top: 0px;
+    margin-bottom: 80px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    text-transform: uppercase;
+
+}
+
+#avatar {
+
+// margin-top: -500px;
+margin: 0 auto;
+border: 2px solid white;
+box-shadow: 1px 1px 50px 10px white,
+1px 1px 80px 20px rgb(84, 84, 240),
+1px 1px 100px 30px $flamingoColor
+;
+}
+
+#card2 {
+    background-image: url('https://images.unsplash.com/photo-1525253086316-d0c936c814f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cHVwcGllc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60');
+    position: absolute;
+    width: 385px;
+    margin-top: 780px;
+    height: 530px;
+    background-repeat: no-repeat;
+    border: 2px solid $whiteColor;
+}
+
+#card1 {
+    margin-top: 420px;
+    border: 2px solid white;
+    box-shadow: 1px 1px 200px 30px $whiteColor,
+    1px 1px 20px 5px rgb(253, 106, 253),
+    1px 1px 40px 20px blue;
+    
+;
+}
