@@ -48,9 +48,9 @@ export default function TimesheetItem({ timesheetItem }) {
         <div>
             
 
-            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
                 <Alert id='alert-delete' onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                    This is a success message!
+                    You Successfully Deleted!
                 </Alert>
             </Snackbar>
 
