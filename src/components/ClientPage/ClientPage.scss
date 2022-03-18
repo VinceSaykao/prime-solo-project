@@ -66,3 +66,14 @@ overflow-x: hidden;
 #client-phead {
     color: rgb(49, 152, 221);
 }
+
+#current-client {
+    color: white;
+    margin-top: 80px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-left: 25px;
+    height: 50px;
+    border-bottom: 2px solid white;
+    text-shadow: 1px 1px 5px rgb(255, 255, 255);
+}
