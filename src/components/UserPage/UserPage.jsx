@@ -2,6 +2,8 @@ import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 
+
+import './UserPage.scss';
 import Footer from '../Footer/Footer';
 
 function UserPage() {
@@ -10,7 +12,7 @@ function UserPage() {
   return (
     <>
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
+      <h2 id='welcome-header'>Welcome | {user.username}!</h2>
 
 
     </div>
