@@ -43,15 +43,20 @@ margin-top: 100px;
 display: flex;
 width: 1000px;
 background-color: #4444;
+overflow-y: hidden;
+overflow-x: hidden;
 }
 
 #all-cards{
     margin: 5rem 1.5rem;
-    border: 5px solid $whiteColor;
     border-radius: 10px;
 
 }
 
 #all-cards * {
     margin: 0rem 0.8rem 0 0;
+}
+
+#client-phead {
+    color: rgb(49, 152, 221);
 }
