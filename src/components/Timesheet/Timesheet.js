@@ -4,7 +4,7 @@ import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
 
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import { DataGrid } from '@mui/x-data-grid';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -21,9 +21,12 @@ import {Helmet} from 'react-helmet';
 
 export default function Timesheet() {
 
+    const location = useLocation();
+
     useEffect(() => {
         dispatch({ type: 'FETCH_TIMESHEET' })
-    }, []) // end of useEffect
+    }, [location]) // end of useEffect
+
     const history = useHistory();
 
     const dispatch = useDispatch();

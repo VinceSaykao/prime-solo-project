@@ -72,14 +72,14 @@ export default function Footer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List id='footer-list'>
-        {[<p id='footer-profile-label' onClick={profileView}>Profile</p>,<p id='footer-client-label'>Client Info</p>].map((text, index) => (
+        {[<p id='footer-profile-label' onClick={profileView}>Profile</p>,<p id='footer-client-label' onClick={handleClientPush}>Client Info</p>].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <AccountBoxIcon 
               id='footer-profile'
               onClick={profileView}
               fontSize='large'
-              /> : <GroupIcon id='footer-client'/>}
+              /> : <GroupIcon id='footer-client' onClick={handleClientPush}/>}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -126,6 +126,9 @@ export default function Footer() {
 
                 const profileView = () => {
                   history.push('/home')
+                }
+                const handleClientPush = () => {
+                  history.push('/clientpage');
                 }
 
   return <footer>
