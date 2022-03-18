@@ -22,7 +22,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Divider from '@mui/material/Divider';
-
+import CloseIcon from '@mui/icons-material/Close';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -41,16 +41,26 @@ const ExpandMore = styled((props) => {
 export default function ClientPage() {
     const [expanded, setExpanded] = React.useState(false);
 
+    const history = useHistory();
+
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
+    const handleClose = () => {
+        history.push('/user')
+    }
+
 
     return (
         <>
+        <CloseIcon 
+        id='close-icon'
+        onClick={handleClose}
+        />
             <Helmet>
-                <style>{`body { height: 300px; width: 300px; background-image: url("https://images.unsplash.com/photo-1488554378835-f7acf46e6c98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YmxhY2t8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"); 
-                 background-size: cover; background-position:-50px 0px; 
+                <style>{`body,html {background-image: url("https://images.unsplash.com/photo-1488554378835-f7acf46e6c98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YmxhY2t8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"); 
+                 background-size: cover; background-position:-50px 0px; height: 100px; width: 1000px;
                  }`}
 
                 </style>

@@ -78,7 +78,7 @@ export default function Timesheet() {
             headerName: 'Notes',
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
-            width: 160,
+            width: 250,
             editable: true
 
         },
