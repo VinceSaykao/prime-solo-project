@@ -8,9 +8,9 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
 
-// const Alert = React.forwardRef(function Alert(props, ref) {
-//     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-//   });
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
 
 export default function TimesheetItem({ timesheetItem }) {
 
@@ -27,7 +27,7 @@ export default function TimesheetItem({ timesheetItem }) {
     const handleDelete = () => {
         setOpen(true);
         console.log('clicked delete');
-        dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetItem.id })
+        // dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetItem.id })
     }; // end of handleDelete
 
     const [open, setOpen] = React.useState(false);
@@ -46,6 +46,7 @@ export default function TimesheetItem({ timesheetItem }) {
 
     return (
         <div>
+            
 
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert id='alert-delete' onClose={handleClose} severity="success" sx={{ width: '100%' }}>
