@@ -24,13 +24,14 @@ box-shadow: 1px 1px 50px 10px white,
 ;
 }
 
-#calender {
-    background-image: url('Calender.png');
+#card2 {
+    background-image: url('https://images.unsplash.com/photo-1525253086316-d0c936c814f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cHVwcGllc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60');
     position: absolute;
-    width: 100%;
-    margin-top: 1000px;
-    height: 1000px;
-    background-size: cover;
+    width: 385px;
+    margin-top: 780px;
+    height: 530px;
+    background-repeat: no-repeat;
+    border: 2px solid $whiteColor;
 }
 
 #card1 {

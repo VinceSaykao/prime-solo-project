@@ -47,7 +47,7 @@ function UserPage() {
           sx={{ width: 300, height: 300 }}
         />
       </div>
-      <div id='calender'><p>yo</p></div>
+      <div id='card2'></div>
 
       <Card sx={{ maxWidth: 390 }}
       id='card1'
