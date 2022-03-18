@@ -27,7 +27,7 @@ export default function TimesheetItem({ timesheetItem }) {
     const handleDelete = () => {
         setOpen(true);
         console.log('clicked delete');
-        // dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetItem.id })
+        dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetItem.id })
     }; // end of handleDelete
 
     const [open, setOpen] = React.useState(false);
