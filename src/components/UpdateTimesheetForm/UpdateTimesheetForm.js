@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './UpdateTimesheetForm.scss';
 
-
 import { Helmet } from 'react-helmet';
-
 
 // import { MobileDatePicker } from '@mui/lab';
 // import MobileDateTimePicker from '@mui/lab/MobileDateTimePicker';
