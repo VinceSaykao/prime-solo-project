@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './UpdateTimesheetForm.scss';
 
+import { Helmet } from 'react-helmet';
 
 // import { MobileDatePicker } from '@mui/lab';
 // import MobileDateTimePicker from '@mui/lab/MobileDateTimePicker';
@@ -16,6 +18,7 @@ import TimePicker from '@mui/lab/TimePicker';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 
 export default function UpdateTimesheetForm() {
@@ -80,68 +83,80 @@ export default function UpdateTimesheetForm() {
 
     return (
         <div>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <Helmet>
+                <style>{`body { height: 2000px; background-image: url("https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG9jZWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"); 
+                 background-size: cover; background-position:-50px 0px; background-repeat: no-repeat; 
+                 }`}
 
-<Stack spacing={3}>
+                </style>
+            </Helmet>
+            <div id='timesheet-form'>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
 
-            <TextField
-                label='Client Name'
-                id="outlined-basic"
-                variant="outlined"
-                value={clientName}
-                onChange={evt => setClientName(evt.target.value)}
-            />
+                    <Stack spacing={5}>
 
-
-            <MobileDatePicker
-                label="Date"
-                inputFormat="MM/dd/yyyy"
-                value={date}
-                onChange={handleChange}
-                renderInput={(params) => <TextField {...params} />}
-            />
-
-            <TextField
-                label='In'
-                id="outlined-basic"
-                variant="outlined"
-                value={timeIn}
-                onChange={evt => setTimeIn(evt.target.value)}
-            />
-            <TextField
-                label='Out'
-                id="outlined-basic"
-                variant="outlined"
-                value={timeOut}
-                onChange={evt => setTimeOut(evt.target.value)}
-            />
-            <TextField
-                label='Mileage'
-                id="outlined-basic"
-                variant="outlined"
-                value={mileage}
-                onChange={evt => setMileage(evt.target.value)}
-            />
-            <TextField
-                label='Notes'
-                id="outlined-basic"
-                variant="outlined"
-                value={notes}
-                onChange={evt => setNotes(evt.target.value)}
-            />
+                        <TextField
+                            label='Client Name'
+                            id="outlined-basic"
+                            variant="outlined"
+                            value={clientName}
+                            onChange={evt => setClientName(evt.target.value)}
+                        />
 
 
+                        <MobileDatePicker
+                            label="Date"
+                            inputFormat="MM/dd/yyyy"
+                            value={date}
+                            onChange={handleChange}
+                            renderInput={(params) => <TextField {...params} />}
+                        />
 
-            <button
-                id='submit-form'
-                onClick={handleSubmit}
-            >
-                Submit
-            </button>
+                        <TextField
+                            label='In'
+                            id="outlined-basic"
+                            variant="outlined"
+                            value={timeIn}
+                            onChange={evt => setTimeIn(evt.target.value)}
+                        />
+                        <TextField
+                            label='Out'
+                            id="outlined-basic"
+                            variant="outlined"
+                            value={timeOut}
+                            onChange={evt => setTimeOut(evt.target.value)}
+                        />
+                        <TextField
+                            label='Mileage'
+                            id="outlined-basic"
+                            variant="outlined"
+                            value={mileage}
+                            onChange={evt => setMileage(evt.target.value)}
+                        />
+                        <TextareaAutosize
+                            aria-label="empty textarea"
+                            maxRows={4}
+                            placeholder="Notes"
+                            style={{ width: 344, height: 120 }}
+                            label='Notes'
+                            id="note-form"
+                            value={notes}
+                            onChange={evt => setNotes(evt.target.value)}
+                        />
 
 
-            </Stack>
-        </LocalizationProvider>
+
+                        <button
+                            id='submit-form'
+                            onClick={handleSubmit}
+                        >
+                            Submit
+                        </button>
+
+
+                    </Stack>
+                </LocalizationProvider>
+            </div>
         </div>
 
     )

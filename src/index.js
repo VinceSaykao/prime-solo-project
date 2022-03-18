@@ -31,9 +31,7 @@ ReactDOM.render(
 // // import fetchTimesheet from './redux/sagas/fetchTimesheet.saga';
 
 // // RootSaga 
-// function* rootSaga() {
-//   yield takeEvery('FETCH_TIMESHEET', fetchTimesheet);
-// }; // end of rootSaga
+
 
 // function* fetchTimesheet() {
 //   try {
