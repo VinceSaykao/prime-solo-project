@@ -10,7 +10,7 @@ import MuiAlert from '@mui/material/Alert';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-  });
+});
 
 export default function TimesheetItem({ timesheetItem }) {
 
@@ -46,7 +46,7 @@ export default function TimesheetItem({ timesheetItem }) {
 
     return (
         <div>
-            
+
 
             <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
                 <Alert id='alert-delete' onClose={handleClose} severity="success" sx={{ width: '100%' }}>
@@ -56,7 +56,7 @@ export default function TimesheetItem({ timesheetItem }) {
 
 
             <div id='timesheet-item-list'>
-                {timesheetItem.date} {timesheetItem.client_name} {timesheetItem.in} {timesheetItem.out} {timesheetItem.mileage} {timesheetItem.notes}
+                {timesheetItem.to_char} {timesheetItem.client_name}
                 <br></br>
                 <button
                     onClick={handleEdit}
