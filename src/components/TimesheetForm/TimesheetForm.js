@@ -10,6 +10,7 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import MobileTimePicker from '@mui/lab/MobileTimePicker';
 import { Helmet } from 'react-helmet';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 import './TimesheetForm.scss';
 
@@ -63,7 +64,7 @@ export default function TimesheetForm() {
             <div id='TimeSheetForm'>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
 
-                    <Stack spacing={7}>
+                    <Stack spacing={5}>
 
                         <TextField
                             label='Client Name'
@@ -122,28 +123,42 @@ export default function TimesheetForm() {
                             value={mileage}
                             onChange={evt => setMileage(evt.target.value)}
                         />
-                        <TextField
+                        {/* <TextField
                             label='Notes'
                             id="standard-basic"
                             variant="outlined"
+                            value={notes}
+                            onChange={evt => setNotes(evt.target.value)}
+                        /> */}
+
+
+                        <TextareaAutosize
+                            aria-label="empty textarea"
+                            maxRows={4}
+                            placeholder="Notes"
+                            style={{ width: 344, height: 120 }}
+                            label='Notes'
+                            id="note-form"
                             value={notes}
                             onChange={evt => setNotes(evt.target.value)}
                         />
 
 
 
-                     
+
+
+
 
 
                     </Stack>
                 </LocalizationProvider>
             </div>
             <button
-                            id='submit-form'
-                            onClick={handleSubmit}
-                        >
-                            Submit
-                        </button>
+                id='submit-form'
+                onClick={handleSubmit}
+            >
+                Submit
+            </button>
         </>
     )
 }; // end of TimesheetForm

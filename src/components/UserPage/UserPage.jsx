@@ -71,9 +71,9 @@ function UserPage() {
         </CardActionArea>
       </Card>
       <Button variant="outlined"
-      href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      href="https://www.youtube.com/watch?v=KmtzQCSh6xk&t=15s"
       onClick={handleSeeMore}
-      >See More</Button>
+      >I'm Feeling Lucky!</Button>
 
       <Footer />
     </>

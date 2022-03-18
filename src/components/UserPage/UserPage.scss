@@ -35,4 +35,10 @@ box-shadow: 1px 1px 50px 10px white,
 
 #card1 {
     margin-top: 420px;
+    border: 2px solid white;
+    box-shadow: 1px 1px 200px 30px $whiteColor,
+    1px 1px 20px 5px rgb(253, 106, 253),
+    1px 1px 40px 20px blue;
+    
+;
 }

@@ -105,6 +105,7 @@ export default function Timesheet() {
             <div style={{ height: 450, width: '100%' }}>
 
                 <DataGrid
+                
                     rows={timesheetReducer}
                     columns={columns}
                     pageSize={4}
