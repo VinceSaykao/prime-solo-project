@@ -11,7 +11,13 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
 
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+
+
 import Footer from '../Footer/Footer';
+
+import {Helmet} from 'react-helmet';
 
 export default function Timesheet() {
 
@@ -83,6 +89,13 @@ export default function Timesheet() {
     console.log('timesheet is', timesheetReducer);
     return (
         <>
+                    <Helmet>
+                <style>{`body { background-image: url("https://images.unsplash.com/photo-1584463623578-37726932ba2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aG9tZSUyMGhlYWx0aGNhcmV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"); 
+                background-repeat: no-repeat; background-size: cover; background-position: -60px 120px; }`}
+
+                </style>
+            </Helmet>
+
         <div id='timesheet-header-div'>
                 <p
                     className='timesheet-header'
@@ -92,6 +105,7 @@ export default function Timesheet() {
             <div style={{ height: 450, width: '100%' }}>
 
                 <DataGrid
+                
                     rows={timesheetReducer}
                     columns={columns}
                     pageSize={4}
@@ -101,10 +115,15 @@ export default function Timesheet() {
 
                 />
 
-
-                <button
+<Fab color="primary" aria-label="add">
+        <AddIcon 
+        onClick={handleAdd}
+        />
+      </Fab>
+                {/* <button
+                    id='add-timesheet-button'
                     onClick={handleAdd}
-                > + Add Timesheet</button>
+                > + Add Timesheet</button> */}
 
                 <div className='tablestuff'>
                     <table>

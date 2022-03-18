@@ -26,6 +26,7 @@ export default function TimesheetItem({ timesheetItem }) {
         
             <div id='timesheet-item-list'>
                 {timesheetItem.date} {timesheetItem.client_name} {timesheetItem.in} {timesheetItem.out} {timesheetItem.mileage} {timesheetItem.notes}
+                <br></br>
                 <button
                     onClick={handleEdit}
                 >Edit</button>

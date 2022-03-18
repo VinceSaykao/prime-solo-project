@@ -9,6 +9,8 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import MobileTimePicker from '@mui/lab/MobileTimePicker';
+import { Helmet } from 'react-helmet';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 import './TimesheetForm.scss';
 
@@ -51,88 +53,112 @@ export default function TimesheetForm() {
     const [timeOut, setTimeOut] = React.useState(new Date());
 
     return (
-        <div id='TimeSheetForm'>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
 
-                <Stack spacing={3}>
+        <> <Helmet>
+            <style>{`body { height: 2000px; background-image: url("https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG9jZWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"); 
+                 background-size: cover; background-position:-50px 0px; background-repeat: no-repeat; 
+                 }`}
 
-                    <TextField
-                        label='Client Name'
-                        id="outlined-basic"
-                        variant="outlined"
-                        value={clientName}
-                        onChange={evt => setClientName(evt.target.value)}
-                    />
+            </style>
+        </Helmet>
+            <div id='TimeSheetForm'>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
 
+                    <Stack spacing={5}>
 
-                    <MobileDatePicker
-                        label="Date"
-                        inputFormat="MM/dd/yyyy"
-                        value={date}
-                        onChange={handleChange}
-                        renderInput={(params) => <TextField {...params} />}
-                    />
-
-                    <MobileTimePicker
-                        label="Time In"
-                        value={timeIn}
-                        onChange={(newValue) => {
-                            setTimeIn(newValue);
-                        }}
-                        renderInput={(params) => <TextField {...params} />}
-                    />
-
-                    <MobileTimePicker
-                        label="Time Out"
-                        value={timeOut}
-                        onChange={(newValue2) => {
-                            setTimeOut(newValue2);
-                        }}
-                        renderInput={(params) => <TextField {...params} />}
-                    />
+                        <TextField
+                            label='Client Name'
+                            id="standard-basic"
+                            variant="outlined"
+                            value={clientName}
+                            onChange={evt => setClientName(evt.target.value)}
+                        />
 
 
-                    {/* <TextField
+                        <MobileDatePicker
+                            label="Date"
+                            inputFormat="MM/dd/yyyy"
+                            value={date}
+                            onChange={handleChange}
+                            renderInput={(params) => <TextField {...params} />}
+                        />
+
+                        <MobileTimePicker
+                            label="Time In"
+                            value={timeIn}
+                            onChange={(newValue) => {
+                                setTimeIn(newValue);
+                            }}
+                            renderInput={(params) => <TextField {...params} />}
+                        />
+
+                        <MobileTimePicker
+                            label="Time Out"
+                            value={timeOut}
+                            onChange={(newValue2) => {
+                                setTimeOut(newValue2);
+                            }}
+                            renderInput={(params) => <TextField {...params} />}
+                        />
+
+
+                        {/* <TextField
                 label='In'
                 id="outlined-basic"
                 variant="outlined"
                 value={timeIn}
                 onChange={evt => setTimeIn(evt.target.value)}
             /> */}
-                    {/* <TextField
+                        {/* <TextField
                         label='Out'
                         id="outlined-basic"
                         variant="outlined"
                         value={timeOut}
                         onChange={evt => setTimeOut(evt.target.value)}
                     /> */}
-                    <TextField
-                        label='Mileage'
-                        id="outlined-basic"
-                        variant="outlined"
-                        value={mileage}
-                        onChange={evt => setMileage(evt.target.value)}
-                    />
-                    <TextField
-                        label='Notes'
-                        id="outlined-basic"
-                        variant="outlined"
-                        value={notes}
-                        onChange={evt => setNotes(evt.target.value)}
-                    />
+                        <TextField
+                            label='Mileage'
+                            id="standard-basic"
+                            variant="outlined"
+                            value={mileage}
+                            onChange={evt => setMileage(evt.target.value)}
+                        />
+                        {/* <TextField
+                            label='Notes'
+                            id="standard-basic"
+                            variant="outlined"
+                            value={notes}
+                            onChange={evt => setNotes(evt.target.value)}
+                        /> */}
+
+
+                        <TextareaAutosize
+                            aria-label="empty textarea"
+                            maxRows={4}
+                            placeholder="Notes"
+                            style={{ width: 344, height: 120 }}
+                            label='Notes'
+                            id="note-form"
+                            value={notes}
+                            onChange={evt => setNotes(evt.target.value)}
+                        />
 
 
 
-                    <button
-                        id='submit-form'
-                        onClick={handleSubmit}
-                    >
-                        Submit
-                    </button>
 
 
-                </Stack>
-            </LocalizationProvider>
-        </div>
+
+
+
+                    </Stack>
+                </LocalizationProvider>
+            </div>
+            <button
+                id='submit-form'
+                onClick={handleSubmit}
+            >
+                Submit
+            </button>
+        </>
     )
 }; // end of TimesheetForm
