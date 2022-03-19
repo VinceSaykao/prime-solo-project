@@ -99,13 +99,20 @@ const handleClick = () => {
                         <h3>651-123-1234</h3>
                         </div>
                 </div>
+                <div className='card1'>
+                    <div className='imgBx1'>
+            
+                        </div>
+                
+                </div>
+        
             </div>
 
 
 
 
 
-            {/* <Footer /> */}
+            <Footer />
         </>
     )
 

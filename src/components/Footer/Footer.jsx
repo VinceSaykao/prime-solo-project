@@ -20,10 +20,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import GroupIcon from '@mui/icons-material/Group';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import GroupsIcon from '@mui/icons-material/Groups';
+import AddIcon from '@mui/icons-material/Add';
 
 
 import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import ForumIcon from '@mui/icons-material/Forum';
 
@@ -137,6 +139,9 @@ export default function Footer() {
                 const handleClickChat = () => {
                   history.push('/chat');
                 }
+                const timesheetPush = () => {
+                  history.push('/timesheet');
+                }
 
                 const [value, setValue] = React.useState(0);
 
@@ -164,9 +169,9 @@ export default function Footer() {
           </Drawer>
         </React.Fragment>
       ))}
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+        <BottomNavigationAction label="Timesheet" icon={<ListAltIcon onClick={timesheetPush}/>} />
+        <BottomNavigationAction label="Clients" icon={<GroupsIcon onClick={handleClientPush} />} />
+        <BottomNavigationAction label="Add" icon={<AddIcon onClick={handleAdd} />} />
       </BottomNavigation>
     </Box>
 

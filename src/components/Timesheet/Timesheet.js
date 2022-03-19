@@ -35,8 +35,6 @@ export default function Timesheet() {
 
 
 
-
-
     const columns = [
         { field: 'id', headerName: 'Id', width: 30 },
         {
@@ -85,9 +83,6 @@ export default function Timesheet() {
     ];
 
 
-    const handleAdd = () => {
-        history.push('/timesheetform');
-    }
 
     console.log('this is new', timesheetReducer.client_name);
     console.log('timesheet is', timesheetReducer);
@@ -101,9 +96,9 @@ export default function Timesheet() {
             </Helmet>
 
         <div id='timesheet-header-div'>
-                <p
+                {/* <p
                     className='timesheet-header'
-                >Timesheet</p>
+                >Timesheet</p> */}
                 </div>
         <div id="timesheet-div">
             <div style={{ height: 450, width: '100%' }}>
@@ -118,17 +113,10 @@ export default function Timesheet() {
 
                 />
 
-<Fab color="primary" aria-label="add">
-        <AddIcon 
-        onClick={handleAdd}
-        />
-      </Fab>
-                {/* <button
-                    id='add-timesheet-button'
-                    onClick={handleAdd}
-                > + Add Timesheet</button> */}
+    
 
                 <div className='tablestuff'>
+                    <h3 className='history'>History</h3>
                     <table>
                         {/* <th>Date</th>
                     <th>Client Name</th> */}
