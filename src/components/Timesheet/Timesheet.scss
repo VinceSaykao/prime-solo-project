@@ -1,7 +1,7 @@
 @import "../Variables/Variables.scss";
 
 #timesheet-div {
-  background-color: rgba(255, 252, 46, 0.616);
+  background-color: rgba(155, 169, 245, 0.856);
   text-align: center;
   height: 800px;
   width: 90%;
@@ -9,7 +9,7 @@
   border: 5px solid $whiteColor;
   border-radius: 10px;
   box-shadow: 1px 1px 20px 3px white, 1px 1px 20px 10px black;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(5px);
 }
 
 #timesheet-header-div {
