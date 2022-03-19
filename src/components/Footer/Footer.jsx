@@ -20,12 +20,21 @@ import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import GroupIcon from '@mui/icons-material/Group';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import GroupsIcon from '@mui/icons-material/Groups';
+import AddIcon from '@mui/icons-material/Add';
 
 
 import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import ForumIcon from '@mui/icons-material/Forum';
+
+
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import RestoreIcon from '@mui/icons-material/Restore';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 
 
@@ -50,10 +59,7 @@ export default function Footer() {
   // start of drawer ******
 
   const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
+    left: false
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -133,10 +139,25 @@ export default function Footer() {
                 const handleClickChat = () => {
                   history.push('/chat');
                 }
+                const timesheetPush = () => {
+                  history.push('/timesheet');
+                }
+
+                const [value, setValue] = React.useState(0);
 
   return <footer>
 
-{['left'].map((anchor) => (
+
+
+<Box sx={{ width: 390 }}>
+      <BottomNavigation
+        showLabels
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+      >
+        {['Menu'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
           <Drawer
@@ -148,8 +169,20 @@ export default function Footer() {
           </Drawer>
         </React.Fragment>
       ))}
+        <BottomNavigationAction label="Timesheet" icon={<ListAltIcon onClick={timesheetPush}/>} />
+        <BottomNavigationAction label="Clients" icon={<GroupsIcon onClick={handleClientPush} />} />
+        <BottomNavigationAction label="Add" icon={<AddIcon onClick={handleAdd} />} />
+      </BottomNavigation>
+    </Box>
+
+
+
+<div id='drawer'>
+
+
+</div>
     
-    
+    {/* 
 
 <MenuIcon
     id="format-lines"
@@ -160,9 +193,11 @@ export default function Footer() {
     id="home-icon"
     onClick={handleClick}
     fontSize="small"
-    />
+    /> */}
 
     {/* <LogOutButton id='logout-button' /> */}
+
+
     
 
   </footer>;

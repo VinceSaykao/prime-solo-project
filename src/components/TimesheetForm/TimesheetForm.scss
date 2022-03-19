@@ -18,10 +18,11 @@
     bottom: 20px;
     
     letter-spacing: 5px;
+    backdrop-filter: blur(10px);
     } 
 
     #TimeSheetForm {
-        background-color: rgba(233, 96, 96, 0.568);
+        background-color: rgba(255, 255, 255, 0.568);
         height: 620px;
         width: 90%;
         margin: 0 auto;
@@ -31,11 +32,12 @@
         border: 4px solid $whiteColor;
         box-shadow: 1px 1px 20px 3px rgb(255, 255, 255);
         color: white;
+        backdrop-filter: blur(5px);
     }
 
     #note-form {
-        background-color: rgba(226, 223, 223, 0.521);
-        color: white;
+        background-color: rgba(212, 209, 209, 0.164);
+        color: rgb(0, 0, 0);
     }
 
     #success-alert {
