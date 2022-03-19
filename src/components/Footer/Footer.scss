@@ -6,7 +6,7 @@ footer {
   bottom: 0;
   width: 100%;
   height: 70px;
-  box-shadow: 1px 1px 10px 3px rgb(153, 197, 83);
+  box-shadow: 1px 1px 10px 3px rgb(165, 186, 255);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -16,13 +16,13 @@ footer {
 }
 
 #footer-list {
-  background-color: #879b36;
+  background-color: #8788e7;
   border-bottom: 10px solid rgb(252, 252, 252);
   border-radius: 10px;
 }
 
 #second-footer-list {
-  background-color: #879b36;
+  background-color: #8788e7;
   border-bottom: 10px solid rgb(252, 252, 252);
   border-radius: 10px;
 }
@@ -47,11 +47,22 @@ footer {
 
 
 #footer-footer {
-  background-color: #E5E059;
+  background-color: #fffa5d;
   border-radius: 10px;
 }
 #home-icon {
-  background-color: #879b36;
+  // background-color: #879b36;
+  // height: 100%;
+  // width: 80px;
+  // color: white;
+  // border: 3px solid rgba(255, 255, 255, 0.83);
+  // box-sizing: border-box;
+  // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  // border-radius: 10px;
+  // align-items: center;
+  // box-shadow: 1px 1px 10px 3px rgb(2, 2, 2);
+  // margin-right: 85px;
+  background-color: #5e5e5e80;
   height: 100%;
   width: 80px;
   color: white;
@@ -61,7 +72,7 @@ footer {
   border-radius: 10px;
   align-items: center;
   box-shadow: 1px 1px 10px 3px rgb(2, 2, 2);
-  margin-right: 85px;
+  margin-left: 70px;
 }
 
 #home-icon:active {
@@ -73,7 +84,8 @@ footer {
   float: left;
   font-size: 60px;
   border-radius: 10px;
-  color: $windowBack;
+  // color: $windowBack;
+  color: rgba(204, 204, 204, 0.555);
   height: 100%;
   width: 80px;
 }
@@ -92,3 +104,11 @@ footer {
   color: $flamingoColor;
   font-size: 50px;
 }
+
+
+#drawer {
+  position: fixed;
+  margin-top: 15px;
+  margin-left: 18px;
+}
+

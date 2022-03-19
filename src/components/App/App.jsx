@@ -24,7 +24,8 @@ import Timesheet from '../Timesheet/Timesheet';
 import TimesheetForm from '../TimesheetForm/TimesheetForm';
 import UpdateTimesheetForm from '../UpdateTimesheetForm/UpdateTimesheetForm';
 import ClientPage from '../ClientPage/ClientPage';
-import Chat from '../Chat/Chat'
+import Chat from '../Chat/Chat';
+import WelcomePage from '../WelcomePage/WelcomePage';
 
 import './App.css';
 
@@ -46,6 +47,14 @@ function App() {
           <Redirect exact from="/" to="/home" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
+
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/welcome"
+          >
+            <WelcomePage />
+          </Route>
           <Route
             // shows AboutPage at all times (logged in or not)
             exact

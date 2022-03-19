@@ -50,10 +50,7 @@ export default function Footer() {
   // start of drawer ******
 
   const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
+    left: false
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -136,7 +133,8 @@ export default function Footer() {
 
   return <footer>
 
-{['left'].map((anchor) => (
+<div id='drawer'>
+{['.'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
           <Drawer
@@ -148,6 +146,8 @@ export default function Footer() {
           </Drawer>
         </React.Fragment>
       ))}
+
+</div>
     
     
 
@@ -163,6 +163,8 @@ export default function Footer() {
     />
 
     {/* <LogOutButton id='logout-button' /> */}
+
+
     
 
   </footer>;

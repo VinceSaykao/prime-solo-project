@@ -26,11 +26,12 @@ function UserPage() {
 
   const handleSeeMore = (event) => {
     e.preventDefault();
-    
+
   }
 
   return (
     <>
+    <h1 id='enjoy'>Enjoy Your Brew</h1>
       <Helmet>
         <style>{`body { height: 2000px; background-image: url("https://images.unsplash.com/photo-1540458638618-893e9fb35c07?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGdhbGF4eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"); 
                  background-size: cover; background-position:-50px 0px; background-repeat: no-repeat; 
@@ -41,16 +42,27 @@ function UserPage() {
       <div className="contain">
         <h2 id='welcome-header'>Welcome | {user.username}!</h2>
 
+
         <Avatar
           id='avatar'
           src={img}
           sx={{ width: 300, height: 300 }}
         />
       </div>
+      <section>
+        
+        <div class="shadow"></div>
+        <div className='bowl'>
+          <div class='liquid'></div>
+        </div>
+
+      </section>
       <div id='card2'></div>
 
+
+
       <Card sx={{ maxWidth: 390 }}
-      id='card1'
+        id='card1'
       >
         <CardActionArea>
           <CardMedia
@@ -71,8 +83,8 @@ function UserPage() {
         </CardActionArea>
       </Card>
       <Button variant="outlined"
-      href="https://www.youtube.com/watch?v=KmtzQCSh6xk&t=15s"
-      onClick={handleSeeMore}
+        href="https://www.youtube.com/watch?v=auTjwpERG1I&t=204s"
+        onClick={handleSeeMore}
       >I'm Feeling Lucky!</Button>
 
       <Footer />
