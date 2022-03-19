@@ -28,6 +28,13 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import ForumIcon from '@mui/icons-material/Forum';
 
 
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import RestoreIcon from '@mui/icons-material/Restore';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+
+
 
 
 // This is one of our simplest components
@@ -131,10 +138,21 @@ export default function Footer() {
                   history.push('/chat');
                 }
 
+                const [value, setValue] = React.useState(0);
+
   return <footer>
 
-<div id='drawer'>
-{['.'].map((anchor) => (
+
+
+<Box sx={{ width: 390 }}>
+      <BottomNavigation
+        showLabels
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+      >
+        {['Menu'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
           <Drawer
@@ -146,10 +164,20 @@ export default function Footer() {
           </Drawer>
         </React.Fragment>
       ))}
+        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+      </BottomNavigation>
+    </Box>
+
+
+
+<div id='drawer'>
+
 
 </div>
     
-    
+    {/* 
 
 <MenuIcon
     id="format-lines"
@@ -160,7 +188,7 @@ export default function Footer() {
     id="home-icon"
     onClick={handleClick}
     fontSize="small"
-    />
+    /> */}
 
     {/* <LogOutButton id='logout-button' /> */}
 

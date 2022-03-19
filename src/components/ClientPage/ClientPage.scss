@@ -1,7 +1,5 @@
 @import "../Variables/Variables.scss";
 
-
-
 // #close-icon {
 //     font-size: 60px;
 //     color: white;
@@ -43,6 +41,13 @@
 //     text-shadow: 1px 1px 5px rgb(255, 255, 255);
 // }
 
+#your-clients {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 45px;
+    font-weight: 900;
+}
 
 .box {
     width: 300px;
