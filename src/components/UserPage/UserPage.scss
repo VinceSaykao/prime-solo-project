@@ -21,6 +21,7 @@
   z-index: 10;
   top: 0;
   text-transform: uppercase;
+  font-family: 'Pacifico';
 }
 
 #avatar {
@@ -57,6 +58,8 @@ section {
 }
 
 .bowl {
+  width: 300px;
+  height: 300px;
   position: relative;
   background: rgb(41, 41, 41);
   border-radius: 50%;
@@ -122,7 +125,6 @@ section {
   top: calc(50% + 200px);
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
   height: 30px;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
