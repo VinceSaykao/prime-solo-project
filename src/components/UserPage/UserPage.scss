@@ -3,12 +3,13 @@
 #enjoy {
   position: absolute;
   color: rgb(165, 219, 250);
-  top: 810px;
+  top: 840px;
   margin: 0 auto;
   letter-spacing: 1px;
   text-transform: uppercase;
   width: 100%;
   font-family: 'Pacifico';
+  z-index: 1000;
 }
 
 #welcome-header {
@@ -53,7 +54,7 @@ section {
   align-items: center;
   min-height: 100vh;
   position: absolute;
-  top: 200px;
+  top: 300px;
   margin-left: 45px;
 }
 
