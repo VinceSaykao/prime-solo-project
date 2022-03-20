@@ -67,9 +67,9 @@ export default function ClientDetails() {
 
     const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
 
     console.log(clientInfoReducer)
@@ -89,36 +89,31 @@ export default function ClientDetails() {
                 {clientInfoReducer.filter(item => item.client_fullname === client).map((item, i) => {
                     return (
 
+                        <Box sx={{ width: '100%' }}>
+                            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                                    <Tab label={"Information"} {...a11yProps(0)} />
+                                    <Tab label="History" {...a11yProps(1)} />
+                                    <Tab label="Hobbies" {...a11yProps(2)} />
+                                    <Tab label="other" {...a11yProps(3)} />
+                                </Tabs>
+                            </Box>
+                            <TabPanel value={value} index={0}>
+                                {item.address}
+                                <br></br>
+                                Mobile: {item.phone}
+                            </TabPanel>
+                            <TabPanel value={value} index={1}>
+                                {item.history}
+                            </TabPanel>
+                            <TabPanel value={value} index={2}>
+                                {item.hobbies}
+                            </TabPanel>
+                        </Box>
 
-                        <h1>{item.client_fullname}</h1>,
-                        // <img src={card.image_url} />
-                        <h1>{item.client_fullname}</h1>,
-                        <h1> Age: {item.age}
-                            <br></br>
-                            {item.address} {item.phone} {item.hobbies} Sick of {item.history} </h1>
 
                     );
                 })}
-
-
-<Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-        </Tabs>
-      </Box>
-      <TabPanel value={value} index={0}>
-        Item One
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
-    </Box>
 
 
 
