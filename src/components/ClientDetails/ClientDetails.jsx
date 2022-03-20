@@ -8,6 +8,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
 
 import Footer from '../Footer/Footer';
 
@@ -99,7 +100,7 @@ export default function ClientDetails() {
                             </Box>
                             <TabPanel value={value} index={0}>
                                 {item.address}
-                                <br></br>
+                                <Divider />
                                 Mobile: {item.phone}
                             </TabPanel>
                             <TabPanel value={value} index={1}>

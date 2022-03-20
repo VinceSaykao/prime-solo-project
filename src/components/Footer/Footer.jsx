@@ -169,9 +169,9 @@ export default function Footer() {
           </Drawer>
         </React.Fragment>
       ))}
-        <BottomNavigationAction label="Timesheet" icon={<ListAltIcon onClick={timesheetPush}/>} />
-        <BottomNavigationAction label="Clients" icon={<GroupsIcon onClick={handleClientPush} />} />
-        <BottomNavigationAction label="Add" icon={<AddIcon onClick={handleAdd} />} />
+        <BottomNavigationAction onCLick={timesheetPush} label="Timesheet" icon={<ListAltIcon onClick={timesheetPush}/>} />
+        <BottomNavigationAction onClick={handleClientPush} label="Clients" icon={<GroupsIcon onClick={handleClientPush} />} />
+        <BottomNavigationAction onClick={handleAdd} label="Add" icon={<AddIcon onClick={handleAdd} />} />
       </BottomNavigation>
     </Box>
 
