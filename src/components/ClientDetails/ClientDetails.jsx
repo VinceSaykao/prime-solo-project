@@ -109,6 +109,9 @@ export default function ClientDetails() {
                             <TabPanel value={value} index={2}>
                                 {item.hobbies}
                             </TabPanel>
+                            <TabPanel value={value} index={3}>
+                                {item.other}
+                            </TabPanel>
                         </Box>
 
 
