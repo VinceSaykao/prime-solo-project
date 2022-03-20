@@ -1,7 +1,7 @@
 import './ClientPage.scss';
 import Footer from '../Footer/Footer';
 
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import React, { useEffect } from 'react';
 
@@ -67,7 +67,7 @@ export default function ClientPage() {
         // history.push(`/timesheet/${}`);
     }
 
-console.log('this is', {clientInfoReducer})
+    console.log('this is', { clientInfoReducer })
     return (
         <>
 
@@ -80,17 +80,19 @@ console.log('this is', {clientInfoReducer})
                         <img src='https://images.unsplash.com/photo-1566616213894-2d4e1baee5d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZWxkZXIlMjB3b21hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60' />
                     </div>
                     <div className='details'>
-                        {clientInfoReducer.map((item) => {
+                        {clientInfoReducer.map((item, i) => {
                             return (
-                                <h2>{item.client_fullname}</h2>
+                                // <h2>{item.client_fullname}</h2>
+                                <Link to={`/clientdetails/${item.client_fullname}`}>Sarah Doe</Link>
+                                // <h2
+                                //     onClick={handleClick}
+                                // >Sarah Doe</h2>
+
                             );
+                            <Divider />
 
                         })}
-                        <h2
-                            onClick={handleClick}
-                        >Sarah Doe</h2>
-                        <Divider />
-                        <h3>651-123-1234</h3>
+
                     </div>
                 </div>
                 <div className='card'>
