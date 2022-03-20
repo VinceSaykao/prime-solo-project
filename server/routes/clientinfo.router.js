@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', (req,res) => {
     if (req.isAuthenticated()) {
         pool
-        .query(`select * from clients;`)
+        .query(`select * from clients order by id asc;`)
         .then((results) => res.send(results.rows))
         .catch((error) => {
             console.log('Error making select for get client info', error);
