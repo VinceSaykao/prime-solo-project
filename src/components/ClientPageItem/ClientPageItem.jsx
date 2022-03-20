@@ -1,6 +1,5 @@
-import './ClientPage.scss';
+import './ClientPageItem.scss';
 import Footer from '../Footer/Footer';
-import ClientPageItem from '../ClientPageItem/ClientPageItem';
 
 import { useHistory, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -27,21 +26,11 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-    }),
-}));
 
 
 
 
-export default function ClientPage() {
+export default function ClientPageItem() {
     // const [expanded, setExpanded] = React.useState(false);
     const clientInfoReducer = useSelector(store => store.clientInfoReducer);
 
@@ -56,65 +45,51 @@ export default function ClientPage() {
 
     const history = useHistory();
 
-    // const handleExpandClick = () => {
-    //     setExpanded(!expanded);
-    // };
-
-    // const handleClose = () => {
-    //     history.push('/user')
-    // }
 
     console.log('this is', { clientInfoReducer })
     return (
         <>
 
-
-
-            <ClientPageItem />
-            {/* <h1 id='your-clients'>Your Clients</h1>
+           <h1 id='your-clients'>Your Clients</h1>
             <br></br>
             <div className='box'>
-                <div className='card'>
-                    <div className='imgBx'>
-                        <img src='https://images.unsplash.com/photo-1566616213894-2d4e1baee5d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZWxkZXIlMjB3b21hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60' />
-                    </div>
-                    <div className='details'>
                         {clientInfoReducer.map((item, i) => {
                             return (
-                                // <h2>{item.client_fullname}</h2>
+
+                              
+                                <div className='card'>
+                                <div className='imgBx'>
+                                    <img src={item.image_url} />
+                                </div>
+                                <div className='details'>
                                 <Link to={`/clientdetails/${item.client_fullname}`}><h2>{item.client_fullname}</h2>
                                 <Divider />
                                 {item.phone}
-                                
                                 </Link>
-                
-        
+                                </div>
+                                </div>
+
+
+
+                     
+                      
+                      
                             );
-                            <Divider />
+                            
+                      
+            
                         })}
 
-                    </div>
-                </div>
-                <div className='card'>
-                    <div className='imgBx'>
-                        <img src='https://images.unsplash.com/photo-1566616213820-984353efbeec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZWxkZXIlMjBtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60' />
-                    </div>
-                    <div className='details'>
-                        <h2
-        
-                        >Frodo Doe</h2>
-                        <Divider />
-                        <h3>651-123-1234</h3>
-                    </div>
-                </div>
-                <div className='card'>
+
+
+<div className='card'>
                     <div className='imgBx'>
                         <img src='https://images.unsplash.com/photo-1444069069008-83a57aac43ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGVsZGVyJTIwbWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60' />
                     </div>
                     <div className='details'>
                         <h2
                 
-                        >Samwise Doe</h2>
+                        >Joe Doe</h2>
                         <Divider />
                         <h3>651-123-1234</h3>
                     </div>
@@ -126,7 +101,9 @@ export default function ClientPage() {
 
                 </div>
 
-            </div> */}
+                        
+
+                </div>
 
             <Footer />
         </>
