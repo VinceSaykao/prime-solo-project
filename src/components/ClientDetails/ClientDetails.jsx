@@ -47,10 +47,6 @@ function a11yProps(index) {
     };
 }
 
-
-
-
-
 export default function ClientDetails() {
 
     const { client } = useParams();
@@ -88,6 +84,9 @@ export default function ClientDetails() {
             <div id='one'>
                 {clientInfoReducer.filter(item => item.client_fullname === client).map((item, i) => {
                     return (
+                        <>
+
+                        <img className='client-details-pic' src={item.image_url} /> 
 
                         <Box sx={{ width: '100%' }}>
                             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -114,7 +113,7 @@ export default function ClientDetails() {
                             </TabPanel>
                         </Box>
 
-
+                        </>
                     );
                 })}
 
