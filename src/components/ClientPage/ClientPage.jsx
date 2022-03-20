@@ -71,62 +71,6 @@ export default function ClientPage() {
 
 
             <ClientPageItem />
-            {/* <h1 id='your-clients'>Your Clients</h1>
-            <br></br>
-            <div className='box'>
-                <div className='card'>
-                    <div className='imgBx'>
-                        <img src='https://images.unsplash.com/photo-1566616213894-2d4e1baee5d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZWxkZXIlMjB3b21hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60' />
-                    </div>
-                    <div className='details'>
-                        {clientInfoReducer.map((item, i) => {
-                            return (
-                                // <h2>{item.client_fullname}</h2>
-                                <Link to={`/clientdetails/${item.client_fullname}`}><h2>{item.client_fullname}</h2>
-                                <Divider />
-                                {item.phone}
-                                
-                                </Link>
-                
-        
-                            );
-                            <Divider />
-                        })}
-
-                    </div>
-                </div>
-                <div className='card'>
-                    <div className='imgBx'>
-                        <img src='https://images.unsplash.com/photo-1566616213820-984353efbeec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZWxkZXIlMjBtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60' />
-                    </div>
-                    <div className='details'>
-                        <h2
-        
-                        >Frodo Doe</h2>
-                        <Divider />
-                        <h3>651-123-1234</h3>
-                    </div>
-                </div>
-                <div className='card'>
-                    <div className='imgBx'>
-                        <img src='https://images.unsplash.com/photo-1444069069008-83a57aac43ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGVsZGVyJTIwbWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60' />
-                    </div>
-                    <div className='details'>
-                        <h2
-                
-                        >Samwise Doe</h2>
-                        <Divider />
-                        <h3>651-123-1234</h3>
-                    </div>
-                </div>
-                <div className='card1'>
-                    <div className='imgBx1'>
-
-                    </div>
-
-                </div>
-
-            </div> */}
 
             <Footer />
         </>
