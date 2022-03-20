@@ -50,50 +50,30 @@ export default function ClientPageItem() {
     return (
         <>
 
-           <h1 id='your-clients'>Your Clients</h1>
+            <h1 id='your-clients'>Your Clients</h1>
             <br></br>
             <div className='box'>
-                        {clientInfoReducer.map((item, i) => {
-                            return (
+                {clientInfoReducer.map((item, i) => {
+                    return (
 
-                              
-                                <div className='card'>
-                                <div className='imgBx'>
-                                    <img src={item.image_url} />
-                                </div>
-                                <div className='details'>
+
+                        <div className='card'>
+                            <div className='imgBx'>
+                                <img src={item.image_url} />
+                            </div>
+                            <div className='details'>
                                 <Link to={`/clientdetails/${item.client_fullname}`}><h2>{item.client_fullname}</h2>
-                                <Divider />
-                                {item.phone}
+                                    <Divider />
+                                    {item.phone}
                                 </Link>
-                                </div>
-                                </div>
+                            </div>
+                        </div>
+
+                    );
+
+                })}
 
 
-
-                     
-                      
-                      
-                            );
-                            
-                      
-            
-                        })}
-
-
-
-<div className='card'>
-                    <div className='imgBx'>
-                        <img src='https://images.unsplash.com/photo-1444069069008-83a57aac43ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGVsZGVyJTIwbWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60' />
-                    </div>
-                    <div className='details'>
-                        <h2
-                
-                        >Joe Doe</h2>
-                        <Divider />
-                        <h3>651-123-1234</h3>
-                    </div>
-                </div>
                 <div className='card1'>
                     <div className='imgBx1'>
 
@@ -101,9 +81,9 @@ export default function ClientPageItem() {
 
                 </div>
 
-                        
 
-                </div>
+
+            </div>
 
             <Footer />
         </>
