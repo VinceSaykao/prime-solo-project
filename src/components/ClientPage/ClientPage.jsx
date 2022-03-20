@@ -3,9 +3,9 @@ import Footer from '../Footer/Footer';
 
 import { useHistory } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import React, { useEffect } from 'react';
 
 
-import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -24,6 +24,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Divider from '@mui/material/Divider';
 import CloseIcon from '@mui/icons-material/Close';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -40,6 +42,16 @@ const ExpandMore = styled((props) => {
 
 export default function ClientPage() {
     // const [expanded, setExpanded] = React.useState(false);
+    const clientInfoReducer = useSelector(store => store.clientInfoReducer);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_CLIENT' })
+    }, [location]) // end of useEffect
+
+
+
 
     const history = useHistory();
 
@@ -51,66 +63,68 @@ export default function ClientPage() {
     //     history.push('/user')
     // }
 
-const handleClick = () => {
-    history.push('/timesheet')
-}
+    const handleClick = () => {
+        // history.push(`/timesheet/${}`);
+    }
 
-
+console.log('this is', {clientInfoReducer})
     return (
         <>
 
 
-        <h1 id='your-clients'>Your Clients</h1>
-        <br></br>
+            <h1 id='your-clients'>Your Clients</h1>
+            <br></br>
             <div className='box'>
                 <div className='card'>
                     <div className='imgBx'>
-                    <img src='https://images.unsplash.com/photo-1566616213894-2d4e1baee5d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZWxkZXIlMjB3b21hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60' />
+                        <img src='https://images.unsplash.com/photo-1566616213894-2d4e1baee5d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZWxkZXIlMjB3b21hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60' />
                     </div>
                     <div className='details'>
+                        {clientInfoReducer.map((item) => {
+                            return (
+                                <h2>{item.client_fullname}</h2>
+                            );
+
+                        })}
                         <h2
-                        onClick={handleClick}
+                            onClick={handleClick}
                         >Sarah Doe</h2>
                         <Divider />
                         <h3>651-123-1234</h3>
-                        </div>
+                    </div>
                 </div>
                 <div className='card'>
                     <div className='imgBx'>
                         <img src='https://images.unsplash.com/photo-1566616213820-984353efbeec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZWxkZXIlMjBtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60' />
-                        </div>
+                    </div>
                     <div className='details'>
-                    <h2
-                    onClick={handleClick}
-                    >Frodo Doe</h2>
+                        <h2
+                            onClick={handleClick}
+                        >Frodo Doe</h2>
                         <Divider />
                         <h3>651-123-1234</h3>
-                        </div>
+                    </div>
                 </div>
                 <div className='card'>
                     <div className='imgBx'>
                         <img src='https://images.unsplash.com/photo-1444069069008-83a57aac43ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGVsZGVyJTIwbWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60' />
-                        </div>
+                    </div>
                     <div className='details'>
-                    <h2
-                    onClick={handleClick}
-                    >Samwise Doe</h2>
+                        <h2
+                            onClick={handleClick}
+                        >Samwise Doe</h2>
                         <Divider />
                         <h3>651-123-1234</h3>
-                        </div>
+                    </div>
                 </div>
                 <div className='card1'>
                     <div className='imgBx1'>
-            
-                        </div>
-                
+
+                    </div>
+
                 </div>
-        
+
             </div>
-
-
-
-
 
             <Footer />
         </>
