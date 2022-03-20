@@ -63,10 +63,6 @@ export default function ClientPage() {
     //     history.push('/user')
     // }
 
-    const handleClick = () => {
-        // history.push(`/timesheet/${}`);
-    }
-
     console.log('this is', { clientInfoReducer })
     return (
         <>
@@ -83,13 +79,16 @@ export default function ClientPage() {
                         {clientInfoReducer.map((item, i) => {
                             return (
                                 // <h2>{item.client_fullname}</h2>
-                                <Link to={`/clientdetails/${item.client_fullname}`}>Sarah Doe</Link>
-                                // <h2
-                                //     onClick={handleClick}
-                                // >Sarah Doe</h2>
-
+                                <Link to={`/clientdetails/${item.client_fullname}`}><h2>Sarah Doe</h2>
+                                <Divider />
+                                {item.phone}
+                                
+                                </Link>
+                
+        
                             );
                             <Divider />
+                
 
                         })}
 
@@ -101,7 +100,7 @@ export default function ClientPage() {
                     </div>
                     <div className='details'>
                         <h2
-                            onClick={handleClick}
+        
                         >Frodo Doe</h2>
                         <Divider />
                         <h3>651-123-1234</h3>
@@ -113,7 +112,7 @@ export default function ClientPage() {
                     </div>
                     <div className='details'>
                         <h2
-                            onClick={handleClick}
+                
                         >Samwise Doe</h2>
                         <Divider />
                         <h3>651-123-1234</h3>
