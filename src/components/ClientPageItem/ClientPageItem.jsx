@@ -74,8 +74,6 @@ export default function ClientPageItem() {
                 })}
 
 
-
-              
                 <div className='card1'>
                     <div className='imgBx1'>
 
