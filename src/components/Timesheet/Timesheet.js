@@ -36,7 +36,6 @@ export default function Timesheet() {
     const timesheetReducer = useSelector(store => store.timesheetReducer);
 
 
-    const [rows, setRows] = useState(timesheetReducer);
     
     const columns = [
         { field: 'id', headerName: 'Id', width: 30 },
@@ -86,19 +85,8 @@ export default function Timesheet() {
         
     ];
     
-    const [deletedRows, setDeletedRows] = useState([]);
 
-    const handleRowSelection = (e) => {
-        setDeletedRows([...deletedRows, ...rows.filter((r) => r.id === e.timesheetReducer.id)]);
-    };
 
-    const handlePurge = () => {
-        setRows(
-            rows.filter((r) => deletedRows.filter((sr) => sr.id === r.id).length < 1)
-        );
-    };
-    
-    
     
     
     console.log('this is new', timesheetReducer.client_name);
@@ -120,22 +108,20 @@ export default function Timesheet() {
                     className='timesheet-header'
                 >Timesheet</p> */}
             </div>
-            <Button variant="contained" color="primary" onClick={handlePurge}>
-                Purge
-            </Button>
+
             <div id="timesheet-div">
                 <div style={{ height: 450, width: '100%' }}>
+
 
                     <DataGrid
                         rows={timesheetReducer}
                         columns={columns}
-                        pageSize={4}
+                        pageSize={5}
                         rowsPerPageOptions={[5]}
                         checkboxSelection
                         disableSelectionOnClick
-
-                        // deletes
-                        onRowSelected={handleRowSelection}
+                    
+        
                     />
 
 
@@ -172,3 +158,5 @@ export default function Timesheet() {
     )
 
 }; // end of Timesheet
+
+// data table 
