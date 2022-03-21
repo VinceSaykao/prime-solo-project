@@ -20,6 +20,10 @@ import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import CloseIcon from '@mui/icons-material/Close';
+import MobileTimePicker from '@mui/lab/MobileTimePicker';
+
+
+import Swal from 'sweetalert2';
 
 
 export default function UpdateTimesheetForm() {
@@ -50,16 +54,31 @@ export default function UpdateTimesheetForm() {
             mileage: mileage,
             notes: notes
         }
-        dispatch({ type: 'UPDATE_TIMESHEET', payload: updateInfo })
-        // empty the input fields
-        setClientName('');
-        setDate('');
-        setTimeIn('');
-        setTimeOut('');
-        setMileage('');
-        setNotes('');
+        if (clientName != ('') && date != ('') && mileage != ('') && notes != ('') && timeIn != ('') && timeOut != ('')) {
+            return Swal.fire({
+                title: 'Add Timesheet?',
+                text: 'You Won\'t Be Able To Revert This',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'green',
+                cancelButtonColor: 'red',
+                confirmButtonText: 'Yes, add them!',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
+                    // clears input value after submit is pressed
+                    history.push('/timesheet');
 
-        history.push('/timesheet');
+                }
+            })
+
+        } else {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Must Have Inputs',
+                text: 'Check to see if you are missing any inputs',
+            })
+        }
     }
 
     // const [value, setValue] = React.useState(new Date('2014-08-18T21:11:54'));
@@ -87,26 +106,27 @@ export default function UpdateTimesheetForm() {
 
 
     return (
-        <div>
-            <Helmet>
-                <style>{`body { height: 2000px; background-image: url("https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG9jZWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"); 
+
+        <> <Helmet>
+            <style>{`body { height: 1000px; background-image: url("https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG9jZWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"); 
                  background-size: cover; background-position:-50px 0px; background-repeat: no-repeat; 
                  }`}
 
-                </style>
-            </Helmet>
-            <CloseIcon 
+            </style>
+        </Helmet>
+        <CloseIcon 
         id='form-exit'
         onClick={handleClick}
         />
-            <div id='timesheet-form'>
+
+            <div id='TimeSheetForm'>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
 
                     <Stack spacing={5}>
 
                         <TextField
                             label='Client Name'
-                            id="outlined-basic"
+                            id="standard-basic"
                             variant="outlined"
                             value={clientName}
                             onChange={evt => setClientName(evt.target.value)}
@@ -121,27 +141,55 @@ export default function UpdateTimesheetForm() {
                             renderInput={(params) => <TextField {...params} />}
                         />
 
-                        <TextField
-                            label='In'
-                            id="outlined-basic"
-                            variant="outlined"
+                        <MobileTimePicker
+                            label="Time In"
                             value={timeIn}
-                            onChange={evt => setTimeIn(evt.target.value)}
+                            onChange={(newValue) => {
+                                setTimeIn(newValue);
+                            }}
+                            renderInput={(params) => <TextField {...params} />}
                         />
-                        <TextField
-                            label='Out'
-                            id="outlined-basic"
-                            variant="outlined"
+
+                        <MobileTimePicker
+                            label="Time Out"
                             value={timeOut}
-                            onChange={evt => setTimeOut(evt.target.value)}
+                            onChange={(newValue2) => {
+                                setTimeOut(newValue2);
+                            }}
+                            renderInput={(params) => <TextField {...params} />}
                         />
+
+
+                        {/* <TextField
+                label='In'
+                id="outlined-basic"
+                variant="outlined"
+                value={timeIn}
+                onChange={evt => setTimeIn(evt.target.value)}
+            /> */}
+                        {/* <TextField
+                        label='Out'
+                        id="outlined-basic"
+                        variant="outlined"
+                        value={timeOut}
+                        onChange={evt => setTimeOut(evt.target.value)}
+                    /> */}
                         <TextField
                             label='Mileage'
-                            id="outlined-basic"
+                            id="standard-basic"
                             variant="outlined"
                             value={mileage}
                             onChange={evt => setMileage(evt.target.value)}
                         />
+                        {/* <TextField
+                            label='Notes'
+                            id="standard-basic"
+                            variant="outlined"
+                            value={notes}
+                            onChange={evt => setNotes(evt.target.value)}
+                        /> */}
+
+
                         <TextareaAutosize
                             aria-label="empty textarea"
                             maxRows={4}
@@ -155,19 +203,23 @@ export default function UpdateTimesheetForm() {
 
 
 
-                        <button
-                            id='submit-form'
-                            onClick={handleSubmit}
-                        >
-                            Submit
-                        </button>
+
+
+
 
 
                     </Stack>
                 </LocalizationProvider>
             </div>
-        </div>
+            <button
+                id='submit-form'
+                onClick={handleSubmit}
+            // onClick={handleClick}
+            >
+                Submit
+            </button>
 
+        </>
     )
 
 }; // end of UpdateTimesheetForm
