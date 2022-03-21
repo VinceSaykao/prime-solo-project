@@ -15,6 +15,7 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Alert from '@mui/material/Alert';
+import CloseIcon from '@mui/icons-material/Close';
 
 import Swal from 'sweetalert2';
 
@@ -69,24 +70,14 @@ export default function TimesheetForm() {
 
 
 
-    //     console.log('clicked submit')
-    //     dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
-    //     // empty the input fields
-    //     setClientName('');
-    //     setDate('');
-    //     setTimeIn('');
-    //     setTimeOut('');
-    //     setMileage('');
-    //     setNotes('');
-    //     // setOpen(true);
-    //     history.push('/timesheet');
-    // }
-
-
     const handleChange = (newValue) => {
         setDate(newValue);
 
     };
+
+    const handleClick = () => {
+        history.push('/timesheet');
+    }
 
 
 
@@ -100,6 +91,10 @@ export default function TimesheetForm() {
 
             </style>
         </Helmet>
+        <CloseIcon 
+        id='form-exit'
+        onClick={handleClick}
+        />
 
             <div id='TimeSheetForm'>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
