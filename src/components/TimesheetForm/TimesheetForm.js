@@ -65,21 +65,15 @@ export default function TimesheetForm() {
         }
 
     }
-
-
-
-
-
     const handleChange = (newValue) => {
         setDate(newValue);
 
     };
 
+    // clicking exit pushes you to timesheet
     const handleClick = () => {
         history.push('/timesheet');
     }
-
-
 
 
     return (
