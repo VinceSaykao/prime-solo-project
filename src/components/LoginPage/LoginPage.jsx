@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
+import img1 from './ILC.png';
 
 import { Helmet } from 'react-helmet';
 
@@ -8,15 +9,27 @@ function LoginPage() {
   const history = useHistory();
 
   return (
-    <div>
+    <div 
+    // style={{backgroundImage: `url("https://media.istockphoto.com/photos/portrait-of-senior-man-sitting-in-chair-picture-id1313927273?b=1&k=20&m=1313927273&s=170667a&w=0&h=YUBdN5oytR68Uv_5ckLNU6hMoPHwfhUfjjdmiYVpPII=");`}}
+    
+    style={{backgroundImage: `url("https://media.istockphoto.com/photos/portrait-of-senior-man-sitting-in-chair-picture-id1313927273?b=1&k=20&m=1313927273&s=170667a&w=0&h=YUBdN5oytR68Uv_5ckLNU6hMoPHwfhUfjjdmiYVpPII=")`, 
+    backgroundSize: 'cover', 
+    backgroundPosition: '-150px 0px',
+    marginTop: '-30px',
+    
+    height: '844px'}}
+    >
+      <img 
+      className='logo'
+      src={img1} />
       <LoginForm />
-      <Helmet>
+      {/* <Helmet>
                 <style>{`body,html {background-image: url("https://media.istockphoto.com/photos/portrait-of-senior-man-sitting-in-chair-picture-id1313927273?b=1&k=20&m=1313927273&s=170667a&w=0&h=YUBdN5oytR68Uv_5ckLNU6hMoPHwfhUfjjdmiYVpPII="); 
                 background-size: cover; background-position: -270px 0px;
                 }`}
 
                 </style>
-            </Helmet>
+            </Helmet> */}
 
       {/* <center>
         <button

@@ -15,6 +15,9 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Alert from '@mui/material/Alert';
+import CloseIcon from '@mui/icons-material/Close';
+
+import Swal from 'sweetalert2';
 
 import './TimesheetForm.scss';
 
@@ -35,18 +38,36 @@ export default function TimesheetForm() {
     // when submit is pressed, will post all input values
     function handleSubmit() {
 
-        console.log('clicked submit')
-        dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
-        // empty the input fields
-        setClientName('');
-        setDate('');
-        setTimeIn('');
-        setTimeOut('');
-        setMileage('');
-        setNotes('');
-        // setOpen(true);
-        history.push('/timesheet');
+        if (clientName != ('') && date != ('') && mileage != ('') && notes != ('') && timeIn != ('') && timeOut != ('')) {
+            return Swal.fire({
+                title: 'Add Timesheet?',
+                text: 'You Won\'t Be Able To Revert This',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'green',
+                cancelButtonColor: 'red',
+                confirmButtonText: 'Yes, add them!',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
+                    // clears input value after submit is pressed
+                    history.push('/timesheet');
+
+                }
+            })
+
+        } else {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Must Have Inputs',
+                text: 'Check to see if you are missing any inputs',
+            })
+        }
+
     }
+
+
+
 
 
     const handleChange = (newValue) => {
@@ -54,19 +75,27 @@ export default function TimesheetForm() {
 
     };
 
+    const handleClick = () => {
+        history.push('/timesheet');
+    }
+
 
 
 
     return (
 
         <> <Helmet>
-            <style>{`body { height: 2000px; background-image: url("https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG9jZWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"); 
+            <style>{`body { height: 1000px; background-image: url("https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG9jZWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"); 
                  background-size: cover; background-position:-50px 0px; background-repeat: no-repeat; 
                  }`}
 
             </style>
         </Helmet>
-          
+        <CloseIcon 
+        id='form-exit'
+        onClick={handleClick}
+        />
+
             <div id='TimeSheetForm'>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
 

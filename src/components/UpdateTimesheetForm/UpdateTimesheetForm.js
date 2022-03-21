@@ -19,6 +19,7 @@ import DateTimePicker from '@mui/lab/DateTimePicker';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 export default function UpdateTimesheetForm() {
@@ -80,6 +81,10 @@ export default function UpdateTimesheetForm() {
 
     console.log('this is the date', timesheetFormUpdateReducer)
 
+    const handleClick = () => {
+        history.push('/timesheet');
+    }
+
 
     return (
         <div>
@@ -90,6 +95,10 @@ export default function UpdateTimesheetForm() {
 
                 </style>
             </Helmet>
+            <CloseIcon 
+        id='form-exit'
+        onClick={handleClick}
+        />
             <div id='timesheet-form'>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
 
