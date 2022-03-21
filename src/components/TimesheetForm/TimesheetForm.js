@@ -17,6 +17,8 @@ import MuiAlert from '@mui/material/Alert';
 import Alert from '@mui/material/Alert';
 import CloseIcon from '@mui/icons-material/Close';
 
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 import Swal from 'sweetalert2';
 
 import './TimesheetForm.scss';

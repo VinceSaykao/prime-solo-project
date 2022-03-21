@@ -68,6 +68,10 @@ export default function ClientDetails() {
         setValue(newValue);
     };
 
+    const handleOnClick =()=> {
+        console.log('done');
+    }
+
 
     console.log(clientInfoReducer)
 
@@ -98,7 +102,10 @@ export default function ClientDetails() {
                                     <Tab label="other" {...a11yProps(3)} />
                                 </Tabs>
                             </Box>
-                            <TabPanel value={value} index={0}>
+                            <TabPanel 
+                            onClick={handleOnClick}
+                            href="google.com"
+                            value={value} index={0}>
                                 {item.address}
                                 <Divider />
                                 Mobile: {item.phone}
@@ -113,7 +120,7 @@ export default function ClientDetails() {
                                 {item.other}
                             </TabPanel>
                         </Box>
-
+        
                         </>
                     );
                 })}
