@@ -16,6 +16,8 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Alert from '@mui/material/Alert';
 
+import Swal from 'sweetalert2';
+
 import './TimesheetForm.scss';
 
 export default function TimesheetForm() {
@@ -35,18 +37,46 @@ export default function TimesheetForm() {
     // when submit is pressed, will post all input values
     function handleSubmit() {
 
-        console.log('clicked submit')
-        dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
-        // empty the input fields
-        setClientName('');
-        setDate('');
-        setTimeIn('');
-        setTimeOut('');
-        setMileage('');
-        setNotes('');
-        // setOpen(true);
-        history.push('/timesheet');
+        if (clientName != ('') && date != ('') && mileage != ('') && notes != ('') && timeIn != ('') && timeOut != ('')) {
+            return Swal.fire({
+                title: 'Add Timesheet?',
+                text: 'You Won\'t Be Able To Revert This',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'green',
+                cancelButtonColor: 'red',
+                confirmButtonText: 'Yes, add them!',
+            })
+                && dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
+                // clears input value after submit is pressed
+                && history.push('/timesheet');
+
+        } else {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Must Have Inputs',
+                text: 'Check to see if you are missing any inputs',
+            })
+        }
+        
     }
+
+
+
+
+
+    //     console.log('clicked submit')
+    //     dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
+    //     // empty the input fields
+    //     setClientName('');
+    //     setDate('');
+    //     setTimeIn('');
+    //     setTimeOut('');
+    //     setMileage('');
+    //     setNotes('');
+    //     // setOpen(true);
+    //     history.push('/timesheet');
+    // }
 
 
     const handleChange = (newValue) => {
