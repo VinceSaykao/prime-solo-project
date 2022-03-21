@@ -41,6 +41,8 @@ function LoginForm() {
         </h3>
       )}
       <div>
+        <br></br>
+        <br></br>
 
         <input
           id='user-input'
