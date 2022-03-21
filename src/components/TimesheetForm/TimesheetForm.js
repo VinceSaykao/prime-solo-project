@@ -46,10 +46,14 @@ export default function TimesheetForm() {
                 confirmButtonColor: 'green',
                 cancelButtonColor: 'red',
                 confirmButtonText: 'Yes, add them!',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
+                    // clears input value after submit is pressed
+                    history.push('/timesheet');
+
+                }
             })
-                && dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
-                // clears input value after submit is pressed
-                && history.push('/timesheet');
 
         } else {
             return Swal.fire({
@@ -58,7 +62,7 @@ export default function TimesheetForm() {
                 text: 'Check to see if you are missing any inputs',
             })
         }
-        
+
     }
 
 
