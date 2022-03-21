@@ -43,7 +43,7 @@ export default function TimesheetForm() {
         if (clientName != ('') && date != ('') && mileage != ('') && notes != ('') && timeIn != ('') && timeOut != ('')) {
             return Swal.fire({
                 title: 'Add Timesheet?',
-                text: 'You Won\'t Be Able To Revert This',
+                text: 'You are submitting a timesheet',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: 'green',
@@ -83,8 +83,8 @@ export default function TimesheetForm() {
     return (
 
         <> <Helmet>
-            <style>{`body { height: 1000px; background-image: url("https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG9jZWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"); 
-                 background-size: cover; background-position:-50px 0px; background-repeat: no-repeat; 
+            <style>{`body { height: 100%; background-color: #544e88; 
+    
                  }`}
 
             </style>

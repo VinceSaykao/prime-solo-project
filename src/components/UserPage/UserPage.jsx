@@ -33,7 +33,7 @@ function UserPage() {
     <>
       <h1 id='enjoy'>Enjoy Your Brew</h1>
       <Helmet>
-        <style>{`body { height: 2000px; background-image: url("https://images.unsplash.com/photo-1540458638618-893e9fb35c07?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGdhbGF4eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"); 
+        <style>{`body { height: 2000px; width: 100%; background-image: url("https://images.unsplash.com/photo-1540458638618-893e9fb35c07?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGdhbGF4eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"); 
                 background-size: cover; background-position:-50px 0px; background-repeat: no-repeat; 
                 }`}
 
