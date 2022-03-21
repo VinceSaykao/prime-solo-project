@@ -65,6 +65,8 @@ export default function TimesheetForm() {
         }
 
     }
+
+    // handles the values of dates
     const handleChange = (newValue) => {
         setDate(newValue);
 
@@ -85,10 +87,10 @@ export default function TimesheetForm() {
 
             </style>
         </Helmet>
-        <CloseIcon 
-        id='form-exit'
-        onClick={handleClick}
-        />
+            <CloseIcon
+                id='form-exit'
+                onClick={handleClick}
+            />
 
             <div id='TimeSheetForm'>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
