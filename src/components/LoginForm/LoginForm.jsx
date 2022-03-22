@@ -23,6 +23,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import PersonIcon from '@mui/icons-material/Person';
 import TextField from '@mui/material/TextField';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -90,30 +91,41 @@ function LoginForm() {
       <div>
         <br></br>
         <br></br>
+        <FormControl sx={{ m: 1, width: '90%' }} variant="outlined"
+          id="user-input"
+        >
 
-        <input
-          id='user-input'
-          placeholder='| Username'
-          type="text"
-          name="username"
-          required
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
+          <TextField
+            label="Outlined"
+            variant="outlined"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AccountCircle />
+                </InputAdornment>
+              ),
+            }}
+          />
+        </FormControl>
+
 
       </div>
-      <div>
+      <div  >
 
         <FormControl sx={{ m: 1, width: '90%' }} variant="outlined"
+          id="password-input"
           onChange={handleChange('password')}
         >
 
           <InputLabel htmlFor="password-input">Password</InputLabel>
           <OutlinedInput
-            id="password-input"
             type={values.showPassword ? 'text' : 'password'}
             value={values.password}
             onChange={(event) => setPassword(event.target.value)}
+
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
