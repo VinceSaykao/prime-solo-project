@@ -174,13 +174,7 @@ export default function UpdateTimesheetForm() {
                             value={mileage}
                             onChange={evt => setMileage(evt.target.value)}
                         />
-                        {/* <TextField
-                            label='Notes'
-                            id="standard-basic"
-                            variant="outlined"
-                            value={notes}
-                            onChange={evt => setNotes(evt.target.value)}
-                        /> */}
+
 
 
                         <TextField

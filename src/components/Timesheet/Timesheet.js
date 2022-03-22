@@ -129,8 +129,6 @@ export default function Timesheet() {
                     <div className='tablestuff'>
                         <h3 className='history'>History</h3>
                         <table>
-                            {/* <th>Date</th>
-                    <th>Client Name</th> */}
                             <tr>
                                 {timesheetReducer.map((timesheetItem, i) => {
                                     return (
