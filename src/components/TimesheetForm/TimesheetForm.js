@@ -17,6 +17,8 @@ import MuiAlert from '@mui/material/Alert';
 import Alert from '@mui/material/Alert';
 import CloseIcon from '@mui/icons-material/Close';
 
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 import Swal from 'sweetalert2';
 
 import './TimesheetForm.scss';
@@ -27,21 +29,19 @@ export default function TimesheetForm() {
     const dispatch = useDispatch();
 
     const [clientName, setClientName] = useState('');
-    const [date, setDate] = useState(date);
-    // const [timeIn, setTimeIn] = useState();
-    // const [timeOut, setTimeOut] = useState('');
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
-
+    const [date, setDate] = React.useState(new Date());
     const [timeIn, setTimeIn] = React.useState(new Date());
     const [timeOut, setTimeOut] = React.useState(new Date());
+    
     // when submit is pressed, will post all input values
     function handleSubmit() {
 
         if (clientName != ('') && date != ('') && mileage != ('') && notes != ('') && timeIn != ('') && timeOut != ('')) {
             return Swal.fire({
                 title: 'Add Timesheet?',
-                text: 'You Won\'t Be Able To Revert This',
+                text: 'You are submitting a timesheet',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: 'green',
@@ -81,9 +81,9 @@ export default function TimesheetForm() {
     return (
 
         <> <Helmet>
-            <style>{`body { height: 1000px; background-image: url("https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG9jZWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"); 
-                 background-size: cover; background-position:-50px 0px; background-repeat: no-repeat; 
-                 }`}
+            <style>{`body { height: 100%; background-color: #544e88; 
+    
+            }`}
 
             </style>
         </Helmet>
@@ -132,21 +132,6 @@ export default function TimesheetForm() {
                             renderInput={(params) => <TextField {...params} />}
                         />
 
-
-                        {/* <TextField
-                label='In'
-                id="outlined-basic"
-                variant="outlined"
-                value={timeIn}
-                onChange={evt => setTimeIn(evt.target.value)}
-            /> */}
-                        {/* <TextField
-                        label='Out'
-                        id="outlined-basic"
-                        variant="outlined"
-                        value={timeOut}
-                        onChange={evt => setTimeOut(evt.target.value)}
-                    /> */}
                         <TextField
                             label='Mileage'
                             id="standard-basic"
@@ -154,23 +139,15 @@ export default function TimesheetForm() {
                             value={mileage}
                             onChange={evt => setMileage(evt.target.value)}
                         />
-                        {/* <TextField
-                            label='Notes'
-                            id="standard-basic"
-                            variant="outlined"
+
+                        <TextField
+                            id="outlined-multiline-static"
                             value={notes}
-                            onChange={evt => setNotes(evt.target.value)}
-                        /> */}
-
-
-                        <TextareaAutosize
-                            aria-label="empty textarea"
-                            maxRows={4}
+                            label="Notes"
                             placeholder="Notes"
-                            style={{ width: 344, height: 120 }}
-                            label='Notes'
-                            id="note-form"
-                            value={notes}
+                            multiline
+                            rows={4}
+                            defaultValue="Default Value"
                             onChange={evt => setNotes(evt.target.value)}
                         />
 

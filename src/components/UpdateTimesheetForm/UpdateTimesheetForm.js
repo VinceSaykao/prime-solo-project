@@ -57,12 +57,12 @@ export default function UpdateTimesheetForm() {
         if (clientName != ('') && date != ('') && mileage != ('') && notes != ('') && timeIn != ('') && timeOut != ('')) {
             return Swal.fire({
                 title: 'Add Timesheet?',
-                text: 'You Won\'t Be Able To Revert This',
+                text: 'You are updating a timesheet',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: 'green',
                 cancelButtonColor: 'red',
-                confirmButtonText: 'Yes, add them!',
+                confirmButtonText: 'Yes. Submit!',
             }).then((result) => {
                 if (result.isConfirmed) {
                     dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
@@ -80,12 +80,6 @@ export default function UpdateTimesheetForm() {
             })
         }
     }
-
-    // const [value, setValue] = React.useState(new Date('2014-08-18T21:11:54'));
-    // const [newDate, setNewDate] = React.useState(new Date('2014-08-18T21:11:54'));
-
-    //     const [timeIn, setTimeIn] = React.useState(new Date('2014-08-18T21:11:54'));
-    // const [timeOut, setTimeOut] = React.useState(new Date('2014-08-18T21:11:54'));
 
 
     const handleChange = (newValue) => {
@@ -108,16 +102,15 @@ export default function UpdateTimesheetForm() {
     return (
 
         <> <Helmet>
-            <style>{`body { height: 1000px; background-image: url("https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG9jZWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"); 
-                 background-size: cover; background-position:-50px 0px; background-repeat: no-repeat; 
-                 }`}
+            <style>{`body { height: 100%; background-color: #544e88; 
 
+            }`}
             </style>
         </Helmet>
-        <CloseIcon 
-        id='form-exit'
-        onClick={handleClick}
-        />
+            <CloseIcon
+                id='form-exit'
+                onClick={handleClick}
+            />
 
             <div id='TimeSheetForm'>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -190,14 +183,14 @@ export default function UpdateTimesheetForm() {
                         /> */}
 
 
-                        <TextareaAutosize
-                            aria-label="empty textarea"
-                            maxRows={4}
-                            placeholder="Notes"
-                            style={{ width: 344, height: 120 }}
-                            label='Notes'
-                            id="note-form"
+                        <TextField
+                            id="outlined-multiline-static"
                             value={notes}
+                            label="Notes"
+                            placeholder="Notes"
+                            multiline
+                            rows={4}
+                            defaultValue="Default Value"
                             onChange={evt => setNotes(evt.target.value)}
                         />
 
