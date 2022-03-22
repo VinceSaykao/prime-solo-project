@@ -105,8 +105,10 @@ function LoginForm() {
       <div>
 
       <FormControl sx={{ m: 1, width: '90%' }} variant="outlined">
-          <InputLabel htmlFor="password-input">Password</InputLabel>
-          onChange={(event) => setPassword(event.target.value)}
+          <InputLabel 
+           onChange={(event) => setPassword(event.target.value)}
+          htmlFor="password-input">Password</InputLabel>
+         
           <OutlinedInput
             id="password-input"
             type={values.showPassword ? 'text' : 'password'}
