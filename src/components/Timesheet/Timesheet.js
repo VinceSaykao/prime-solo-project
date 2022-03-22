@@ -16,10 +16,150 @@ import { Button } from '@mui/material';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 
+import PropTypes from 'prop-types';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import Footer from '../Footer/Footer';
 
 import { Helmet } from 'react-helmet';
+
+
+
+function createData(name, calories, fat, carbs, protein, price) {
+    return {
+        Date,
+        Client,
+        In,
+        Out,
+        mileage,
+        notes: [
+            {
+                date: '2020-01-05',
+                customerId: '11091700',
+                amount: 3,
+            },
+            {
+                date: '2020-01-02',
+                customerId: 'Anonymous',
+                amount: 1,
+            },
+        ],
+    };
+}
+
+
+
+
+function Row(props) {
+    const { row } = props;
+    const [open, setOpen] = React.useState(false);
+
+    return (
+        <React.Fragment>
+            <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+                <TableCell>
+                    <IconButton
+                        aria-label="expand row"
+                        size="small"
+                        onClick={() => setOpen(!open)}
+                    >
+                        {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                    </IconButton>
+                </TableCell>
+                <TableCell component="th" scope="row">
+                    {row.name}
+                </TableCell>
+                <TableCell align="right">{row.calories}</TableCell>
+                <TableCell align="right">{row.fat}</TableCell>
+                <TableCell align="right">{row.carbs}</TableCell>
+                <TableCell align="right">{row.protein}</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                    <Collapse in={open} timeout="auto" unmountOnExit>
+                        <Box sx={{ margin: 1 }}>
+                            <Typography variant="h6" gutterBottom component="div">
+                                History
+                            </Typography>
+                            <Table size="small" aria-label="purchases">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>Date</TableCell>
+                                        <TableCell>Client</TableCell>
+                                        <TableCell align="right">In</TableCell>
+                                        <TableCell align="right">Out</TableCell>
+                                        <TableCell align="right">Mileage</TableCell>
+                                        <TableCell align="right">Notes</TableCell>
+                                        
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {row.history.map((historyRow) => (
+                                        <TableRow key={historyRow.date}>
+                                            <TableCell component="th" scope="row">
+                                                {historyRow.date}
+                                            </TableCell>
+                                            <TableCell>{historyRow.customerId}</TableCell>
+                                            <TableCell align="right">{historyRow.amount}</TableCell>
+                                            <TableCell align="right">
+                                                {Math.round(historyRow.amount * row.price * 100) / 100}
+                                            </TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </Box>
+                    </Collapse>
+                </TableCell>
+            </TableRow>
+        </React.Fragment>
+    );
+}
+const rows = [
+    createData('Frozen yoghurt'),
+    createData('Ice cream sandwich'),
+    createData('Eclair'),
+    createData('Cupcake'),
+    createData('Gingerbread'),
+];
+
+Row.propTypes = {
+    row: PropTypes.shape({
+        calories: PropTypes.number.isRequired,
+        carbs: PropTypes.number.isRequired,
+        fat: PropTypes.number.isRequired,
+        history: PropTypes.arrayOf(
+            PropTypes.shape({
+                amount: PropTypes.number.isRequired,
+                customerId: PropTypes.string.isRequired,
+                date: PropTypes.string.isRequired,
+            }),
+        ).isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        protein: PropTypes.number.isRequired,
+    }).isRequired,
+};
+
+
+
+
+
+
+
+
+
 
 export default function Timesheet() {
 
@@ -36,59 +176,12 @@ export default function Timesheet() {
     const timesheetReducer = useSelector(store => store.timesheetReducer);
 
 
-    
-    const columns = [
-        { field: 'id', headerName: 'Id', width: 30 },
-        {
-            field: 'to_char',
-            headerName: 'Date',
-            width: 100,
-            editable: true,
-        },
-        {
-            field: 'client_name',
-            headerName: 'Client Name',
-            width: 150,
-            editable: true,
-        },
-        {
-            field: 'in',
-            headerName: 'Time In',
-            width: 100,
-            editable: true,
-        },
-        {
-            field: 'out',
-            headerName: 'Time Out',
-            type: 'number',
-            width: 100,
-            editable: true,
-        },
-        {
-            field: 'mileage',
-            headerName: 'Mileage',
-            description: 'This column has a value getter and is not sortable.',
-            sortable: false,
-            width: 80,
-            editable: true
-            
-        },
-        {
-            field: 'notes',
-            headerName: 'Notes',
-            description: 'This column has a value getter and is not sortable.',
-            sortable: false,
-            width: 250,
-            editable: true
-            
-        },
-        
-    ];
-    
 
 
-    
-    
+
+
+
+
     console.log('this is new', timesheetReducer.client_name);
     console.log('timesheet is', timesheetReducer);
     return (
@@ -103,58 +196,32 @@ export default function Timesheet() {
 
 
 
-            <div id='timesheet-header-div'>
-                {/* <p
-                    className='timesheet-header'
-                >Timesheet</p> */}
-            </div>
 
-            <div id="timesheet-div">
-                <div style={{ height: 450, width: '100%' }}>
+            <TableContainer component={Paper}>
+                <Table aria-label="collapsible table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell />
+                            <TableCell>Client Names</TableCell>
 
-
-                    <DataGrid
-                        rows={timesheetReducer}
-                        columns={columns}
-                        pageSize={5}
-                        rowsPerPageOptions={[5]}
-                        checkboxSelection
-                        disableSelectionOnClick
-                    
-        
-                    />
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {rows.map((row) => (
+                            <Row key={row.name} row={row} />
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+            );
 
 
 
-                    <div className='tablestuff'>
-                        <h3 className='history'>History</h3>
-                        <table>
-                            {/* <th>Date</th>
-                    <th>Client Name</th> */}
-                            <tr>
-                                {timesheetReducer.map((timesheetItem, i) => {
-                                    return (
-                                        <TimesheetItem
-                                            key={i}
-                                            timesheetItem={timesheetItem} />
-                                    );
-                                })}
-                            </tr>
-                        </table>
-                    </div>
 
-
-                </div>
-                <Box sx={{ display: 'flex' }}>
-                    <CircularProgress
-                        color="success"
-                    />
-                </Box>
-            </div >
 
 
             <Footer />
-        </div>
+        </div >
     )
 
 }; // end of Timesheet

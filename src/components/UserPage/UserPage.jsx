@@ -39,6 +39,7 @@ function UserPage() {
 
         </style>
       </Helmet>
+      <Footer />
       <div className="contain">
         <h2 id='welcome-header'>Welcome | {user.username}!</h2>
 
@@ -121,7 +122,7 @@ function UserPage() {
         onClick={handleSeeMore}
       >I'm Feeling Lucky!</Button>
 
-      <Footer />
+  
     </>
   );
 }
