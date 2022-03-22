@@ -34,7 +34,12 @@ function LoginForm() {
   }; // end login
 
   return (
-    <form className="formPanel" onSubmit={login}>
+    <form
+      className="formPanel"
+      onSubmit={login}
+      style={{height: '750px'}}
+
+    >
       <h2
         id="welcome"
       >Welcome</h2>
@@ -73,12 +78,12 @@ function LoginForm() {
 
       </div>
       <div>
-            <Stack spacing={2} direction="row">
-      <Button 
-      id='login'
-      type='submit'
-      variant="outlined">Log In</Button>
-      </Stack>
+        <Stack spacing={2} direction="row">
+          <Button
+            id='login'
+            type='submit'
+            variant="outlined">Log In</Button>
+        </Stack>
       </div>
       <br></br>
       <br></br>
@@ -90,7 +95,7 @@ function LoginForm() {
           history.push('/registration');
         }}
       >
-        Create Account 
+        <span className='create-account'>Create Account</span>
       </button>
 
       {/* <button
