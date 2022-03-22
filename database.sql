@@ -1,10 +1,35 @@
+-- db is independant_living_service
 
--- USER is a reserved keyword with Postgres
--- You must use double quotes in every query that user is in:
--- ex. SELECT * FROM "user";
--- Otherwise you will have errors!
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+
+create table "user" (
+"id" serial primary key,
+"username" varchar(80),
+"password" varchar(80),
+"employee_firstname" varchar(100),
+"employee_lastname" varchar(100)
+);
+
+
+create table timesheet (
+"id" serial primary key,
+"user_id" int references "user",
+"client_id" int references "clients",
+"date" date,
+"client_name" varchar(80),
+"in" varchar(80),
+"out" varchar(80),
+"mileage" int,
+"notes" varchar(2000)
+);
+
+create table clients (
+"id" serial primary key,
+"client_fullname" varchar(80),
+"address" varchar (200),
+"age" int,
+"phone" int,
+"hobbies" varchar(2000),
+"history" varchar (2000),
+"image_url" varchar (20000),
+"other" varchar (10000)
 );
