@@ -65,6 +65,19 @@ function Row(props) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
 
+
+    const location = useLocation();
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_TIMESHEET' })
+    }, [location]) // end of useEffect
+
+
+    const history = useHistory();
+
+    const dispatch = useDispatch();
+    const timesheetReducer = useSelector(store => store.timesheetReducer);
+
     return (
         <React.Fragment>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
@@ -96,9 +109,12 @@ function Row(props) {
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>Date</TableCell>
-                                        <TableCell>Customer</TableCell>
-                                        <TableCell align="right">Amount</TableCell>
-                                        <TableCell align="right">Total price ($)</TableCell>
+                                        <TableCell>Client</TableCell>
+                                        <TableCell align="right">Time In</TableCell>
+                                        <TableCell align="right">Time Out</TableCell>
+                                        <TableCell align="right">Mileage</TableCell>
+                                        <TableCell align="right">Notes</TableCell>
+                                
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -110,7 +126,7 @@ function Row(props) {
                                             <TableCell>{historyRow.customerId}</TableCell>
                                             <TableCell align="right">{historyRow.amount}</TableCell>
                                             <TableCell align="right">
-                                                {Math.round(historyRow.amount * row.price * 100) / 100}
+                                                <p>King</p>
                                             </TableCell>
                                         </TableRow>
                                     ))}
