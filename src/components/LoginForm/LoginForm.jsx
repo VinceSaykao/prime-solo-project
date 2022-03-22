@@ -76,7 +76,7 @@ function LoginForm() {
     <form
       className="formPanel"
       onSubmit={login}
-      style={{height: '750px'}}
+      style={{ height: '750px' }}
 
     >
       <h2
@@ -104,16 +104,16 @@ function LoginForm() {
       </div>
       <div>
 
-      <FormControl sx={{ m: 1, width: '90%' }} variant="outlined">
-          <InputLabel 
-           onChange={(event) => setPassword(event.target.value)}
-          htmlFor="password-input">Password</InputLabel>
-         
+        <FormControl sx={{ m: 1, width: '90%' }} variant="outlined"
+          onChange={handleChange('password')}
+        >
+
+          <InputLabel htmlFor="password-input">Password</InputLabel>
           <OutlinedInput
             id="password-input"
             type={values.showPassword ? 'text' : 'password'}
             value={values.password}
-            onChange={handleChange('password')}
+            onChange={(event) => setPassword(event.target.value)}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -169,3 +169,4 @@ function LoginForm() {
 }
 
 export default LoginForm;
+
