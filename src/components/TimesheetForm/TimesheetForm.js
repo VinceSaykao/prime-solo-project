@@ -29,14 +29,12 @@ export default function TimesheetForm() {
     const dispatch = useDispatch();
 
     const [clientName, setClientName] = useState('');
-    const [date, setDate] = useState(date);
-    // const [timeIn, setTimeIn] = useState();
-    // const [timeOut, setTimeOut] = useState('');
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
-
+    const [date, setDate] = React.useState(new Date());
     const [timeIn, setTimeIn] = React.useState(new Date());
     const [timeOut, setTimeOut] = React.useState(new Date());
+    
     // when submit is pressed, will post all input values
     function handleSubmit() {
 
@@ -85,7 +83,7 @@ export default function TimesheetForm() {
         <> <Helmet>
             <style>{`body { height: 100%; background-color: #544e88; 
     
-                 }`}
+            }`}
 
             </style>
         </Helmet>
@@ -134,21 +132,6 @@ export default function TimesheetForm() {
                             renderInput={(params) => <TextField {...params} />}
                         />
 
-
-                        {/* <TextField
-                label='In'
-                id="outlined-basic"
-                variant="outlined"
-                value={timeIn}
-                onChange={evt => setTimeIn(evt.target.value)}
-            /> */}
-                        {/* <TextField
-                        label='Out'
-                        id="outlined-basic"
-                        variant="outlined"
-                        value={timeOut}
-                        onChange={evt => setTimeOut(evt.target.value)}
-                    /> */}
                         <TextField
                             label='Mileage'
                             id="standard-basic"
@@ -156,35 +139,17 @@ export default function TimesheetForm() {
                             value={mileage}
                             onChange={evt => setMileage(evt.target.value)}
                         />
-                        {/* <TextField
-                            label='Notes'
-                            id="standard-basic"
-                            variant="outlined"
-                            value={notes}
-                            onChange={evt => setNotes(evt.target.value)}
-                        /> */}
 
-{/* 
-                        <TextareaAutosize
-                            aria-label="empty textarea"
-                            maxRows={4}
-                            placeholder="Notes"
-                            style={{height: 120 }}
-                            label='Notes'
-                            id="note-form"
+                        <TextField
+                            id="outlined-multiline-static"
                             value={notes}
+                            label="Notes"
+                            placeholder="Notes"
+                            multiline
+                            rows={4}
+                            defaultValue="Default Value"
                             onChange={evt => setNotes(evt.target.value)}
-                        /> */}
-                             <TextField
-          id="outlined-multiline-static"
-          value={notes}
-          label="Notes"
-          placeholder="Notes"
-          multiline
-          rows={4}
-          defaultValue="Default Value"
-          onChange={evt => setNotes(evt.target.value)}
-        />
+                        />
 
 
 
