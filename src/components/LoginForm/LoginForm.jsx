@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import './LoginForm.css';
+import './LoginForm.scss';
+
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 import PersonIcon from '@mui/icons-material/Person';
 import TextField from '@mui/material/TextField';
@@ -70,10 +73,15 @@ function LoginForm() {
 
       </div>
       <div>
-        <input
-          id='login'
-          type="submit" name="submit" value="Log In" />
+            <Stack spacing={2} direction="row">
+      <Button 
+      id='login'
+      type='submit'
+      variant="outlined">Log In</Button>
+      </Stack>
       </div>
+      <br></br>
+      <br></br>
       <button
         id='register'
         type="button"

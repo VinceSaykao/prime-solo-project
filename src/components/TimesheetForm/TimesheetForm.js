@@ -164,17 +164,27 @@ export default function TimesheetForm() {
                             onChange={evt => setNotes(evt.target.value)}
                         /> */}
 
-
+{/* 
                         <TextareaAutosize
                             aria-label="empty textarea"
                             maxRows={4}
                             placeholder="Notes"
-                            style={{ width: 344, height: 120 }}
+                            style={{height: 120 }}
                             label='Notes'
                             id="note-form"
                             value={notes}
                             onChange={evt => setNotes(evt.target.value)}
-                        />
+                        /> */}
+                             <TextField
+          id="outlined-multiline-static"
+          value={notes}
+          label="Notes"
+          placeholder="Notes"
+          multiline
+          rows={4}
+          defaultValue="Default Value"
+          onChange={evt => setNotes(evt.target.value)}
+        />
 
 
 
