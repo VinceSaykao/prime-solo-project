@@ -15,7 +15,6 @@ import { Button } from '@mui/material';
 
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-
 import PropTypes from 'prop-types';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -30,20 +29,24 @@ import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
+
 import Footer from '../Footer/Footer';
 
 import { Helmet } from 'react-helmet';
 
 
 
+
+
 function createData(name, calories, fat, carbs, protein, price) {
     return {
-        Date,
-        Client,
-        In,
-        Out,
-        mileage,
-        notes: [
+        name,
+        calories,
+        fat,
+        carbs,
+        protein,
+        price,
+        history: [
             {
                 date: '2020-01-05',
                 customerId: '11091700',
@@ -58,12 +61,22 @@ function createData(name, calories, fat, carbs, protein, price) {
     };
 }
 
-
-
-
 function Row(props) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
+
+
+    const location = useLocation();
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_TIMESHEET' })
+    }, [location]) // end of useEffect
+
+
+    const history = useHistory();
+
+    const dispatch = useDispatch();
+    const timesheetReducer = useSelector(store => store.timesheetReducer);
 
     return (
         <React.Fragment>
@@ -97,11 +110,11 @@ function Row(props) {
                                     <TableRow>
                                         <TableCell>Date</TableCell>
                                         <TableCell>Client</TableCell>
-                                        <TableCell align="right">In</TableCell>
-                                        <TableCell align="right">Out</TableCell>
+                                        <TableCell align="right">Time In</TableCell>
+                                        <TableCell align="right">Time Out</TableCell>
                                         <TableCell align="right">Mileage</TableCell>
                                         <TableCell align="right">Notes</TableCell>
-                                        
+                                
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -113,7 +126,7 @@ function Row(props) {
                                             <TableCell>{historyRow.customerId}</TableCell>
                                             <TableCell align="right">{historyRow.amount}</TableCell>
                                             <TableCell align="right">
-                                                {Math.round(historyRow.amount * row.price * 100) / 100}
+                                                <p>King</p>
                                             </TableCell>
                                         </TableRow>
                                     ))}
@@ -126,13 +139,6 @@ function Row(props) {
         </React.Fragment>
     );
 }
-const rows = [
-    createData('Frozen yoghurt'),
-    createData('Ice cream sandwich'),
-    createData('Eclair'),
-    createData('Cupcake'),
-    createData('Gingerbread'),
-];
 
 Row.propTypes = {
     row: PropTypes.shape({
@@ -152,9 +158,13 @@ Row.propTypes = {
     }).isRequired,
 };
 
-
-
-
+const rows = [
+    createData('Frozen yoghurt', 159, 6.0, 24, 4.0, 3.99),
+    createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
+    createData('Eclair', 262, 16.0, 24, 6.0, 3.79),
+    createData('Cupcake', 305, 3.7, 67, 4.3, 2.5),
+    createData('Gingerbread', 356, 16.0, 49, 3.9, 1.5),
+];
 
 
 
@@ -177,6 +187,53 @@ export default function Timesheet() {
 
 
 
+    const columns = [
+        { field: 'id', headerName: 'Id', width: 30 },
+        {
+            field: 'to_char',
+            headerName: 'Date',
+            width: 100,
+            editable: true,
+        },
+        {
+            field: 'client_name',
+            headerName: 'Client Name',
+            width: 150,
+            editable: true,
+        },
+        {
+            field: 'in',
+            headerName: 'Time In',
+            width: 100,
+            editable: true,
+        },
+        {
+            field: 'out',
+            headerName: 'Time Out',
+            type: 'number',
+            width: 100,
+            editable: true,
+        },
+        {
+            field: 'mileage',
+            headerName: 'Mileage',
+            description: 'This column has a value getter and is not sortable.',
+            sortable: false,
+            width: 80,
+            editable: true
+
+        },
+        {
+            field: 'notes',
+            headerName: 'Notes',
+            description: 'This column has a value getter and is not sortable.',
+            sortable: false,
+            width: 250,
+            editable: true
+
+        },
+
+    ];
 
 
 
@@ -185,44 +242,26 @@ export default function Timesheet() {
     console.log('this is new', timesheetReducer.client_name);
     console.log('timesheet is', timesheetReducer);
     return (
-        <div>
-            <Helmet>
-                <style>{`body { background-image: url("https://images.unsplash.com/photo-1584463623578-37726932ba2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aG9tZSUyMGhlYWx0aGNhcmV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"); 
-                background-repeat: no-repeat; background-size: cover; background-position: -80px 120px; }`}
-
-                </style>
-            </Helmet>
-
-
-
-
-
-            <TableContainer component={Paper}>
-                <Table aria-label="collapsible table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell />
-                            <TableCell>Client Names</TableCell>
-
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {rows.map((row) => (
-                            <Row key={row.name} row={row} />
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            );
-
-
-
-
-
-
-            <Footer />
-        </div >
-    )
+        <TableContainer component={Paper}>
+            <Table aria-label="collapsible table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell />
+                        <TableCell>Dessert (100g serving)</TableCell>
+                        <TableCell align="right">Calories</TableCell>
+                        <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                        <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                        <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {rows.map((row) => (
+                        <Row key={row.name} row={row} />
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
+    );
 
 }; // end of Timesheet
 
