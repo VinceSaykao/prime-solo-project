@@ -68,9 +68,6 @@ export default function ClientDetails() {
         setValue(newValue);
     };
 
-    const handleOnClick =()=> {
-        console.log('done');
-    }
 
 
     console.log(clientInfoReducer)
@@ -91,36 +88,39 @@ export default function ClientDetails() {
                     return (
                         <>
 
-                        <img className='client-details-pic' src={item.image_url} /> 
+                            <img className='client-details-pic' src={item.image_url} />
 
-                        <Box sx={{ width: '100%' }}>
-                            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                                    <Tab label={"Information"} {...a11yProps(0)} />
-                                    <Tab label="History" {...a11yProps(1)} />
-                                    <Tab label="Hobbies" {...a11yProps(2)} />
-                                    <Tab label="other" {...a11yProps(3)} />
-                                </Tabs>
+                            <Box sx={{ width: '100%' }}>
+                                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                                    <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                                        <Tab label={"Information"} {...a11yProps(0)} />
+                                        <Tab label="History" {...a11yProps(1)} />
+                                        <Tab label="Hobbies" {...a11yProps(2)} />
+                                        <Tab label="other" {...a11yProps(3)} />
+                                    </Tabs>
+                                </Box>
+
+                                <TabPanel
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        window.location.href = `https://www.google.com/maps?q=${item.address}`;
+                                    }}
+                                    value={value} index={0}>
+                                    {item.address}
+                                    <Divider />
+                                    Mobile: {item.phone}
+                                </TabPanel>
+                                <TabPanel value={value} index={1}>
+                                    {item.history}
+                                </TabPanel>
+                                <TabPanel value={value} index={2}>
+                                    {item.hobbies}
+                                </TabPanel>
+                                <TabPanel value={value} index={3}>
+                                    {item.other}
+                                </TabPanel>
                             </Box>
-                            <TabPanel 
-                            onClick={handleOnClick}
-                            href="google.com"
-                            value={value} index={0}>
-                                {item.address}
-                                <Divider />
-                                Mobile: {item.phone}
-                            </TabPanel>
-                            <TabPanel value={value} index={1}>
-                                {item.history}
-                            </TabPanel>
-                            <TabPanel value={value} index={2}>
-                                {item.hobbies}
-                            </TabPanel>
-                            <TabPanel value={value} index={3}>
-                                {item.other}
-                            </TabPanel>
-                        </Box>
-        
+
                         </>
                     );
                 })}
