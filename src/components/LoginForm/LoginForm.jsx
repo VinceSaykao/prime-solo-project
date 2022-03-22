@@ -7,6 +7,20 @@ import './LoginForm.scss';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
+
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import FilledInput from '@mui/material/FilledInput';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+
+import FormControl from '@mui/material/FormControl';
+
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
 import PersonIcon from '@mui/icons-material/Person';
 import TextField from '@mui/material/TextField';
 
@@ -32,6 +46,31 @@ function LoginForm() {
       dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
   }; // end login
+
+
+
+  const [values, setValues] = React.useState({
+    amount: '',
+    password: '',
+    weight: '',
+    weightRange: '',
+    showPassword: false,
+  });
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
+    });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <form
@@ -65,8 +104,30 @@ function LoginForm() {
       </div>
       <div>
 
-
-        <input
+      <FormControl sx={{ m: 1, width: '90%' }} variant="outlined">
+          <InputLabel htmlFor="password-input">Password</InputLabel>
+          <OutlinedInput
+            id="password-input"
+            type={values.showPassword ? 'text' : 'password'}
+            value={values.password}
+            onChange={handleChange('password')}
+            onChange={(event) => setPassword(event.target.value)}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+            label="Password"
+          />
+        </FormControl>
+        {/* <input
           placeholder='| Password'
           id='password-input'
           type="password"
@@ -74,7 +135,7 @@ function LoginForm() {
           required
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-        />
+        /> */}
 
       </div>
       <div>
