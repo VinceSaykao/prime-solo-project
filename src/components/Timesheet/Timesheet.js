@@ -34,15 +34,16 @@ import Footer from '../Footer/Footer';
 
 import { Helmet } from 'react-helmet';
 
+
+
 function createData(name, calories, fat, carbs, protein, price) {
     return {
-        name,
-        calories,
-        fat,
-        carbs,
-        protein,
-        price,
-        history: [
+        Date,
+        Client,
+        In,
+        Out,
+        mileage,
+        notes: [
             {
                 date: '2020-01-05',
                 customerId: '11091700',
