@@ -173,7 +173,7 @@ Row.propTypes = {
 
 const rows = 
 [
-    createData('Bilbo Baggins'),
+    createData('All Clients'),
     createData('Michelle Sweden'),
     createData('Naruto Suzuki'),
     // createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
