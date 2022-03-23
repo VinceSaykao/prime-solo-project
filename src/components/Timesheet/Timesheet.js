@@ -35,7 +35,6 @@ import { Helmet } from 'react-helmet';
 
 
 
-
 function createData(name, calories, fat, carbs, protein, price) {
     return {
         name,
@@ -68,6 +67,7 @@ function Row(props) {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_TIMESHEET' })
+        dispatch({type: 'FETCH_BILBO_TIMESHEET'})
     }, [location]) // end of useEffect
 
 
@@ -75,6 +75,8 @@ function Row(props) {
 
     const dispatch = useDispatch();
     const timesheetReducer = useSelector(store => store.timesheetReducer);
+    const timesheetBilboReducer = useSelector(store => store.timesheetBilboReducer);
+
 
 
     const handleDelete = () => {
@@ -129,7 +131,7 @@ function Row(props) {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {timesheetReducer.map((item,i) => (
+                                    {timesheetBilboReducer.map((item,i) => (
                                         <TableRow key={i}>
                                             <TableCell component="th" scope="row">
                                                 {item.to_char}
@@ -200,6 +202,7 @@ export default function Timesheet() {
 
     const dispatch = useDispatch();
     const timesheetReducer = useSelector(store => store.timesheetReducer);
+    const timesheetBilboReducer = useSelector(store => store.timesheetBilboReducer);
 
 
 
@@ -251,8 +254,7 @@ export default function Timesheet() {
 
     ];
 
-    console.log('this is new', timesheetReducer.client_name);
-    console.log('timesheet is', timesheetReducer);
+    console.log('this is', timesheetBilboReducer)
     return (
         <>
         <TableContainer component={Paper}>
