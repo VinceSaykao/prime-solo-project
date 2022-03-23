@@ -40,7 +40,6 @@ export default function TimesheetItem({ timesheetItem }) {
         if (reason === 'clickaway') {
             return;
         }
-
         setOpen(false);
     };
 

@@ -2,10 +2,29 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import './LoginForm.css';
+import './LoginForm.scss';
+import img1 from './logo3.png';
+
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+
+
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import FilledInput from '@mui/material/FilledInput';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+
+import FormControl from '@mui/material/FormControl';
+
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import PersonIcon from '@mui/icons-material/Person';
 import TextField from '@mui/material/TextField';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -30,33 +49,105 @@ function LoginForm() {
     }
   }; // end login
 
+
+
+  const [values, setValues] = React.useState({
+    amount: '',
+    password: '',
+    weight: '',
+    weightRange: '',
+    showPassword: false,
+  });
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
+    });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <form className="formPanel" onSubmit={login}>
+    <form
+      className="formPanel"
+      onSubmit={login}
+      style={{ height: '750px' }}
+
+    >
       <h2
         id="welcome"
       >Welcome</h2>
+      <img
+        className='logo'
+        src={img1} />
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
         </h3>
       )}
       <div>
+        <br></br>
+        <br></br>
+        <FormControl sx={{ m: 1, width: '90%' }} variant="outlined"
+          id="user-input"
+        >
 
-        <input
-          id='user-input'
-          placeholder='| Username'
-          type="text"
-          name="username"
-          required
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
+          <TextField
+            label="Outlined"
+            variant="outlined"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AccountCircle />
+                </InputAdornment>
+              ),
+            }}
+          />
+        </FormControl>
+
 
       </div>
-      <div>
+      <div  >
 
+        <FormControl sx={{ m: 1, width: '90%' }} variant="outlined"
+          id="password-input"
+          onChange={handleChange('password')}
+        >
 
-        <input
+          <InputLabel htmlFor="password-input">Password</InputLabel>
+          <OutlinedInput
+          
+            type={values.showPassword ? 'text' : 'password'}
+            value={values.password}
+            onChange={(event) => setPassword(event.target.value)}
+  
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+      
+            label="Password"
+          />
+        </FormControl>
+        {/* <input
           placeholder='| Password'
           id='password-input'
           type="password"
@@ -64,14 +155,19 @@ function LoginForm() {
           required
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-        />
+        /> */}
 
       </div>
       <div>
-        <input
-          id='login'
-          type="submit" name="submit" value="Log In" />
+        <Stack spacing={2} direction="row">
+          <Button
+            id='login'
+            type='submit'
+            variant="outlined">Log In</Button>
+        </Stack>
       </div>
+      <br></br>
+      <br></br>
       <button
         id='register'
         type="button"
@@ -80,7 +176,7 @@ function LoginForm() {
           history.push('/registration');
         }}
       >
-        Create Account 
+        <span className='create-account'>Create Account</span>
       </button>
 
       {/* <button
@@ -91,3 +187,4 @@ function LoginForm() {
 }
 
 export default LoginForm;
+
