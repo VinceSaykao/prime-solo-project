@@ -123,11 +123,12 @@ function Row(props) {
                                             <TableCell component="th" scope="row">
                                                 {item.to_char}
                                             </TableCell>
-                                            <TableCell>{item.date}</TableCell>
-                                            <TableCell align="right">{item.client_name}</TableCell>
-                                            <TableCell align="right">
-                                                <button>Delete</button>
-                                            </TableCell>
+                                            <TableCell>{item.client_name}</TableCell>
+                                            <TableCell align="right">{item.in}</TableCell>
+                                            <TableCell align="right">{item.out}</TableCell>
+                                            <TableCell align="right">{item.mileage}</TableCell>
+                                            <TableCell align="right">{item.notes}</TableCell>
+                                            <TableCell align="right"><button>DELETE</button></TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>

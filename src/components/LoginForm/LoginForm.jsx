@@ -126,10 +126,11 @@ function LoginForm() {
 
           <InputLabel htmlFor="password-input">Password</InputLabel>
           <OutlinedInput
+          
             type={values.showPassword ? 'text' : 'password'}
             value={values.password}
             onChange={(event) => setPassword(event.target.value)}
-
+  
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -142,6 +143,7 @@ function LoginForm() {
                 </IconButton>
               </InputAdornment>
             }
+      
             label="Password"
           />
         </FormControl>
