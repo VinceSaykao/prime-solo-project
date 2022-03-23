@@ -2,32 +2,39 @@
 
 
 #welcome {
-    // margin-left: 100px;
     margin: 0 auto;
     width: 100%;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 80px;
     font-family: "Roboto";
     font-style: normal;
     font-weight: 800;
     font-size: 60px;
-    // line-height: 41px;
     color: white;
     position: absolute;
     }
+
+    .logo {
+        z-index: 10000;
+        height: 150px;
+        width: 100px;
+        margin: 0 auto;
+        display: flex;
+        transform: rotate(90deg);
+        margin-top: -100px;
+        // position: absolute;
+    
+    }
     
     .formPanel {
-    position: absolute;
     width: 100%;
     height: 100%;
-    /* left: 20px;
-    top: 220px; */
-    
     background: #a197ff71;
-    /* background: #fdff84; */
     box-shadow: 1px 3px 5px 3px rgba(0, 0, 0, 0.25);
     border-radius: 54px 54px 0px 0px;
     backdrop-filter: blur(10px);
+    margin-top: 100px;
+    position: absolute;
     }
     
     #user-input {
@@ -40,7 +47,7 @@
     #password-input {
     display: flex;
     margin: 0 auto;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
     }
     
     #login {

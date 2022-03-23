@@ -118,15 +118,15 @@ function Row(props) {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {row.history.map((historyRow) => (
-                                        <TableRow key={historyRow.date}>
+                                    {timesheetReducer.map((item,i) => (
+                                        <TableRow key={i}>
                                             <TableCell component="th" scope="row">
-                                                {historyRow.date}
+                                                {item.to_char}
                                             </TableCell>
-                                            <TableCell>{historyRow.customerId}</TableCell>
-                                            <TableCell align="right">{historyRow.amount}</TableCell>
+                                            <TableCell>{item.date}</TableCell>
+                                            <TableCell align="right">{item.client_name}</TableCell>
                                             <TableCell align="right">
-                                                <p>King</p>
+                                                <button>Delete</button>
                                             </TableCell>
                                         </TableRow>
                                     ))}
@@ -242,6 +242,7 @@ export default function Timesheet() {
     console.log('this is new', timesheetReducer.client_name);
     console.log('timesheet is', timesheetReducer);
     return (
+        <>
         <TableContainer component={Paper}>
             <Table aria-label="collapsible table">
                 <TableHead>
@@ -261,6 +262,8 @@ export default function Timesheet() {
                 </TableBody>
             </Table>
         </TableContainer>
+        <Footer />
+        </>
     );
 
 }; // end of Timesheet
