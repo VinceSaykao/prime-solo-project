@@ -1,17 +1,15 @@
+
 import './Timesheet.scss';
 import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
-
 
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
-
 import { DataGrid } from '@mui/x-data-grid';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
-
 
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
@@ -78,6 +76,19 @@ function Row(props) {
     const dispatch = useDispatch();
     const timesheetReducer = useSelector(store => store.timesheetReducer);
 
+
+    const handleDelete = () => {
+        console.log('clicked delete');
+        dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetReducer.id })
+    }; // end of handleDelete
+
+
+    const handleEdit = () => {
+        console.log('clicked edit');
+        dispatch({ type: 'SET_UPDATE_TIMESHEET', payload: timesheetReducer })
+        history.push('/updateTimesheetForm');
+    }; // end of handleEdit
+
     return (
         <React.Fragment>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
@@ -128,7 +139,8 @@ function Row(props) {
                                             <TableCell align="right">{item.out}</TableCell>
                                             <TableCell align="right">{item.mileage}</TableCell>
                                             <TableCell align="right">{item.notes}</TableCell>
-                                            <TableCell align="right"><button>DELETE</button></TableCell>
+                                            <TableCell align="right"><Button onClick={handleDelete}>DELETE</Button></TableCell>
+                                            <TableCell align="right"><Button onClick={handleEdit}>Edit</Button></TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>
@@ -159,7 +171,8 @@ Row.propTypes = {
     }).isRequired,
 };
 
-const rows = [
+const rows = 
+[
     createData('Bilbo Baggins'),
     createData('Michelle Sweden'),
     createData('Naruto Suzuki'),
