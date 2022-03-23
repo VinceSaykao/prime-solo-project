@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './LoginForm.scss';
+import img1 from './logo3.png';
 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -83,6 +84,9 @@ function LoginForm() {
       <h2
         id="welcome"
       >Welcome</h2>
+      <img
+        className='logo'
+        src={img1} />
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
@@ -122,10 +126,11 @@ function LoginForm() {
 
           <InputLabel htmlFor="password-input">Password</InputLabel>
           <OutlinedInput
+          
             type={values.showPassword ? 'text' : 'password'}
             value={values.password}
             onChange={(event) => setPassword(event.target.value)}
-
+  
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -138,6 +143,7 @@ function LoginForm() {
                 </IconButton>
               </InputAdornment>
             }
+      
             label="Password"
           />
         </FormControl>

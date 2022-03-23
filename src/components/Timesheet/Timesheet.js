@@ -1,17 +1,15 @@
+
 import './Timesheet.scss';
 import TimesheetItem from '../TimesheetItem/TimesheetItem.js';
-
 
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
-
 import { DataGrid } from '@mui/x-data-grid';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
-
 
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
@@ -78,6 +76,19 @@ function Row(props) {
     const dispatch = useDispatch();
     const timesheetReducer = useSelector(store => store.timesheetReducer);
 
+
+    const handleDelete = () => {
+        console.log('clicked delete');
+        dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetReducer.id })
+    }; // end of handleDelete
+
+
+    const handleEdit = () => {
+        console.log('clicked edit');
+        dispatch({ type: 'SET_UPDATE_TIMESHEET', payload: timesheetReducer })
+        history.push('/updateTimesheetForm');
+    }; // end of handleEdit
+
     return (
         <React.Fragment>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
@@ -118,16 +129,18 @@ function Row(props) {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {row.history.map((historyRow) => (
-                                        <TableRow key={historyRow.date}>
+                                    {timesheetReducer.map((item,i) => (
+                                        <TableRow key={i}>
                                             <TableCell component="th" scope="row">
-                                                {historyRow.date}
+                                                {item.to_char}
                                             </TableCell>
-                                            <TableCell>{historyRow.customerId}</TableCell>
-                                            <TableCell align="right">{historyRow.amount}</TableCell>
-                                            <TableCell align="right">
-                                                <p>King</p>
-                                            </TableCell>
+                                            <TableCell>{item.client_name}</TableCell>
+                                            <TableCell align="right">{item.in}</TableCell>
+                                            <TableCell align="right">{item.out}</TableCell>
+                                            <TableCell align="right">{item.mileage}</TableCell>
+                                            <TableCell align="right">{item.notes}</TableCell>
+                                            <TableCell align="right"><Button onClick={handleDelete}>DELETE</Button></TableCell>
+                                            <TableCell align="right"><Button onClick={handleEdit}>Edit</Button></TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>
@@ -158,12 +171,15 @@ Row.propTypes = {
     }).isRequired,
 };
 
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0, 3.99),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
-    createData('Eclair', 262, 16.0, 24, 6.0, 3.79),
-    createData('Cupcake', 305, 3.7, 67, 4.3, 2.5),
-    createData('Gingerbread', 356, 16.0, 49, 3.9, 1.5),
+const rows = 
+[
+    createData('All Clients'),
+    createData('Michelle Sweden'),
+    createData('Naruto Suzuki'),
+    // createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
+    // createData('Eclair', 262, 16.0, 24, 6.0, 3.79),
+    // createData('Cupcake', 305, 3.7, 67, 4.3, 2.5),
+    // createData('Gingerbread', 356, 16.0, 49, 3.9, 1.5),
 ];
 
 
@@ -235,23 +251,20 @@ export default function Timesheet() {
 
     ];
 
-
-
-
-
     console.log('this is new', timesheetReducer.client_name);
     console.log('timesheet is', timesheetReducer);
     return (
+        <>
         <TableContainer component={Paper}>
             <Table aria-label="collapsible table">
                 <TableHead>
                     <TableRow>
                         <TableCell />
-                        <TableCell>Dessert (100g serving)</TableCell>
-                        <TableCell align="right">Calories</TableCell>
+                        <TableCell>Client Name</TableCell>
+                        {/* <TableCell align="right">Calories</TableCell>
                         <TableCell align="right">Fat&nbsp;(g)</TableCell>
                         <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                        <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                        <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -261,6 +274,8 @@ export default function Timesheet() {
                 </TableBody>
             </Table>
         </TableContainer>
+        <Footer />
+        </>
     );
 
 }; // end of Timesheet
