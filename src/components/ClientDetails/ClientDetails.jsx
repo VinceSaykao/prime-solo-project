@@ -9,6 +9,8 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
+import Avatar from '@mui/material/Avatar';
+import TimesheetItem from '../TimesheetItem/TimesheetItem';
 
 import Footer from '../Footer/Footer';
 
@@ -55,11 +57,15 @@ export default function ClientDetails() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({ type: 'FETCH_CLIENT' })
+        dispatch({ type: 'FETCH_TIMESHEET' })
     }, [location]) // end of useEffect
 
     // const history = useHistory();
 
     const clientInfoReducer = useSelector(store => store.clientInfoReducer);
+    const timesheetReducer = useSelector(store => store.timesheetReducer);
+
+
 
 
     const [value, setValue] = React.useState(0);
@@ -87,16 +93,21 @@ export default function ClientDetails() {
                 {clientInfoReducer.filter(item => item.client_fullname === client).map((item, i) => {
                     return (
                         <>
-
-                            <img className='client-details-pic' src={item.image_url} />
+                            <Avatar
+                                id='avatar-details'
+                                src={item.image_url}
+                                sx={{ width: 100, height: 100 }}
+                            />
+                            {/* <img className='client-details-pic' src={item.image_url} /> */}
 
                             <Box sx={{ width: '100%' }}>
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                                        <Tab label={"Information"} {...a11yProps(0)} />
-                                        <Tab label="History" {...a11yProps(1)} />
-                                        <Tab label="Hobbies" {...a11yProps(2)} />
-                                        <Tab label="other" {...a11yProps(3)} />
+                                        <Tab label={"Timesheet"} {...a11yProps(0)} />
+                                        <Tab label={"Info"} {...a11yProps(2)} />
+                                        <Tab label="History" {...a11yProps(3)} />
+                                        <Tab label="Hobbies" {...a11yProps(4)} />
+
                                     </Tabs>
                                 </Box>
 
@@ -105,20 +116,28 @@ export default function ClientDetails() {
                                         e.preventDefault();
                                         window.location.href = `https://www.google.com/maps?q=${item.address}`;
                                     }}
+                                    
                                     value={value} index={0}>
-                                    {item.address}
+                                     {timesheetReducer.map((timesheetItem, i) => {
+                                    return (
+                                        <TimesheetItem
+                                            key={i}
+                                            timesheetItem={timesheetItem} />
+                                    );
+                                })}
+                                </TabPanel>
+                                <TabPanel value={value} index={1}>
+                                {item.address}
                                     <Divider />
                                     Mobile: {item.phone}
                                 </TabPanel>
-                                <TabPanel value={value} index={1}>
+                                <TabPanel value={value} index={2}>
                                     {item.history}
                                 </TabPanel>
-                                <TabPanel value={value} index={2}>
+                                <TabPanel value={value} index={3}>
                                     {item.hobbies}
                                 </TabPanel>
-                                <TabPanel value={value} index={3}>
-                                    {item.other}
-                                </TabPanel>
+
                             </Box>
 
                         </>
