@@ -26,6 +26,6 @@ export default function* rootSaga() {
     updateTimesheetSaga(),
     deleteTimesheetWatcherSaga(),
     fetchClientInfoSaga(),
-    fetchBilboTimesheet.saga(),
+    fetchBilboTimesheet(),
   ]);
 }

@@ -30,7 +30,7 @@ router.get('/bilbo', (req, res) => {
 
     if (req.isAuthenticated()) {
         pool
-            .query(`select date,client_name,"in","out",mileage,notes from timesheet join clients on clients.id = timesheet.client_id where clients.id = 1 order by date asc;`)
+            .query(`select TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes from timesheet join clients on clients.id = timesheet.client_id where clients.id = 1 order by date desc;`)
             .then((results) => res.send(results.rows))
             .catch((error) => {
                 console.log('Error making SELECT for get timesheet:', error);
