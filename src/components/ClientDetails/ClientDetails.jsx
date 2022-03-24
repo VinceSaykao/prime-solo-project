@@ -158,7 +158,7 @@ export default function ClientDetails() {
 
 
 
-                <Footer />
+                {/* <Footer /> */}
             </div>
 
 

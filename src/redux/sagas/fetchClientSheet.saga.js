@@ -5,7 +5,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 function* fetchClientSheet(action) {
     console.log('this is action payload', action.payload);
     try {
-        const response = yield axios.get(`/api/clientdetails/${action.payload}`);
+        const response = yield axios.get(`/api/timesheet/clientdetails/${action.payload}`);
         console.log('this is response', response.data)
         yield put({type: 'SET_CLIENT_SHEET', payload: response.data}); 
     } catch(error) {

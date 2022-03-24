@@ -1,4 +1,4 @@
-const clientInfoReducer = (state = [], action) => {
+const timesheetClientReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_CLIENT_SHEET':
             return action.payload;
@@ -7,4 +7,4 @@ const clientInfoReducer = (state = [], action) => {
     }
 }; // end of timesheet Reducer
 
-export default clientInfoReducer;
+export default timesheetClientReducer;
