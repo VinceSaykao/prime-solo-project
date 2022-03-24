@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
+
 import TimesheetItem from '../TimesheetItem/TimesheetItem';
 
 import Button from '@mui/material/Button';
@@ -112,7 +113,7 @@ export default function ClientDetails() {
                                         <Tab label={"Info"} {...a11yProps(2)} />
                                         <Tab label="History" {...a11yProps(3)} />
                                         <Tab label="Hobbies" {...a11yProps(4)} />
-
+                                        
                                     </Tabs>
                                     
                                 </Box>
@@ -129,9 +130,12 @@ export default function ClientDetails() {
 
                                     {timesheetClientReducer.map((timesheetItem, i) => {
                                         return (
+                                            <>
+                                            <h1>HELO</h1>
                                             <TimesheetItem
                                                 key={i}
                                                 timesheetItem={timesheetItem} />
+                                                </>
                                         );
                                     })}
 
