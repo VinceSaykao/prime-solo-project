@@ -18,8 +18,6 @@ export default function TimesheetItem({ timesheetItem }) {
     const dispatch = useDispatch();
 
 
-
-
     const handleEdit = () => {
         console.log('this is id', timesheetItem.id)
         dispatch({ type: 'SET_UPDATE_TIMESHEET', payload: timesheetItem })

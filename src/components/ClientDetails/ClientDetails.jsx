@@ -1,4 +1,4 @@
-import { useHistory, useLocation, useParams } from 'react-router-dom';
+import { useHistory, useLocation, useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -74,11 +74,9 @@ export default function ClientDetails() {
         setValue(newValue);
     };
     const timesheetPush = () => {
-        history.push('/timesheetForm');
+        // history.push('/clienttimesheetform');
     }
 
-
-    console.log(clientInfoReducer)
 
     return (
         <>
@@ -123,9 +121,12 @@ export default function ClientDetails() {
                                 <TabPanel
 
                                     value={value} index={0}>
+                                        <Link to={`/clienttimesheetform/${item.client_fullname}`}>
                                     <Button
+                                    
                                         onClick={timesheetPush}
                                     >Add</Button>
+                                    </Link>
 
 
                                     {timesheetClientReducer.map((timesheetItem, i) => {
@@ -161,9 +162,6 @@ export default function ClientDetails() {
                         </>
                     );
                 })}
-
-
-
 
                 <Footer />
             </div>
