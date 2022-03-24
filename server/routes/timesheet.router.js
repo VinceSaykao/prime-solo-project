@@ -24,12 +24,16 @@ router.get('/', (req, res) => {
 }); // end of GET
 
 // this will GET the Bilbo Baggins timesheet from the database
-router.get('/clientsheet', (req, res) => {
+router.get('/clientdetails/:id', (req, res) => {
     // GET route code here
-
+    let id = req.params.id;
     if (req.isAuthenticated()) {
         pool
-            .query(`select TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes from timesheet join clients on clients.id = timesheet.client_id where clients.id = $1 order by date desc;`)
+            .query(`select TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes 
+            from timesheet 
+            join clients on clients.id = timesheet.client_id 
+            where clients.id = ${id} 
+            order by date desc;`)
             .then((results) => res.send(results.rows))
             .catch((error) => {
                 console.log('Error making SELECT for get timesheet:', error);

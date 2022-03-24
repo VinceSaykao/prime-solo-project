@@ -59,12 +59,12 @@ export default function ClientDetails() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({ type: 'FETCH_CLIENT' })
-        dispatch({ type: 'FETCH_TIMESHEET' })
+        dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
     }, [location]) // end of useEffect
 
 
     const clientInfoReducer = useSelector(store => store.clientInfoReducer);
-    const timesheetReducer = useSelector(store => store.timesheetReducer);
+    const timesheetClientReducer = useSelector(store => store.timesheetClientReducer);
 
 
     const [value, setValue] = React.useState(0);
@@ -123,14 +123,15 @@ export default function ClientDetails() {
                                     >Add</Button>
 
 
-
-                                    {timesheetReducer.map((timesheetItem, i) => {
+                                    {timesheetClientReducer.map((timesheetItem, i) => {
                                         return (
                                             <TimesheetItem
                                                 key={i}
                                                 timesheetItem={timesheetItem} />
                                         );
                                     })}
+
+
                                 </TabPanel>
                                 <TabPanel
                                     onClick={(e) => {
@@ -157,7 +158,7 @@ export default function ClientDetails() {
 
 
 
-                <Footer />
+                {/* <Footer /> */}
             </div>
 
 
