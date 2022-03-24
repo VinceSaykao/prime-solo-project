@@ -61,7 +61,7 @@ export default function ClientPageItem() {
                                 <img src={item.image_url} />
                             </div>
                             <div className='details'>
-                                <Link to={`/clientdetails/${item.id}`}><h2>{item.client_fullname}</h2>
+                                <Link to={`/clientdetails/${item.client_fullname}`}><h2>{item.client_fullname}</h2>
                                     <Divider />
                                     {item.phone}
                                 </Link>

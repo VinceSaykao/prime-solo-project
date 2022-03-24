@@ -99,12 +99,12 @@ export default function ClientDetails() {
                                 src={item.image_url}
                                 sx={{ width: 100, height: 100 }}
                             />
-                        
+
 
                             <div id='client-header-name'>
                                 {item.client_fullname}
                             </div>
-    
+
 
                             <Box sx={{ width: '100%' }}>
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -113,29 +113,28 @@ export default function ClientDetails() {
                                         <Tab label={"Info"} {...a11yProps(2)} />
                                         <Tab label="History" {...a11yProps(3)} />
                                         <Tab label="Hobbies" {...a11yProps(4)} />
-                                        
+
                                     </Tabs>
-                                    
+
                                 </Box>
-                        
-                    
+
+
 
                                 <TabPanel
 
                                     value={value} index={0}>
                                     <Button
-                                    onClick={timesheetPush}
+                                        onClick={timesheetPush}
                                     >Add</Button>
 
 
                                     {timesheetClientReducer.map((timesheetItem, i) => {
                                         return (
-                                            <>
-                                            <h1>HELO</h1>
+
                                             <TimesheetItem
                                                 key={i}
                                                 timesheetItem={timesheetItem} />
-                                                </>
+
                                         );
                                     })}
 
@@ -162,7 +161,7 @@ export default function ClientDetails() {
                         </>
                     );
                 })}
-        
+
 
 
 
