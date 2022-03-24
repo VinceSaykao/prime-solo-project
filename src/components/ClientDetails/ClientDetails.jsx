@@ -12,6 +12,8 @@ import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
 import TimesheetItem from '../TimesheetItem/TimesheetItem';
 
+import Button from '@mui/material/Button';
+
 import Footer from '../Footer/Footer';
 
 import './ClientDetails.scss';
@@ -53,6 +55,7 @@ function a11yProps(index) {
 export default function ClientDetails() {
 
     const { client } = useParams();
+    const history = useHistory();
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -60,7 +63,6 @@ export default function ClientDetails() {
         dispatch({ type: 'FETCH_TIMESHEET' })
     }, [location]) // end of useEffect
 
-    // const history = useHistory();
 
     const clientInfoReducer = useSelector(store => store.clientInfoReducer);
     const timesheetReducer = useSelector(store => store.timesheetReducer);
@@ -73,6 +75,9 @@ export default function ClientDetails() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const timesheetPush = () => {
+        history.push('/timesheetForm');
+    }
 
 
 
@@ -98,7 +103,10 @@ export default function ClientDetails() {
                                 src={item.image_url}
                                 sx={{ width: 100, height: 100 }}
                             />
-                            {/* <img className='client-details-pic' src={item.image_url} /> */}
+
+                            <div id='client-header-name'>
+                                {item.client_fullname}
+                            </div>
 
                             <Box sx={{ width: '100%' }}>
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -112,22 +120,29 @@ export default function ClientDetails() {
                                 </Box>
 
                                 <TabPanel
+
+                                    value={value} index={0}>
+                                    <Button
+                                    onClick={timesheetPush}
+                                    >Add</Button>
+                                    <Button>Delete</Button>
+
+
+                                    {timesheetReducer.map((timesheetItem, i) => {
+                                        return (
+                                            <TimesheetItem
+                                                key={i}
+                                                timesheetItem={timesheetItem} />
+                                        );
+                                    })}
+                                </TabPanel>
+                                <TabPanel
                                     onClick={(e) => {
                                         e.preventDefault();
                                         window.location.href = `https://www.google.com/maps?q=${item.address}`;
                                     }}
-                                    
-                                    value={value} index={0}>
-                                     {timesheetReducer.map((timesheetItem, i) => {
-                                    return (
-                                        <TimesheetItem
-                                            key={i}
-                                            timesheetItem={timesheetItem} />
-                                    );
-                                })}
-                                </TabPanel>
-                                <TabPanel value={value} index={1}>
-                                {item.address}
+                                    value={value} index={1}>
+                                    {item.address}
                                     <Divider />
                                     Mobile: {item.phone}
                                 </TabPanel>

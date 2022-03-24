@@ -46,7 +46,6 @@ export default function TimesheetItem({ timesheetItem }) {
     return (
         <div>
 
-
             <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
                 <Alert id='alert-delete' onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                     You Successfully Deleted!
