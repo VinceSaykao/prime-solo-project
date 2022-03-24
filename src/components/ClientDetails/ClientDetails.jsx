@@ -77,7 +77,6 @@ export default function ClientDetails() {
         // history.push('/clienttimesheetform');
     }
 
-    console.log(clientInfoReducer)
 
     return (
         <>
