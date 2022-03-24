@@ -23,6 +23,23 @@ router.get('/', (req, res) => {
     };
 }); // end of GET
 
+// this will GET the Bilbo Baggins timesheet from the database
+router.get('/clientsheet', (req, res) => {
+    // GET route code here
+
+    if (req.isAuthenticated()) {
+        pool
+            .query(`select TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes from timesheet join clients on clients.id = timesheet.client_id where clients.id = $1 order by date desc;`)
+            .then((results) => res.send(results.rows))
+            .catch((error) => {
+                console.log('Error making SELECT for get timesheet:', error);
+                res.sendStatus(500);
+            });
+    } else {
+        res.sendStatus(403); // Forbidden
+    };
+}); // end of GET
+
 
 // this will GET the Bilbo Baggins timesheet from the database
 router.get('/bilbo', (req, res) => {
