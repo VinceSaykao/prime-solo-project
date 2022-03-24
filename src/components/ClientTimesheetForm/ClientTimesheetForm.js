@@ -37,7 +37,7 @@ export default function ClientTimesheetForm() {
     }, [location]) // end of useEffect
 
 
-    const [clientName, setClientName] = useState(clientInfoReducer.client_fullname);
+    const [clientName, setClientName] = useState(client);
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
     const [date, setDate] = React.useState(new Date());
@@ -89,6 +89,8 @@ export default function ClientTimesheetForm() {
     }
 
 
+
+    console.log('client form ', clientInfoReducer);
     return (
 
         <> <Helmet>
