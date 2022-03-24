@@ -88,9 +88,8 @@ export default function ClientDetails() {
 
                 </style>
             </Helmet>
-
-
             <div id='one'>
+                <h1>HELLO</h1>
                 {clientInfoReducer.filter(item => item.client_fullname === client).map((item, i) => {
                     return (
                         <>
@@ -99,10 +98,12 @@ export default function ClientDetails() {
                                 src={item.image_url}
                                 sx={{ width: 100, height: 100 }}
                             />
+                        
 
                             <div id='client-header-name'>
                                 {item.client_fullname}
                             </div>
+    
 
                             <Box sx={{ width: '100%' }}>
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -113,7 +114,10 @@ export default function ClientDetails() {
                                         <Tab label="Hobbies" {...a11yProps(4)} />
 
                                     </Tabs>
+                                    
                                 </Box>
+                        
+                    
 
                                 <TabPanel
 
@@ -151,14 +155,14 @@ export default function ClientDetails() {
                                 </TabPanel>
 
                             </Box>
-
                         </>
                     );
                 })}
+        
 
 
 
-                {/* <Footer /> */}
+                <Footer />
             </div>
 
 
