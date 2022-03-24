@@ -18,7 +18,6 @@ import Footer from '../Footer/Footer';
 
 import './ClientDetails.scss';
 
-
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -68,8 +67,6 @@ export default function ClientDetails() {
     const timesheetReducer = useSelector(store => store.timesheetReducer);
 
 
-
-
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -78,7 +75,6 @@ export default function ClientDetails() {
     const timesheetPush = () => {
         history.push('/timesheetForm');
     }
-
 
 
     console.log(clientInfoReducer)
@@ -125,7 +121,7 @@ export default function ClientDetails() {
                                     <Button
                                     onClick={timesheetPush}
                                     >Add</Button>
-                                    <Button>Delete</Button>
+
 
 
                                     {timesheetReducer.map((timesheetItem, i) => {

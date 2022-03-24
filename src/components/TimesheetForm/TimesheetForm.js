@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
@@ -27,6 +27,7 @@ export default function TimesheetForm() {
 
     const history = useHistory();
     const dispatch = useDispatch();
+
 
     const [clientName, setClientName] = useState('');
     const [mileage, setMileage] = useState('');
@@ -74,7 +75,7 @@ export default function TimesheetForm() {
 
     // clicking exit pushes you to timesheet
     const handleClick = () => {
-        history.push('/timesheet');
+        history.push('clientdetails/Michelle%20Sweden')
     }
 
 

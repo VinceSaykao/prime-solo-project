@@ -19,7 +19,7 @@ export default function TimesheetItem({ timesheetItem }) {
 
 
     const handleEdit = () => {
-        console.log('clicked edit');
+        console.log('this is id', timesheetItem.id)
         dispatch({ type: 'SET_UPDATE_TIMESHEET', payload: timesheetItem })
         history.push('/updateTimesheetForm');
     }; // end of handleEdit
