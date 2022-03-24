@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, Link, useParams } from 'react-router-dom';
 
 
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
@@ -29,9 +29,15 @@ export default function ClientTimesheetForm() {
 
     const history = useHistory();
     const dispatch = useDispatch();
+    const { client } = useParams();
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_CLIENT' })
+        dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
+    }, [location]) // end of useEffect
 
 
-    const [clientName, setClientName] = useState('');
+    const [clientName, setClientName] = useState(clientInfoReducer.client_fullname);
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
     const [date, setDate] = React.useState(new Date());
