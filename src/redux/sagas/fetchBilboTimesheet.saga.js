@@ -17,6 +17,6 @@ function* fetchBilboTimesheet() {
 }; // end of fetchTimesheet
 
 // watcher root saga
-export default function* rootSagaFetchBilboTimesheet() {
+export default function* FetchBilboTimesheet() {
     yield takeEvery('FETCH_BILBO_TIMESHEET', fetchBilboTimesheet);
 }; // end of rootSaga

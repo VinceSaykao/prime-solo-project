@@ -27,11 +27,17 @@ import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+
 
 import Footer from '../Footer/Footer';
 
 import { Helmet } from 'react-helmet';
-
 
 
 
@@ -68,6 +74,7 @@ function Row(props) {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_TIMESHEET' })
+        dispatch({ type: 'FETCH_BILBO_TIMESHEET' })
     }, [location]) // end of useEffect
 
 
@@ -75,20 +82,26 @@ function Row(props) {
 
     const dispatch = useDispatch();
     const timesheetReducer = useSelector(store => store.timesheetReducer);
+    const timesheetBilboReducer = useSelector(store => store.timesheetBilboReducer);
+
+    console.log('making', timesheetBilboReducer);
 
 
     const handleDelete = () => {
+        console.log('this is', timesheetBilboReducer)
+        console.log('delete', timesheetBilboReducer.to_char)
         console.log('clicked delete');
-        dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetReducer.id })
+        dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetBilboReducer.id })
     }; // end of handleDelete
 
 
     const handleEdit = () => {
         console.log('clicked edit');
-        dispatch({ type: 'SET_UPDATE_TIMESHEET', payload: timesheetReducer })
+        dispatch({ type: 'SET_UPDATE_TIMESHEET', payload: timesheetBilboReducer })
         history.push('/updateTimesheetForm');
     }; // end of handleEdit
 
+    
     return (
         <React.Fragment>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
@@ -125,11 +138,11 @@ function Row(props) {
                                         <TableCell align="right">Time Out</TableCell>
                                         <TableCell align="right">Mileage</TableCell>
                                         <TableCell align="right">Notes</TableCell>
-                                
+
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {timesheetReducer.map((item,i) => (
+                                    {timesheetBilboReducer.map((item, i) => (
                                         <TableRow key={i}>
                                             <TableCell component="th" scope="row">
                                                 {item.to_char}
@@ -171,16 +184,16 @@ Row.propTypes = {
     }).isRequired,
 };
 
-const rows = 
-[
-    createData('All Clients'),
-    createData('Michelle Sweden'),
-    createData('Naruto Suzuki'),
-    // createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
-    // createData('Eclair', 262, 16.0, 24, 6.0, 3.79),
-    // createData('Cupcake', 305, 3.7, 67, 4.3, 2.5),
-    // createData('Gingerbread', 356, 16.0, 49, 3.9, 1.5),
-];
+const rows =
+    [
+        createData('All Clients'),
+        createData('Michelle Sweden'),
+        createData('Naruto Suzuki'),
+        // createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
+        // createData('Eclair', 262, 16.0, 24, 6.0, 3.79),
+        // createData('Cupcake', 305, 3.7, 67, 4.3, 2.5),
+        // createData('Gingerbread', 356, 16.0, 49, 3.9, 1.5),
+    ];
 
 
 
@@ -193,6 +206,7 @@ export default function Timesheet() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_TIMESHEET' })
+        dispatch({ type: 'FETCH_BILBO_TIMESHEET' })
     }, [location]) // end of useEffect
 
 
@@ -200,6 +214,7 @@ export default function Timesheet() {
 
     const dispatch = useDispatch();
     const timesheetReducer = useSelector(store => store.timesheetReducer);
+    const timesheetBilboReducer = useSelector(store => store.timesheetBilboReducer);
 
 
 
@@ -251,30 +266,54 @@ export default function Timesheet() {
 
     ];
 
-    console.log('this is new', timesheetReducer.client_name);
-    console.log('timesheet is', timesheetReducer);
+    console.log('this is', timesheetBilboReducer)
     return (
         <>
-        <TableContainer component={Paper}>
-            <Table aria-label="collapsible table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell />
-                        <TableCell>Client Name</TableCell>
-                        {/* <TableCell align="right">Calories</TableCell>
-                        <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                        <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                        <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.map((row) => (
-                        <Row key={row.name} row={row} />
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
-        <Footer />
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                >
+                    <Typography>Accordion 1</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                        malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    </Typography>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2a-content"
+                    id="panel2a-header"
+                >
+                    <Typography>Bilbo Baggins</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        {timesheetBilboReducer.map((timesheetItem, i) => {
+                            return (
+                                <TimesheetItem
+                                    key={i}
+                                    timesheetItem={timesheetItem} />
+                            );
+                        })}
+                    </Typography>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion disabled>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel3a-content"
+                    id="panel3a-header"
+                >
+                    <Typography>Disabled Accordion</Typography>
+                </AccordionSummary>
+            </Accordion>
+
         </>
     );
 

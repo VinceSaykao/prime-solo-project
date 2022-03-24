@@ -4,8 +4,8 @@ import user from './user.reducer';
 import timesheetReducer from './timesheetReducer.reducer';
 import timesheetFormReducer from './timesheetFormReducer.reducer';
 import timesheetFormUpdateReducer from './timesheetFormUpdateReducer.reducer';
-import clientInfoReducer from './clientInfoReducer';
-import timesheetBilboReducer from './timesheetBilboReducer';
+import clientInfoReducer from './clientInfoReducer.reducer';
+import timesheetBilboReducer from './timesheetBilboReducer.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
