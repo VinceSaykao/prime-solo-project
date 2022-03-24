@@ -23,7 +23,9 @@ import Swal from 'sweetalert2';
 
 import './ClientTimesheetForm.scss';
 
-export default function ClienTimesheetForm() {
+export default function ClientTimesheetForm() {
+
+    const clientInfoReducer = useSelector(store => store.clientInfoReducer);
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -35,6 +37,8 @@ export default function ClienTimesheetForm() {
     const [date, setDate] = React.useState(new Date());
     const [timeIn, setTimeIn] = React.useState(new Date());
     const [timeOut, setTimeOut] = React.useState(new Date());
+
+
     
     // when submit is pressed, will post all input values
     function handleSubmit() {

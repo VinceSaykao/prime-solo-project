@@ -130,7 +130,7 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows timesheet
             exact
-            path="/clienttimesheetform"
+            path="/clienttimesheetform/:client"
           >
             <ClientTimesheetForm />
           </ProtectedRoute>
