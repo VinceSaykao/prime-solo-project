@@ -18,7 +18,6 @@ const timesheetFormUpdateReducer = (state = {
                 out: action.payload.out,
                 mileage: action.payload.mileage,
                 notes: action.payload.notes,
-                
             }
             default:
                 return state;

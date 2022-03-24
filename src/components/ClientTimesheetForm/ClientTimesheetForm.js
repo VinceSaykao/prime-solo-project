@@ -27,6 +27,7 @@ export default function ClientTimesheetForm() {
 
     const clientInfoReducer = useSelector(store => store.clientInfoReducer);
 
+
     const history = useHistory();
     const dispatch = useDispatch();
     const { client } = useParams();
@@ -37,6 +38,7 @@ export default function ClientTimesheetForm() {
     }, [location]) // end of useEffect
 
 
+    const [clientId, setClientId] = useState('')
     const [clientName, setClientName] = useState(client);
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
@@ -44,8 +46,6 @@ export default function ClientTimesheetForm() {
     const [timeIn, setTimeIn] = React.useState(new Date());
     const [timeOut, setTimeOut] = React.useState(new Date());
 
-
-    
     // when submit is pressed, will post all input values
     function handleSubmit() {
 
@@ -85,12 +85,9 @@ export default function ClientTimesheetForm() {
 
     // clicking exit pushes you to timesheet
     const handleClick = () => {
-        history.push('clientdetails/Michelle%20Sweden')
+        history.push('/timesheet')
     }
-
-
-
-    console.log('client form ', clientInfoReducer);
+    
     return (
 
         <> <Helmet>
@@ -117,7 +114,6 @@ export default function ClientTimesheetForm() {
                             value={clientName}
                             onChange={evt => setClientName(evt.target.value)}
                         />
-
 
                         <MobileDatePicker
                             label="Date"
@@ -163,13 +159,6 @@ export default function ClientTimesheetForm() {
                             defaultValue="Default Value"
                             onChange={evt => setNotes(evt.target.value)}
                         />
-
-
-
-
-
-
-
 
                     </Stack>
                 </LocalizationProvider>
