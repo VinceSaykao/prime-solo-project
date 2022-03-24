@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
+
 import TimesheetItem from '../TimesheetItem/TimesheetItem';
 
 import Button from '@mui/material/Button';
@@ -88,9 +89,8 @@ export default function ClientDetails() {
 
                 </style>
             </Helmet>
-
-
             <div id='one'>
+                <h1>HELLO</h1>
                 {clientInfoReducer.filter(item => item.client_fullname === client).map((item, i) => {
                     return (
                         <>
@@ -100,9 +100,11 @@ export default function ClientDetails() {
                                 sx={{ width: 100, height: 100 }}
                             />
 
+
                             <div id='client-header-name'>
                                 {item.client_fullname}
                             </div>
+
 
                             <Box sx={{ width: '100%' }}>
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -113,21 +115,26 @@ export default function ClientDetails() {
                                         <Tab label="Hobbies" {...a11yProps(4)} />
 
                                     </Tabs>
+
                                 </Box>
+
+
 
                                 <TabPanel
 
                                     value={value} index={0}>
                                     <Button
-                                    onClick={timesheetPush}
+                                        onClick={timesheetPush}
                                     >Add</Button>
 
 
                                     {timesheetClientReducer.map((timesheetItem, i) => {
                                         return (
+
                                             <TimesheetItem
                                                 key={i}
                                                 timesheetItem={timesheetItem} />
+
                                         );
                                     })}
 
@@ -151,10 +158,10 @@ export default function ClientDetails() {
                                 </TabPanel>
 
                             </Box>
-
                         </>
                     );
                 })}
+
 
 
 

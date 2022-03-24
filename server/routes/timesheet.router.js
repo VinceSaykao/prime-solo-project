@@ -32,8 +32,8 @@ router.get('/clientdetails/:id', (req, res) => {
             .query(`select TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes 
             from timesheet 
             join clients on clients.id = timesheet.client_id 
-            where clients.id = ${id} 
-            order by date desc;`)
+            where clients.client_fullname = $1 
+            order by date desc;`,[id])
             .then((results) => res.send(results.rows))
             .catch((error) => {
                 console.log('Error making SELECT for get timesheet:', error);
