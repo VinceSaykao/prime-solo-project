@@ -21,9 +21,9 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import Swal from 'sweetalert2';
 
-import './TimesheetForm.scss';
+import './ClientTimesheetForm.scss';
 
-export default function TimesheetForm() {
+export default function ClienTimesheetForm() {
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -75,7 +75,7 @@ export default function TimesheetForm() {
 
     // clicking exit pushes you to timesheet
     const handleClick = () => {
-        history.push('timesheet')
+        history.push('clientdetails/Michelle%20Sweden')
     }
 
 

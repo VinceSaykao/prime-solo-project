@@ -74,9 +74,8 @@ export default function ClientDetails() {
         setValue(newValue);
     };
     const timesheetPush = () => {
-        history.push('/timesheetForm');
+        history.push('/clienttimesheetform');
     }
-
 
     console.log(clientInfoReducer)
 

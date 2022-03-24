@@ -89,7 +89,7 @@ export default function UpdateTimesheetForm() {
     console.log('this is the date', timesheetFormUpdateReducer)
 
     const handleClick = () => {
-        history.push('/clientdetails/Michelle%20Sweden');
+        history.push('/timesheet');
     }
 
 
