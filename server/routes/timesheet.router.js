@@ -45,7 +45,7 @@ router.get('/clientdetails/:id', (req, res) => {
 }); // end of GET
 
 
-// this will GET the Bilbo Baggins timesheet from the database
+// this will GET the specific client timesheet from the database
 router.get('/clienttimesheet/:id', (req, res) => {
     // GET route code here
     let id = req.params.id;
