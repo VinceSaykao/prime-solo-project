@@ -1,7 +1,9 @@
+//SET_CLIENT_UPDATE_TIMESHEET
+
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import './UpdateTimesheetForm.scss';
+import './UpdateClientTimesheetForm.scss';
 
 import { Helmet } from 'react-helmet';
 
@@ -26,19 +28,20 @@ import MobileTimePicker from '@mui/lab/MobileTimePicker';
 import Swal from 'sweetalert2';
 
 
-export default function UpdateTimesheetForm() {
+export default function UpdateClientTimesheetForm() {
 
 
-    const timesheetFormUpdateReducer = useSelector(store => store.timesheetFormUpdateReducer);
+    const timesheetClientUpdateFormTimesheetReducer = useSelector(store => store.timesheetClientUpdateFormTimesheetReducer);
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const [clientName, setClientName] = useState(timesheetFormUpdateReducer.client_name);
-    const [date, setDate] = useState(timesheetFormUpdateReducer.to_char); //timesheetFormUpdateReducer.date
-    const [timeIn, setTimeIn] = useState(timesheetFormUpdateReducer.in);
-    const [timeOut, setTimeOut] = useState(timesheetFormUpdateReducer.out);
-    const [mileage, setMileage] = useState(timesheetFormUpdateReducer.mileage);
-    const [notes, setNotes] = useState(timesheetFormUpdateReducer.notes);
+    const [clientName, setClientName] = useState(timesheetClientUpdateFormTimesheetReducer.client_name);
+    const [date, setDate] = useState(timesheetClientUpdateFormTimesheetReducer.to_char); //timesheetFormUpdateReducer.date
+    const [clientId, setClientId] = useState(timesheetClientUpdateFormTimesheetReducer.client_id);
+    const [timeIn, setTimeIn] = useState(timesheetClientUpdateFormTimesheetReducer.in);
+    const [timeOut, setTimeOut] = useState(timesheetClientUpdateFormTimesheetReducer.out);
+    const [mileage, setMileage] = useState(timesheetClientUpdateFormTimesheetReducer.mileage);
+    const [notes, setNotes] = useState(timesheetClientUpdateFormTimesheetReducer.notes);
 
     // when submit is pressed, will post all input values
     function handleSubmit() {
@@ -46,7 +49,7 @@ export default function UpdateTimesheetForm() {
         console.log('clicked submit')
 
         const updateInfo = {
-            id: timesheetFormUpdateReducer.id,
+            id: timesheetClientUpdateFormTimesheetReducer.id,
             date: date,
             client_name: clientName,
             in: timeIn,
@@ -65,7 +68,7 @@ export default function UpdateTimesheetForm() {
                 confirmButtonText: 'Yes. Submit!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    dispatch({ type: 'UPDATE_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
+                    dispatch({ type: 'UPDATE_CLIENT_TIMESHEET', payload: { date: date, client_name: clientName, client_id: clientId, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
                     // clears input value after submit is pressed
                     history.push('/timesheet');
 
@@ -86,7 +89,7 @@ export default function UpdateTimesheetForm() {
         setDate(newValue);
     };
 
-    console.log('this is the date', timesheetFormUpdateReducer)
+    console.log('GARRRRRGHHHHH update client timesheet form', timesheetClientUpdateFormTimesheetReducer)
 
     const handleClick = () => {
         history.push('/timesheet');

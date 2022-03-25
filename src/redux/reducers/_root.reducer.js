@@ -7,6 +7,7 @@ import timesheetFormUpdateReducer from './timesheetFormUpdateReducer.reducer';
 import clientInfoReducer from './clientInfoReducer.reducer';
 import timesheetClientTimesheetReducer from './timesheetClientTimesheetReducer.reducer';
 import timesheetClientReducer from './timesheetClientReducer.reducer';
+import timesheetClientUpdateFormTimesheetReducer from './timesheetClientUpdateFormTimesheetReducer.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   clientInfoReducer,
   timesheetClientTimesheetReducer,
   timesheetClientReducer,
+  timesheetClientUpdateFormTimesheetReducer,
 });
 
 export default rootReducer;

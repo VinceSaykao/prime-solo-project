@@ -28,6 +28,7 @@ import Chat from '../Chat/Chat';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import ClientDetails from '../ClientDetails/ClientDetails';
 import ClientTimesheetForm from '../ClientTimesheetForm/ClientTimesheetForm';
+import UpdateClientTimesheetForm from '../UpdateClientTimesheetForm/UpdateClientTimesheetForm'; 
 
 import './App.css';
 
@@ -136,11 +137,19 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+    
             exact
             path="/updatetimesheetform"
           >
             <UpdateTimesheetForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+
+            exact
+            path="/updateClientTimesheetForm"
+          >
+            <UpdateClientTimesheetForm />
           </ProtectedRoute>
 
 

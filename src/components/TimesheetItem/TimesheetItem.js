@@ -43,6 +43,8 @@ export default function TimesheetItem({ timesheetItem }) {
         setOpen(false);
     };
 
+
+    console.log('fixing', timesheetItem);
     return (
         <div>
             

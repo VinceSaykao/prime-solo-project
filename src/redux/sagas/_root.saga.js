@@ -9,6 +9,7 @@ import deleteTimesheetWatcherSaga from './deleteTimesheet.saga';
 import fetchClientInfoSaga from './fetchClientInfo.saga';
 import fetchClientTimesheetSaga from './fetchClientTimesheet.saga';
 import fetchClientSheet from './fetchClientSheet.saga';
+import updateClientTimesheetSaga from './updateClientTimesheet.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -29,5 +30,6 @@ export default function* rootSaga() {
     fetchClientInfoSaga(),
     fetchClientTimesheetSaga(),
     fetchClientSheet(),
+    updateClientTimesheetSaga(),
   ]);
 }
