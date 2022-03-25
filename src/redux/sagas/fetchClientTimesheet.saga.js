@@ -5,7 +5,8 @@ import { put, takeEvery } from 'redux-saga/effects';
 // generator saga function: will be fired on "FETCH_TIMESHEET" actions
 function* fetchClientTimesheet(action) {
     try {
-        const response = yield axios.get(`/api/timesheet/clienttimesheet/${action.paylod}`);
+        console.log('inside clientimesheet', action.payload)
+        const response = yield axios.get(`/api/timesheet/clienttimesheet/${action.payload}`);
         yield put({ type: 'SET_CLIENT_TIMESHEET', payload: response.data });
     } catch (error) {
         console.log('error fetching timesheet', error);
