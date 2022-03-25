@@ -29,7 +29,7 @@ router.get('/clientdetails/:id', (req, res) => {
     let id = req.params.id;
     if (req.isAuthenticated()) {
         pool
-            .query(`select TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes 
+            .query(`select timesheet.client_id, TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes 
             from timesheet 
             join clients on clients.id = timesheet.client_id 
             where clients.client_fullname = $1 
@@ -52,7 +52,7 @@ router.get('/clienttimesheet/:id', (req, res) => {
 
     if (req.isAuthenticated()) {
         pool
-            .query(`select timesheet.id,client_id,TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes from timesheet join clients on clients.id = timesheet.client_id where timesheet.id = $1 order by date asc;`,[id])
+            .query(`select client_id, client_name from timesheet join clients on clients.id = timesheet.client_id where client_name = $1 limit 1;`,[id])
             .then((results) => res.send(results.rows))
             .catch((error) => {
                 console.log('Error making SELECT for get timesheet:', error);
@@ -67,8 +67,8 @@ router.get('/clienttimesheet/:id', (req, res) => {
 
 // this will POST the timesheet Form inputs to the database
 router.post('/', (req, res) => {
-    let queryText = `insert into timesheet ("user_id","date","client_name","in","out","mileage","notes") values
-    ($1,$2,$3,$4,$5,$6,$7);
+    let queryText = `insert into timesheet ("user_id", "client_id", "date","client_name","in","out","mileage","notes") values
+    ($1,1,$2,$3,$4,$5,$6,$7);
     `;
     console.log('req.user.id is', req.user.id)
     //     let queryInserts = [req.user.id,1,'joe',3,4,323,'fun times'];
