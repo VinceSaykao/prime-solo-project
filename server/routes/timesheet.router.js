@@ -68,11 +68,11 @@ router.get('/clienttimesheet/:id', (req, res) => {
 // this will POST the timesheet Form inputs to the database
 router.post('/', (req, res) => {
     let queryText = `insert into timesheet ("user_id", "client_id", "date","client_name","in","out","mileage","notes") values
-    ($1,1,$2,$3,$4,$5,$6,$7);
+    ($1,$2,$3,$4,$5,$6,$7,$8);
     `;
     console.log('req.user.id is', req.user.id)
     //     let queryInserts = [req.user.id,1,'joe',3,4,323,'fun times'];
-    let queryInserts = [req.user.id, req.body.date, req.body.client_name, req.body.in, req.body.out, req.body.mileage, req.body.notes];
+    let queryInserts = [req.user.id, req.body.client_id, req.body.date, req.body.client_name, req.body.in, req.body.out, req.body.mileage, req.body.notes];
     if (req.isAuthenticated()) {
         pool
             .query(queryText, queryInserts)
