@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, Link, useParams } from 'react-router-dom';
 
 
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
@@ -21,21 +21,33 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import Swal from 'sweetalert2';
 
-import './TimesheetForm.scss';
+import './ClientTimesheetForm.scss';
 
-export default function TimesheetForm() {
+export default function ClientTimesheetForm() {
+
+    const clientInfoReducer = useSelector(store => store.clientInfoReducer);
+    const timesheetClientTimesheetReducer = useSelector(store => store.timesheetClientTimesheetReducer);
+
 
     const history = useHistory();
     const dispatch = useDispatch();
+    const { client } = useParams();
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_CLIENT' })
+        dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
+        dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
+    }, [location]) // end of useEffect
 
 
-    const [clientName, setClientName] = useState('');
+    const [clientId, setClientId] = useState(1);
+    const [clientName, setClientName] = useState(client);
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
     const [date, setDate] = React.useState(new Date());
     const [timeIn, setTimeIn] = React.useState(new Date());
     const [timeOut, setTimeOut] = React.useState(new Date());
-    
+
     // when submit is pressed, will post all input values
     function handleSubmit() {
 
@@ -75,12 +87,11 @@ export default function TimesheetForm() {
 
     // clicking exit pushes you to timesheet
     const handleClick = () => {
-        history.push('timesheet')
+        history.push('/timesheet')
     }
 
-
+    console.log('THIS Is FIRE', timesheetClientTimesheetReducer);
     return (
-
         <> <Helmet>
             <style>{`body { height: 100%; background-color: #544e88; 
     
@@ -105,7 +116,6 @@ export default function TimesheetForm() {
                             value={clientName}
                             onChange={evt => setClientName(evt.target.value)}
                         />
-
 
                         <MobileDatePicker
                             label="Date"
@@ -151,13 +161,6 @@ export default function TimesheetForm() {
                             defaultValue="Default Value"
                             onChange={evt => setNotes(evt.target.value)}
                         />
-
-
-
-
-
-
-
 
                     </Stack>
                 </LocalizationProvider>
