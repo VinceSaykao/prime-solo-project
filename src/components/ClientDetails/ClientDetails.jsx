@@ -102,7 +102,7 @@ export default function ClientDetails() {
                 </style>
             </Helmet>
             <div id='one'>
-                <h1>HELLO</h1>
+
                 {clientInfoReducer.filter(item => item.client_fullname === client).map((item, i) => {
                     return (
                         <>
@@ -134,6 +134,7 @@ export default function ClientDetails() {
 
                                 <TabPanel
 
+                                    // Move client info reducer as a prop as item and move the link down, so only button pushes
                                     value={value} index={0}>
                                     <Link to={`/clienttimesheet/${item.client_fullname}`}>
                                         <ClientDetailsAddButton />
