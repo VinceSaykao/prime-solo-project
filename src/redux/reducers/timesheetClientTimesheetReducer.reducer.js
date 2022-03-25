@@ -1,4 +1,4 @@
-const timesheetClientReducer = (state = [], action) => {
+const timesheetClientTimesheetReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_CLIENT_TIMESHEET':
             return action.payload;
@@ -7,4 +7,4 @@ const timesheetClientReducer = (state = [], action) => {
     }
 }; // end of timesheet Reducer
 
-export default timesheetClientReducer;
+export default timesheetClientTimesheetReducer;

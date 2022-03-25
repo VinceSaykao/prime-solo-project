@@ -60,13 +60,13 @@ export default function ClientDetails() {
     const history = useHistory();
     const clientInfoReducer = useSelector(store => store.clientInfoReducer);
     const timesheetClientReducer = useSelector(store => store.timesheetClientReducer);
-    // const timesheetClientTimesheetReducer = useSelector(store => store.timesheetClientTimesheetReducer);
+    const timesheetClientTimesheetReducer = useSelector(store => store.timesheetClientTimesheetReducer);
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({ type: 'FETCH_CLIENT' })
         dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
-        // dispatch({ type: 'FETCH_CLIENT_TIMESHEET', payload: timesheetClientTimesheetReducer})
+        dispatch({ type: 'FETCH_CLIENT_TIMESHEET', payload: client})
     }, [location]) // end of useEffect
 
 
@@ -86,11 +86,12 @@ export default function ClientDetails() {
     
     // }
 
-    const handleAdd = () => {
-        console.log('this is correct', timesheetClientReducer);
-    }
+    // const handleAdd = () => {
+    //     console.log('this is correct', timesheetClientReducer);
+    // }
 
-    console.log('this is specific client', timesheetClientReducer);
+console.log('single', timesheetClientTimesheetReducer);
+console.log('stuff', timesheetClientReducer);
     return (
         <>
 
@@ -134,10 +135,16 @@ export default function ClientDetails() {
                                 <TabPanel
 
                                     value={value} index={0}>
-                                        <button
-                                        onClick={handleAdd}
-                                        >Add</button>
-                                        {/* <ClientDetailsAddButton /> */}
+                                
+                                {timesheetClientTimesheetReducer.map((clientTwo, i) => {
+                                        return (
+                                            <ClientDetailsAddButton
+                                                key={i}
+                                                timesheetItem={clientTwo} />
+                                        );
+                                    })}
+
+                                        <ClientDetailsAddButton />
                                         {/* <Link to={`/clienttimesheetform/${item.client_fullname}`}>
                                     <Button
                             

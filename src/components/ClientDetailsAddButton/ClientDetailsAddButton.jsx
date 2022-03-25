@@ -1,10 +1,16 @@
 
 
-export default function ClientDetailsAddButton() {
+export default function ClientDetailsAddButton({clientTwo}) {
+
+const handleAdd = () => {
+    console.log(clientTwo);
+}
 
     return (
         <div>
-            <button>ADD</button>
+            <button
+            onClick={handleAdd}
+            >ADD</button>
         </div>
     )
 

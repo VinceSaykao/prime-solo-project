@@ -17,6 +17,6 @@ function* fetchClientTimesheet(action) {
 }; // end of fetchTimesheet
 
 // watcher root saga
-export default function* FetchCliengTimesheetSaga() {
+export default function* FetchClientTimesheetSaga() {
     yield takeEvery('FETCH_CLIENT_TIMESHEET', fetchClientTimesheet);
 }; // end of rootSaga
