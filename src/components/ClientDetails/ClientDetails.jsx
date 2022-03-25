@@ -12,6 +12,7 @@ import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
 
 import TimesheetItem from '../TimesheetItem/TimesheetItem';
+import ClientDetailsItem from '../ClientDetailsItem/ClientDetailsItem';
 
 import Button from '@mui/material/Button';
 
@@ -56,16 +57,18 @@ export default function ClientDetails() {
 
     const { client } = useParams();
     const history = useHistory();
+    const clientInfoReducer = useSelector(store => store.clientInfoReducer);
+    const timesheetClientReducer = useSelector(store => store.timesheetClientReducer);
+    const timesheetClientTimesheetReducer = useSelector(store => store.timesheetClientTimesheetReducer);
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({ type: 'FETCH_CLIENT' })
         dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
+        // dispatch({ type: 'FETCH_CLIENT_TIMESHEET', payload: timesheetClienttimesheetReducer})
     }, [location]) // end of useEffect
 
 
-    const clientInfoReducer = useSelector(store => store.clientInfoReducer);
-    const timesheetClientReducer = useSelector(store => store.timesheetClientReducer);
 
 
     const [value, setValue] = React.useState(0);
@@ -74,10 +77,14 @@ export default function ClientDetails() {
         setValue(newValue);
     };
     const timesheetPush = () => {
-        // history.push('/clienttimesheetform');
+
+            console.log('this is unique id', timesheetClientTimesheetReducer)
+            dispatch({ type: 'SET_CLIENT_TIMESHEET', payload: timesheetClientTimesheetReducer })
+            // history.push('/updateTimesheetForm');
+    
     }
 
-
+    console.log('this is specific client',timesheetClientTimesheetReducer);
     return (
         <>
 
@@ -121,18 +128,18 @@ export default function ClientDetails() {
                                 <TabPanel
 
                                     value={value} index={0}>
-                                        <Link to={`/clienttimesheetform/${item.client_fullname}`}>
+                                        {/* <Link to={`/clienttimesheetform/${item.client_fullname}`}>
                                     <Button
                             
                                         onClick={timesheetPush}
                                     >Add</Button>
-                                    </Link>
+                                    </Link> */}
 
 
                                     {timesheetClientReducer.map((timesheetItem, i) => {
                                         return (
 
-                                            <TimesheetItem
+                                            <ClientDetailsItem
                                                 key={i}
                                                 timesheetItem={timesheetItem} />
 
