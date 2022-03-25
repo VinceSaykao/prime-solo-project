@@ -13,6 +13,7 @@ import Avatar from '@mui/material/Avatar';
 
 import TimesheetItem from '../TimesheetItem/TimesheetItem';
 import ClientDetailsItem from '../ClientDetailsItem/ClientDetailsItem';
+import ClientDetailsAddButton from '../ClientDetailsAddButton/ClientDetailsAddButton';
 
 import Button from '@mui/material/Button';
 
@@ -128,6 +129,7 @@ export default function ClientDetails() {
                                 <TabPanel
 
                                     value={value} index={0}>
+                                        <ClientDetailsAddButton />
                                         {/* <Link to={`/clienttimesheetform/${item.client_fullname}`}>
                                     <Button
                             
@@ -138,7 +140,7 @@ export default function ClientDetails() {
 
                                     {timesheetClientReducer.map((timesheetItem, i) => {
                                         return (
-
+                                            
                                             <ClientDetailsItem
                                                 key={i}
                                                 timesheetItem={timesheetItem} />
