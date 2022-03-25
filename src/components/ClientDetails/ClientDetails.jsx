@@ -90,8 +90,7 @@ export default function ClientDetails() {
     //     console.log('this is correct', timesheetClientReducer);
     // }
 
-    console.log('single', timesheetClientTimesheetReducer);
-    console.log('stuff', timesheetClientReducer);
+    console.log('single', timesheetClientReducer);
     return (
         <>
 
