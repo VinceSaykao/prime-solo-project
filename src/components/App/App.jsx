@@ -147,9 +147,9 @@ function App() {
           <ProtectedRoute
 
             exact
-            path="/updateclienttimesheetform"
+            path="/updateClientTimesheetForm"
           >
-            <ClientDetails />
+            <UpdateClientTimesheetForm />
           </ProtectedRoute>
 
 

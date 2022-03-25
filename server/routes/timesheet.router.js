@@ -33,7 +33,7 @@ router.get('/clientdetails/:id', (req, res) => {
             from timesheet 
             join clients on clients.id = timesheet.client_id 
             where clients.client_fullname = $1 
-            order by date desc;`,[id])
+            order by date desc;`, [id])
             .then((results) => res.send(results.rows))
             .catch((error) => {
                 console.log('Error making SELECT for get timesheet:', error);
@@ -52,7 +52,7 @@ router.get('/clienttimesheet/:id', (req, res) => {
 
     if (req.isAuthenticated()) {
         pool
-            .query(`select client_id, client_name from timesheet join clients on clients.id = timesheet.client_id where client_name = $1 limit 1;`,[id])
+            .query(`select client_id, client_name from timesheet join clients on clients.id = timesheet.client_id where client_name = $1 limit 1;`, [id])
             .then((results) => res.send(results.rows))
             .catch((error) => {
                 console.log('Error making SELECT for get timesheet:', error);
@@ -89,7 +89,7 @@ router.post('/', (req, res) => {
 
 
 router.put('/:id', (req, res) => {
-    console.log('/shelf put route', req.body);
+    console.log('timesheet form put route', req.body);
     const queryText = `update timesheet set 
     "date" = $1,
     "client_name" = $2,
@@ -100,28 +100,6 @@ router.put('/:id', (req, res) => {
     where id = $7;`;
 
     const queryValues = [req.body.date, req.body.client_name, req.body.in, req.body.out, req.body.mileage, req.body.notes, req.params.id];
-
-    pool.query(queryText, queryValues).then(() => {
-        res.sendStatus(200)
-    }).catch((error) => {
-        console.log('Error updating item', error);
-        res.sendStatus(500);
-    })
-});
-
-router.put('/clienttimesheet/:id', (req, res) => {
-    console.log('/shelf put route', req.body);
-    const queryText = `update timesheet set 
-    "date" = $1,
-    "client_name" = $2,
-    "client_id" = $3,
-    "in" = $4,
-    "out" = $5,
-    "mileage" = $6,
-    "notes" = $7
-    where id = $8;`;
-
-    const queryValues = [req.body.date, req.body.client_name, req.body.client_id, req.body.in, req.body.out, req.body.mileage, req.body.notes, req.params.id];
 
     pool.query(queryText, queryValues).then(() => {
         res.sendStatus(200)

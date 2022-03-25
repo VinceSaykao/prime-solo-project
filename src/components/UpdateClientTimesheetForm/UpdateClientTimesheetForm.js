@@ -35,13 +35,13 @@ export default function UpdateClientTimesheetForm() {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const [clientName, setClientName] = useState(timesheetFormUpdateReducer.client_name);
-    const [date, setDate] = useState(timesheetFormUpdateReducer.to_char); //timesheetFormUpdateReducer.date
+    const [clientName, setClientName] = useState(timesheetClientUpdateFormTimesheetReducer.client_name);
+    const [date, setDate] = useState(timesheetClientUpdateFormTimesheetReducer.to_char); //timesheetFormUpdateReducer.date
     const [clientId, setClientId] = useState(timesheetClientUpdateFormTimesheetReducer.client_id);
-    const [timeIn, setTimeIn] = useState(timesheetFormUpdateReducer.in);
-    const [timeOut, setTimeOut] = useState(timesheetFormUpdateReducer.out);
-    const [mileage, setMileage] = useState(timesheetFormUpdateReducer.mileage);
-    const [notes, setNotes] = useState(timesheetFormUpdateReducer.notes);
+    const [timeIn, setTimeIn] = useState(timesheetClientUpdateFormTimesheetReducer.in);
+    const [timeOut, setTimeOut] = useState(timesheetClientUpdateFormTimesheetReducer.out);
+    const [mileage, setMileage] = useState(timesheetClientUpdateFormTimesheetReducer.mileage);
+    const [notes, setNotes] = useState(timesheetClientUpdateFormTimesheetReducer.notes);
 
     // when submit is pressed, will post all input values
     function handleSubmit() {
@@ -49,7 +49,7 @@ export default function UpdateClientTimesheetForm() {
         console.log('clicked submit')
 
         const updateInfo = {
-            id: timesheetFormUpdateReducer.id,
+            id: timesheetClientUpdateFormTimesheetReducer.id,
             date: date,
             client_name: clientName,
             in: timeIn,
@@ -68,7 +68,7 @@ export default function UpdateClientTimesheetForm() {
                 confirmButtonText: 'Yes. Submit!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, client_id: clientId, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
+                    dispatch({ type: 'UPDATE_CLIENT_TIMESHEET', payload: { date: date, client_name: clientName, client_id: clientId, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
                     // clears input value after submit is pressed
                     history.push('/timesheet');
 
@@ -89,7 +89,7 @@ export default function UpdateClientTimesheetForm() {
         setDate(newValue);
     };
 
-    console.log('this is the date', timesheetFormUpdateReducer)
+    console.log('GARRRRRGHHHHH update client timesheet form', timesheetClientUpdateFormTimesheetReducer)
 
     const handleClick = () => {
         history.push('/timesheet');

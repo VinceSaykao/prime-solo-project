@@ -65,7 +65,7 @@ export default function UpdateTimesheetForm() {
                 confirmButtonText: 'Yes. Submit!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
+                    dispatch({ type: 'UPDATE_TIMESHEET', payload: { date: date, client_name: clientName, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
                     // clears input value after submit is pressed
                     history.push('/timesheet');
 
