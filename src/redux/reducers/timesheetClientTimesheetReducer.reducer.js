@@ -1,10 +1,10 @@
-const timesheetBilboReducer = (state = [], action) => {
+const timesheetClientReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_BILBO_TIMESHEET':
+        case 'SET_CLIENT_TIMESHEET':
             return action.payload;
         default:
             return state;
     }
 }; // end of timesheet Reducer
 
-export default timesheetBilboReducer;
+export default timesheetClientReducer;
