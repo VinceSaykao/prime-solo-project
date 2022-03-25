@@ -5,7 +5,7 @@ import timesheetReducer from './timesheetReducer.reducer';
 import timesheetFormReducer from './timesheetFormReducer.reducer';
 import timesheetFormUpdateReducer from './timesheetFormUpdateReducer.reducer';
 import clientInfoReducer from './clientInfoReducer.reducer';
-import timesheetBilboReducer from './timesheetBilboReducer.reducer';
+import timesheetClientTimesheetReducer from './timesheetClientTimesheetReducer.reducer';
 import timesheetClientReducer from './timesheetClientReducer.reducer';
 
 // rootReducer is the primary reducer for our entire project
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   timesheetFormReducer,
   timesheetFormUpdateReducer,
   clientInfoReducer,
-  timesheetBilboReducer,
+  timesheetClientTimesheetReducer,
   timesheetClientReducer,
 });
 

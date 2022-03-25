@@ -12,6 +12,8 @@ import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
 
 import TimesheetItem from '../TimesheetItem/TimesheetItem';
+import ClientDetailsItem from '../ClientDetailsItem/ClientDetailsItem';
+import ClientDetailsAddButton from '../ClientDetailsAddButton/ClientDetailsAddButton';
 
 import Button from '@mui/material/Button';
 
@@ -56,16 +58,18 @@ export default function ClientDetails() {
 
     const { client } = useParams();
     const history = useHistory();
+    const clientInfoReducer = useSelector(store => store.clientInfoReducer);
+    const timesheetClientReducer = useSelector(store => store.timesheetClientReducer);
+    const timesheetClientTimesheetReducer = useSelector(store => store.timesheetClientTimesheetReducer);
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({ type: 'FETCH_CLIENT' })
         dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
+        dispatch({ type: 'FETCH_CLIENT_TIMESHEET', payload: client })
     }, [location]) // end of useEffect
 
 
-    const clientInfoReducer = useSelector(store => store.clientInfoReducer);
-    const timesheetClientReducer = useSelector(store => store.timesheetClientReducer);
 
 
     const [value, setValue] = React.useState(0);
@@ -73,11 +77,21 @@ export default function ClientDetails() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    const timesheetPush = () => {
-        // history.push('/clienttimesheetform');
-    }
 
+    // const timesheetPush = () => {
 
+    //         console.log('this is unique id', timesheetClientTimesheetReducer)
+    //         dispatch({ type: 'SET_CLIENT_TIMESHEET', payload: timesheetClientTimesheetReducer })
+    //         // history.push('/updateTimesheetForm');
+
+    // }
+
+    // const handleAdd = () => {
+    //     console.log('this is correct', timesheetClientReducer);
+    // }
+
+    console.log('single', timesheetClientTimesheetReducer);
+    console.log('stuff', timesheetClientReducer);
     return (
         <>
 
@@ -121,18 +135,28 @@ export default function ClientDetails() {
                                 <TabPanel
 
                                     value={value} index={0}>
-                                        <Link to={`/clienttimesheetform/${item.client_fullname}`}>
-                                    <Button
-                            
-                                        onClick={timesheetPush}
-                                    >Add</Button>
+                                    <Link to={`/clienttimesheet/${item.client_fullname}`}>
+                                        <ClientDetailsAddButton />
                                     </Link>
+
+                                    {/* <Link to={`/clienttimesheet/${item.client_fullname}`}>
+                                        {timesheetClientTimesheetReducer.map((clientTwo, i) => {
+                                        return (
+                                            <ClientDetailsAddButton
+                                                key={i}
+                                                timesheetItem={clientTwo} />
+                                        );
+                                    })}
+
+                                </Link> */}
+
+
 
 
                                     {timesheetClientReducer.map((timesheetItem, i) => {
                                         return (
 
-                                            <TimesheetItem
+                                            <ClientDetailsItem
                                                 key={i}
                                                 timesheetItem={timesheetItem} />
 
