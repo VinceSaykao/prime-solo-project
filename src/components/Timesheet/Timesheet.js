@@ -143,11 +143,11 @@ export default function Timesheet() {
 
 
                 </div>
-                <Box sx={{ display: 'flex' }}>
+                {/* <Box sx={{ display: 'flex' }}>
                     <CircularProgress
                         color="success"
                     />
-                </Box>
+                </Box> */}
             </div >
 
 

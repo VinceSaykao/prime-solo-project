@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import './ClientDetailsAddButton.scss';
+import Button from '@mui/material/Button';
 
 export default function ClientDetailsAddButton({clientTwo}) {
 
@@ -8,11 +10,11 @@ const handleAdd = () => {
 
     console.log('we have fire!', clientTwo);
     return (
-        <div>
-            {/* <Link to={`/clienttimesheet/${clientTwo.client_fullname}`}> */}
-            <button
+        <div className='client-details-add'>
+            
+            <Button
             onClick={handleAdd}
-            >ADD</button>
+            >ADD</Button>
             {/* </Link> */}
         </div>
     )
