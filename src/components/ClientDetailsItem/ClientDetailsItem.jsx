@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 export default function ClientDetailsItems({timesheetItem}) {
     
@@ -22,11 +22,17 @@ export default function ClientDetailsItems({timesheetItem}) {
 
         <div>
             <div id='timesheet-item-list'>
-                {timesheetItem.to_char} {timesheetItem.client_name}
+                {timesheetItem.to_char} {timesheetItem.client_name} {timesheetItem.notes}
                 <br></br>
+{/* 
+                <Link to={`/clienttimesheet/${timesheetItem.id}`}> */}
                 <button
                     onClick={handleEdit}
                 >Edit</button>
+                                    {/* </Link> */}
+
+
+
                 <button
                     onClick={handleDelete}
                 >Delete</button>

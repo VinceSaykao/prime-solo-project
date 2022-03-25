@@ -109,6 +109,29 @@ router.put('/:id', (req, res) => {
     })
 });
 
+
+router.put('/clienttimesheet/:id', (req, res) => {
+    console.log('timesheet form put route', req.body);
+    const queryText = ` update timesheet set 
+    "date" = $1,
+    "client_name" = $2,
+    "client_id" = $3,
+    "in" = $4,
+    "out" = $5,
+    "mileage" = $6,
+    "notes" = $7
+    where id = $8;`;
+
+    const queryValues = [req.body.date, req.body.client_name, req.body.client_id, req.body.in, req.body.out, req.body.mileage, req.body.notes, req.params.id];
+
+    pool.query(queryText, queryValues).then(() => {
+        res.sendStatus(200)
+    }).catch((error) => {
+        console.log('Error updating item', error);
+        res.sendStatus(500);
+    })
+});
+
 /**
  * Delete an item if it's something the logged in user added
  */

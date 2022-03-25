@@ -57,7 +57,7 @@ export default function TimesheetItem({ timesheetItem }) {
 
 
             <div id='timesheet-item-list'>
-                {timesheetItem.to_char} {timesheetItem.client_name}
+                {timesheetItem.to_char} {timesheetItem.client_name} 
                 <br></br>
                 <button
                     onClick={handleEdit}
