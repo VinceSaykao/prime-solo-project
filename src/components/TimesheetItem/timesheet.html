@@ -18,6 +18,8 @@ export default function TimesheetItem({ timesheetItem }) {
     const dispatch = useDispatch();
 
 
+
+
     const handleEdit = () => {
         console.log('this is id', timesheetItem.id)
         dispatch({ type: 'SET_UPDATE_TIMESHEET', payload: timesheetItem })
@@ -45,8 +47,7 @@ export default function TimesheetItem({ timesheetItem }) {
 
     return (
         <div>
-            
-    
+            <h1>HELLO LIZ</h1>
             <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
                 <Alert id='alert-delete' onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                     You Successfully Deleted!

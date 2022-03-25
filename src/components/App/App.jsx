@@ -27,6 +27,7 @@ import ClientPage from '../ClientPage/ClientPage';
 import Chat from '../Chat/Chat';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import ClientDetails from '../ClientDetails/ClientDetails';
+import ClientTimesheetForm from '../ClientTimesheetForm/ClientTimesheetForm';
 
 import './App.css';
 
@@ -87,7 +88,7 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/clientdetails/:client"
+            path="/clientdetails/:client/"
           >
             <ClientDetails />
           </ProtectedRoute>
@@ -123,7 +124,15 @@ function App() {
             exact
             path="/timesheetform"
           >
-            <TimesheetForm />
+            <ClientTimesheetForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows timesheet
+            exact
+            path="/clienttimesheetform/:client"
+          >
+            <ClientTimesheetForm />
           </ProtectedRoute>
 
           <ProtectedRoute

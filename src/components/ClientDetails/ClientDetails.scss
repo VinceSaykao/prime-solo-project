@@ -1,16 +1,16 @@
 @import "../Variables/Variables.scss";
 
 #one {
-    color: rgb(59, 59, 59);
+    color: rgb(71, 71, 71);
     font-size: 10px;
     text-align: center;
     // background-image: url('');
     background-color: $whiteColor;
     margin-top: -29px;
-    height: 500px;
     // border: 5px solid rgb(255, 253, 132);
-    border-bottom: 10px solid rgb(0, 0, 0);
-    border-style: dotted;
+    border-bottom: 10px solid $mainPurple;
+    border-style:double;
+    // background-color: $mainPurple;
 
 }
 
@@ -23,4 +23,17 @@
     height: 100%;
     object-fit: cover;
 }
+
+#avatar-details {
+    margin: 0 auto;
+}
+
+#client-header-name {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #444;
+    font-weight: 900;
+}
+
 

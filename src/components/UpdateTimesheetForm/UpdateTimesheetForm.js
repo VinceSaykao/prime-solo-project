@@ -86,12 +86,6 @@ export default function UpdateTimesheetForm() {
         setDate(newValue);
     };
 
-    // const handleNewChange = (newDateValue) => {
-    //     setTimeOut(newDateValue);
-    // };
-
-
-
     console.log('this is the date', timesheetFormUpdateReducer)
 
     const handleClick = () => {
@@ -152,21 +146,6 @@ export default function UpdateTimesheetForm() {
                             renderInput={(params) => <TextField {...params} />}
                         />
 
-
-                        {/* <TextField
-                label='In'
-                id="outlined-basic"
-                variant="outlined"
-                value={timeIn}
-                onChange={evt => setTimeIn(evt.target.value)}
-            /> */}
-                        {/* <TextField
-                        label='Out'
-                        id="outlined-basic"
-                        variant="outlined"
-                        value={timeOut}
-                        onChange={evt => setTimeOut(evt.target.value)}
-                    /> */}
                         <TextField
                             label='Mileage'
                             id="standard-basic"
@@ -188,20 +167,12 @@ export default function UpdateTimesheetForm() {
                             onChange={evt => setNotes(evt.target.value)}
                         />
 
-
-
-
-
-
-
-
                     </Stack>
                 </LocalizationProvider>
             </div>
             <button
                 id='submit-form'
                 onClick={handleSubmit}
-            // onClick={handleClick}
             >
                 Submit
             </button>
