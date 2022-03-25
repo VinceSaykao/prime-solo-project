@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 function* AddSaga(action) {
-    console.log('action payload is', action.payload);
+    console.log('action payload is add form', action.payload);
 
     try {
 
