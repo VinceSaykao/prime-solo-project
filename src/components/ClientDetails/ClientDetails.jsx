@@ -60,13 +60,13 @@ export default function ClientDetails() {
     const history = useHistory();
     const clientInfoReducer = useSelector(store => store.clientInfoReducer);
     const timesheetClientReducer = useSelector(store => store.timesheetClientReducer);
-    const timesheetClientTimesheetReducer = useSelector(store => store.timesheetClientTimesheetReducer);
+    // const timesheetClientTimesheetReducer = useSelector(store => store.timesheetClientTimesheetReducer);
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({ type: 'FETCH_CLIENT' })
         dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
-        // dispatch({ type: 'FETCH_CLIENT_TIMESHEET', payload: timesheetClienttimesheetReducer})
+        // dispatch({ type: 'FETCH_CLIENT_TIMESHEET', payload: timesheetClientTimesheetReducer})
     }, [location]) // end of useEffect
 
 
@@ -77,15 +77,20 @@ export default function ClientDetails() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    const timesheetPush = () => {
 
-            console.log('this is unique id', timesheetClientTimesheetReducer)
-            dispatch({ type: 'SET_CLIENT_TIMESHEET', payload: timesheetClientTimesheetReducer })
-            // history.push('/updateTimesheetForm');
+    // const timesheetPush = () => {
+
+    //         console.log('this is unique id', timesheetClientTimesheetReducer)
+    //         dispatch({ type: 'SET_CLIENT_TIMESHEET', payload: timesheetClientTimesheetReducer })
+    //         // history.push('/updateTimesheetForm');
     
+    // }
+
+    const handleAdd = () => {
+        console.log('this is correct', timesheetClientReducer);
     }
 
-    console.log('this is specific client',timesheetClientTimesheetReducer);
+    console.log('this is specific client', timesheetClientReducer);
     return (
         <>
 
@@ -129,7 +134,10 @@ export default function ClientDetails() {
                                 <TabPanel
 
                                     value={value} index={0}>
-                                        <ClientDetailsAddButton />
+                                        <button
+                                        onClick={handleAdd}
+                                        >Add</button>
+                                        {/* <ClientDetailsAddButton /> */}
                                         {/* <Link to={`/clienttimesheetform/${item.client_fullname}`}>
                                     <Button
                             
