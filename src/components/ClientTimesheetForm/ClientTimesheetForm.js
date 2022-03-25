@@ -35,10 +35,11 @@ export default function ClientTimesheetForm() {
     useEffect(() => {
         dispatch({ type: 'FETCH_CLIENT' })
         dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
+        // dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client.id })
     }, [location]) // end of useEffect
 
 
-    const [clientId, setClientId] = useState('')
+    const [clientId, setClientId] = useState()
     const [clientName, setClientName] = useState(client);
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
