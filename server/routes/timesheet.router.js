@@ -29,7 +29,7 @@ router.get('/clientdetails/:id', (req, res) => {
     let id = req.params.id;
     if (req.isAuthenticated()) {
         pool
-            .query(`select timesheet.client_id, TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes 
+            .query(`select timesheet.id, timesheet.client_id, TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes 
             from timesheet 
             join clients on clients.id = timesheet.client_id 
             where clients.client_fullname = $1 
@@ -52,7 +52,7 @@ router.get('/clienttimesheet/:id', (req, res) => {
 
     if (req.isAuthenticated()) {
         pool
-            .query(`select client_id, client_name from timesheet join clients on clients.id = timesheet.client_id where client_name = $1 limit 1;`, [id])
+            .query(`select timesheet.id, client_id, client_name from timesheet join clients on clients.id = timesheet.client_id where client_name = $1 limit 1;`, [id])
             .then((results) => res.send(results.rows))
             .catch((error) => {
                 console.log('Error making SELECT for get timesheet:', error);

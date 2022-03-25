@@ -42,21 +42,14 @@ export default function UpdateClientTimesheetForm() {
     const [timeOut, setTimeOut] = useState(timesheetClientUpdateFormTimesheetReducer.out);
     const [mileage, setMileage] = useState(timesheetClientUpdateFormTimesheetReducer.mileage);
     const [notes, setNotes] = useState(timesheetClientUpdateFormTimesheetReducer.notes);
+    const [id, setId] = useState(timesheetClientUpdateFormTimesheetReducer.id);
 
     // when submit is pressed, will post all input values
     function handleSubmit() {
 
         console.log('clicked submit')
 
-        const updateInfo = {
-            id: timesheetClientUpdateFormTimesheetReducer.id,
-            date: date,
-            client_name: clientName,
-            in: timeIn,
-            out: timeOut,
-            mileage: mileage,
-            notes: notes
-        }
+
         if (clientName != ('') && date != ('') && mileage != ('') && notes != ('') && timeIn != ('') && timeOut != ('')) {
             return Swal.fire({
                 title: 'Add Timesheet?',
@@ -68,7 +61,7 @@ export default function UpdateClientTimesheetForm() {
                 confirmButtonText: 'Yes. Submit!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    dispatch({ type: 'UPDATE_CLIENT_TIMESHEET', payload: { date: date, client_name: clientName, client_id: clientId, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
+                    dispatch({ type: 'UPDATE_CLIENT_TIMESHEET', payload: { id: id, date: date, client_name: clientName, client_id: clientId, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
                     // clears input value after submit is pressed
                     history.push('/timesheet');
 
