@@ -41,7 +41,7 @@ export default function ClientTimesheetForm() {
 
 
 
-    const [clientId, setClientId] = useState(timesheetClientTimesheetReducer.client_id);
+    const [clientId, setClientId] = useState(1);
     const [clientName, setClientName] = useState(client);
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
@@ -63,7 +63,7 @@ export default function ClientTimesheetForm() {
                 confirmButtonText: 'Yes, add them!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, clientId: clientId, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
+                    dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, client_id: clientId, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
                     // clears input value after submit is pressed
                     history.push('/timesheet');
 
