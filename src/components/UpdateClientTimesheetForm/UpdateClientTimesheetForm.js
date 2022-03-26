@@ -108,6 +108,7 @@ export default function UpdateClientTimesheetForm() {
                     <Stack spacing={5}>
 
                         <TextField
+                            autoComplete="off"
                             label='Client Name'
                             id="standard-basic"
                             variant="outlined"
@@ -143,6 +144,7 @@ export default function UpdateClientTimesheetForm() {
                         />
 
                         <TextField
+                            autoComplete="off"
                             label='Mileage'
                             id="standard-basic"
                             variant="outlined"
@@ -153,6 +155,7 @@ export default function UpdateClientTimesheetForm() {
 
 
                         <TextField
+                            autoComplete="off"
                             id="outlined-multiline-static"
                             value={notes}
                             label="Notes"
