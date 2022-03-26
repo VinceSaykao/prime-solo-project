@@ -15,7 +15,17 @@ import TimesheetItem from '../TimesheetItem/TimesheetItem';
 import ClientDetailsItem from '../ClientDetailsItem/ClientDetailsItem';
 import ClientDetailsAddButton from '../ClientDetailsAddButton/ClientDetailsAddButton';
 
+
+import { styled } from '@mui/material/styles';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+
 
 import Footer from '../Footer/Footer';
 
@@ -71,8 +81,6 @@ export default function ClientDetails() {
 
 
 
-
-
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -80,7 +88,34 @@ export default function ClientDetails() {
     };
 
 
-    console.log('single', timesheetClientReducer);
+    const StyledTableCell = styled(TableCell)(({ theme }) => ({
+        [`&.${tableCellClasses.head}`]: {
+            backgroundColor: '#78e194',
+            color: '#000000',
+        },
+        [`&.${tableCellClasses.body}`]: {
+            fontSize: 18,
+        },
+    }));
+
+    const ColorButton = styled(Button)(({ theme }) => ({
+        color: '#ffffff',
+        backgroundColor: '#a18de1',
+        '&:hover': {
+            backgroundColor: '#bdb4d8',
+        },
+    }));
+
+    const StyledTableRow = styled(TableRow)(({ theme }) => ({
+        '&:nth-of-type(odd)': {
+            backgroundColor: theme.palette.action.hover,
+        },
+        // hide last border
+        '&:last-child td, &:last-child th': {
+            border: 0,
+        },
+    }));
+
     return (
         <>
 
@@ -129,56 +164,70 @@ export default function ClientDetails() {
                                         <ClientDetailsAddButton />
                                     </Link>
 
-                                    {/* <Link to={`/clienttimesheet/${item.client_fullname}`}>
-                                        {timesheetClientTimesheetReducer.map((clientTwo, i) => {
-                                        return (
-                                            <ClientDetailsAddButton
-                                                key={i}
-                                                timesheetItem={clientTwo} />
-                                        );
-                                    })}
+                                    <div className="adminView">
+                                        <TableContainer component={Paper}>
+                                            <Table sx={{ minWidth: 700 }} aria-label="customized table" className='adminTable'>
+                                                <TableHead>
+                                                <TableRow>
+                                                    <StyledTableCell>Date</StyledTableCell>
+                                                    <StyledTableCell>Time In</StyledTableCell>
+                                                    <StyledTableCell>Time Out</StyledTableCell>
+                                                    <StyledTableCell align="center">Mileage</StyledTableCell>
+                                                    <StyledTableCell align="center">Notes</StyledTableCell>
+                                                    <StyledTableCell>Action</StyledTableCell>
+                                                </TableRow>
 
-                                </Link> */}
+                                            </TableHead>
+                                            <TableBody>
+                
+                                                <StyledTableRow>
+
+                                                    {timesheetClientReducer.map((timesheetItem, i) => {
+                                                        return (
+
+                                                            <ClientDetailsItem
+                                                                key={i}
+                                                                timesheetItem={timesheetItem} />
+
+                                                                );
+                                                            })}
+
+                                                    
+                                                            </StyledTableRow>
+                                            </TableBody>
+                                    
+                                            
+                                            
+                                        </Table>
+                                    </TableContainer>
+                                </div>
 
 
+                            </TabPanel>
+                            <TabPanel
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href = `https://www.google.com/maps?q=${item.address}`;
+                                }}
+                                value={value} index={1}>
+                                {item.address}
+                                <Divider />
+                                Mobile: {item.phone}
+                            </TabPanel>
+                            <TabPanel value={value} index={2}>
+                                {item.history}
+                            </TabPanel>
+                            <TabPanel value={value} index={3}>
+                                {item.hobbies}
+                            </TabPanel>
 
-
-                                    {timesheetClientReducer.map((timesheetItem, i) => {
-                                        return (
-
-                                            <ClientDetailsItem
-                                                key={i}
-                                                timesheetItem={timesheetItem} />
-
-                                        );
-                                    })}
-
-
-                                </TabPanel>
-                                <TabPanel
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        window.location.href = `https://www.google.com/maps?q=${item.address}`;
-                                    }}
-                                    value={value} index={1}>
-                                    {item.address}
-                                    <Divider />
-                                    Mobile: {item.phone}
-                                </TabPanel>
-                                <TabPanel value={value} index={2}>
-                                    {item.history}
-                                </TabPanel>
-                                <TabPanel value={value} index={3}>
-                                    {item.hobbies}
-                                </TabPanel>
-
-                            </Box>
+                        </Box>
                         </>
-                    );
+            );
                 })}
 
-                <Footer />
-            </div>
+            <Footer />
+        </div>
 
 
 
