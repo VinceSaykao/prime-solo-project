@@ -15,19 +15,15 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import TablePagination from '@mui/material/TablePagination';
 
-export default function ClientDetailsItems({ timesheet }) {
+export default function ClientDetailsItemsDelete({ timesheet }) {
 
     const dispatch = useDispatch();
     const history = useHistory();
 
 
-    const handleEdit = () => {
-        dispatch({ type: 'SET_CLIENT_UPDATE_TIMESHEET', payload: timesheet })
-        history.push('/updateClientTimesheetForm');
-    }; // end of handleEdit
 
     const handleDelete = () => {
-        dispatch({ type: 'DELETE_CLIENT_TIMESHEET', payload: timesheetItem.id })
+        dispatch({ type: 'DELETE_CLIENT_TIMESHEET', payload: timesheet.id })
     }; // end of handleDelete
 
 
@@ -67,11 +63,10 @@ export default function ClientDetailsItems({ timesheet }) {
 
                 <ColorButton
                     variant="contained"
-                    onClick={handleEdit}
+                    onClick={handleDelete}
                 >
-                    Edit
+                    Delete
                 </ColorButton>
-                
 
         </div>
     )

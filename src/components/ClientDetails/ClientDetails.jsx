@@ -14,6 +14,7 @@ import Avatar from '@mui/material/Avatar';
 import TimesheetItem from '../TimesheetItem/TimesheetItem';
 import ClientDetailsItem from '../ClientDetailsItem/ClientDetailsItem';
 import ClientDetailsAddButton from '../ClientDetailsAddButton/ClientDetailsAddButton';
+import ClientDetailsItemDelete from '../ClientDetailsItemDelete/ClientDetailsItemDelete';
 
 
 import { styled } from '@mui/material/styles';
@@ -77,7 +78,7 @@ export default function ClientDetails() {
     const history = useHistory();
     const clientInfoReducer = useSelector(store => store.clientInfoReducer);
     const timesheetClientReducer = useSelector(store => store.timesheetClientReducer);
-    const timesheetClientTimesheetReducer = useSelector(store => store.timesheetClientTimesheetReducer);
+
 
 
 
@@ -90,7 +91,7 @@ export default function ClientDetails() {
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
-            backgroundColor: '#78e194',
+            backgroundColor: '#a197ff',
             color: '#000000',
         },
         [`&.${tableCellClasses.body}`]: {
@@ -115,14 +116,6 @@ export default function ClientDetails() {
             border: 0,
         },
     }));
-
-    const handleEdit = () => {
-        dispatch({ type: 'SET_CLIENT_UPDATE_TIMESHEET', payload: timesheetItem })
-        history.push('/updateClientTimesheetForm');
-        // updateclienttimesheetform
-    }; // end of handleEdit
-
-
 
 
     console.log(timesheetClientReducer);
@@ -178,7 +171,7 @@ export default function ClientDetails() {
 
 
                                         <TableContainer component={Paper}>
-                                            <Table sx={{ minWidth: 700 }} aria-label="customized table" className='adminTable'>
+                                            <Table sx={{ minWidth: 1000 }} aria-label="customized table" className='adminTable'>
                                                 <TableHead>
                                                     <TableRow>
                                                         <StyledTableCell>Date</StyledTableCell>
@@ -186,6 +179,7 @@ export default function ClientDetails() {
                                                         <StyledTableCell align="center">Time Out</StyledTableCell>
                                                         <StyledTableCell align="center">Mileage</StyledTableCell>
                                                         <StyledTableCell align="center">Notes</StyledTableCell>
+                                                        <StyledTableCell></StyledTableCell>
                                                         <StyledTableCell></StyledTableCell>
                                                     </TableRow>
                                                 </TableHead>
@@ -210,17 +204,18 @@ export default function ClientDetails() {
                                                             <StyledTableCell
                                                                 align="center"
                                                             >
-
                                                                 <ClientDetailsItem 
                                                                 timesheet={timesheet}
                                                                 />
-                                                                {/* <ColorButton
-                                                                    variant="contained"
-                                                                    className='client-edit-button'
-                                                                    onClick={() => handleEdit(item.id)}
-                                                                >
-                                                                    Edit
-                                                                </ColorButton> */}
+                                                        
+                                                            </StyledTableCell>
+                                                            <StyledTableCell
+                                                                align="center"
+                                                            >
+                                                                <ClientDetailsItemDelete 
+                                                                timesheet={timesheet}
+                                                                />
+                                                        
                                                             </StyledTableCell>
                                                         </StyledTableRow>
                                                     ))}
@@ -231,41 +226,7 @@ export default function ClientDetails() {
 
 
 
-                                        {/* <TableContainer component={Paper}>
-                                            <Table sx={{ minWidth: 700 }} aria-label="customized table" className='adminTable'>
-
-
-
-                                                <TableHead>
-                                                    <TableRow>
-                                                        <StyledTableCell>Date</StyledTableCell>
-                                                        <StyledTableCell>Time In</StyledTableCell>
-                                                        <StyledTableCell>Time Out</StyledTableCell>
-                                                        <StyledTableCell align="center">Mileage</StyledTableCell>
-                                                        <StyledTableCell align="center">Notes</StyledTableCell>
-                                                        <StyledTableCell>Action</StyledTableCell>
-                                                    </TableRow>
-
-                                                </TableHead>
-
-                                                <TableBody>
-
-
-                                                    {timesheetClientReducer.map((timesheetItem, i) => {
-                                                        return (
-                                                            <StyledTableRow key={i}>
-                                                                <ClientDetailsItem
-                                                                    key={i}
-                                                                    timesheetItem={timesheetItem} />
-                                                            </StyledTableRow>
-
-                                                        );
-                                                    })}
-
-                                                </TableBody>
-
-                                            </Table>
-                                        </TableContainer> */}
+                            
 
 
 

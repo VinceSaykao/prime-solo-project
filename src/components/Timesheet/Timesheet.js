@@ -117,7 +117,7 @@ export default function Timesheet() {
                         rows={timesheetReducer}
                         columns={columns}
                         pageSize={8}
-                        rowsPerPageOptions={[8]}
+                        rowsPerPageOptions={[10]}
                         checkboxSelection
                         disableSelectionOnClick
                     
