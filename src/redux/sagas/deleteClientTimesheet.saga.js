@@ -3,6 +3,7 @@ import axios from 'axios';
 
 // delete saga
 function* DeleteClientTimesheet(action) {
+    console.log('inside delete saga', action.payload)
     try {
         yield axios.delete(`/api/timesheet/clienttimesheet/${action.payload}`)
         yield put ({type: 'FETCH_CLIENT_TIMESHEET'});

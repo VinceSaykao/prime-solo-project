@@ -2,7 +2,7 @@ import axios from 'axios';
 import { put, takeEvery } from 'redux-saga/effects';
 
 
-// generator saga function: will be fired on "FETCH_TIMESHEET" actions
+
 function* fetchClientTimesheet(action) {
     try {
         console.log('inside clientimesheet', action.payload)

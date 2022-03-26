@@ -55,6 +55,13 @@ function a11yProps(index) {
 }
 
 export default function ClientDetails() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch({ type: 'FETCH_CLIENT' })
+        // dispatch({ type: 'FETCH_CLIENT_TIMESHEET' })
+        dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
+        dispatch({ type: 'FETCH_CLIENT_TIMESHEET', payload: client })
+    }, [location]) // end of useEffect
 
     const { client } = useParams();
     const history = useHistory();
@@ -62,12 +69,6 @@ export default function ClientDetails() {
     const timesheetClientReducer = useSelector(store => store.timesheetClientReducer);
     const timesheetClientTimesheetReducer = useSelector(store => store.timesheetClientTimesheetReducer);
 
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch({ type: 'FETCH_CLIENT' })
-        dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
-        dispatch({ type: 'FETCH_CLIENT_TIMESHEET', payload: client })
-    }, [location]) // end of useEffect
 
 
 
@@ -78,17 +79,6 @@ export default function ClientDetails() {
         setValue(newValue);
     };
 
-    // const timesheetPush = () => {
-
-    //         console.log('this is unique id', timesheetClientTimesheetReducer)
-    //         dispatch({ type: 'SET_CLIENT_TIMESHEET', payload: timesheetClientTimesheetReducer })
-    //         // history.push('/updateTimesheetForm');
-
-    // }
-
-    // const handleAdd = () => {
-    //     console.log('this is correct', timesheetClientReducer);
-    // }
 
     console.log('single', timesheetClientReducer);
     return (

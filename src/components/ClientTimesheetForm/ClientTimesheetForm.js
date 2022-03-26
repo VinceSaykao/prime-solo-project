@@ -62,7 +62,8 @@ export default function ClientTimesheetForm() {
                 if (result.isConfirmed) {
                     dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, client_id: clientId, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
                     // clears input value after submit is pressed
-                    history.push('/timesheet');
+                    // history.push('/timesheet');
+                    history.goBack()
 
                 }
             })
@@ -163,7 +164,7 @@ export default function ClientTimesheetForm() {
             <button
                 id='submit-form'
                 onClick={handleSubmit}
-            // onClick={handleClick}
+                
             >
                 Submit
             </button>
