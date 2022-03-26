@@ -15,16 +15,15 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import TablePagination from '@mui/material/TablePagination';
 
-export default function ClientDetailsItems({ timesheetItem }) {
+export default function ClientDetailsItems({ timesheet }) {
 
     const dispatch = useDispatch();
     const history = useHistory();
 
 
     const handleEdit = () => {
-        dispatch({ type: 'SET_CLIENT_UPDATE_TIMESHEET', payload: timesheetItem })
+        dispatch({ type: 'SET_CLIENT_UPDATE_TIMESHEET', payload: timesheet })
         history.push('/updateClientTimesheetForm');
-        // updateclienttimesheetform
     }; // end of handleEdit
 
     const handleDelete = () => {
@@ -66,7 +65,7 @@ export default function ClientDetailsItems({ timesheetItem }) {
 
         <div>
 
-            <StyledTableCell component="th" scope="row">
+            {/* <StyledTableCell component="th" scope="row">
                 {timesheetItem.to_char}
             </StyledTableCell>
             <StyledTableCell component="th" scope="row">
@@ -84,7 +83,7 @@ export default function ClientDetailsItems({ timesheetItem }) {
 
             <StyledTableCell
                 align="center"
-            >
+            > */}
                 <ColorButton
                     variant="contained"
                     onClick={handleEdit}
@@ -92,7 +91,7 @@ export default function ClientDetailsItems({ timesheetItem }) {
                     Edit
                 </ColorButton>
 
-            </StyledTableCell>
+            {/* </StyledTableCell> */}
 
 
 

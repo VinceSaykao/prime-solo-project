@@ -116,6 +116,12 @@ export default function ClientDetails() {
         },
     }));
 
+    const handleEdit = () => {
+        dispatch({ type: 'SET_CLIENT_UPDATE_TIMESHEET', payload: timesheetItem })
+        history.push('/updateClientTimesheetForm');
+        // updateclienttimesheetform
+    }; // end of handleEdit
+
 
 
 
@@ -204,13 +210,17 @@ export default function ClientDetails() {
                                                             <StyledTableCell
                                                                 align="center"
                                                             >
-                                                                <ColorButton
+
+                                                                <ClientDetailsItem 
+                                                                timesheet={timesheet}
+                                                                />
+                                                                {/* <ColorButton
                                                                     variant="contained"
                                                                     className='client-edit-button'
-                                                                    onClick={() => handleClick(enterprise.id)}
+                                                                    onClick={() => handleEdit(item.id)}
                                                                 >
                                                                     Edit
-                                                                </ColorButton>
+                                                                </ColorButton> */}
                                                             </StyledTableCell>
                                                         </StyledTableRow>
                                                     ))}
