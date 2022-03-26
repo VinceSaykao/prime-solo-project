@@ -165,69 +165,119 @@ export default function ClientDetails() {
                                     </Link>
 
                                     <div className="adminView">
+
+                                        {/* 
+                                    <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 700}} aria-label="customized table" className='adminTable'>
+                    <TableHead>
+                        <TableRow>
+                            <StyledTableCell>Enterprise Name</StyledTableCell>
+                            <StyledTableCell align="center">Enterprise Logo</StyledTableCell>
+                            <StyledTableCell align="center">Point of Contact</StyledTableCell>
+                            <StyledTableCell></StyledTableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                            {timesheetClientReducer?.map(enterprise => (
+                            <StyledTableRow key={enterprise.id}>
+                                <StyledTableCell component="th" scope="row">
+                                    {timesheetClientReducer[0].to_char}
+                                </StyledTableCell>
+                                <StyledTableCell align="center">
+                                {timesheetClientReducer[0].notes}
+                                </StyledTableCell>
+                                <StyledTableCell component="th" scope="row">
+                                    {enterprise.email}
+                                </StyledTableCell>
+                                <StyledTableCell 
+                                    align="center"
+                                >
+                                    <ColorButton 
+                                        variant="contained"
+                                        onClick={() => handleClick(enterprise.id)}
+                                    >
+                                        View Enterprise Questionnaire
+                                    </ColorButton>
+                                </StyledTableCell>
+                            </StyledTableRow>
+                            ))}
+
+                    </TableBody>
+                </Table>
+            </TableContainer> */}
+
+
+
                                         <TableContainer component={Paper}>
                                             <Table sx={{ minWidth: 700 }} aria-label="customized table" className='adminTable'>
                                                 <TableHead>
-                                                <TableRow>
-                                                    <StyledTableCell>Date</StyledTableCell>
-                                                    <StyledTableCell>Time In</StyledTableCell>
-                                                    <StyledTableCell>Time Out</StyledTableCell>
-                                                    <StyledTableCell align="center">Mileage</StyledTableCell>
-                                                    <StyledTableCell align="center">Notes</StyledTableCell>
-                                                    <StyledTableCell>Action</StyledTableCell>
-                                                </TableRow>
+                                                    <TableRow>
+                                                        <StyledTableCell>Date</StyledTableCell>
+                                                        <StyledTableCell>Time In</StyledTableCell>
+                                                        <StyledTableCell>Time Out</StyledTableCell>
+                                                        <StyledTableCell align="center">Mileage</StyledTableCell>
+                                                        <StyledTableCell align="center">Notes</StyledTableCell>
+                                                        <StyledTableCell>Action</StyledTableCell>
+                                                    </TableRow>
 
-                                            </TableHead>
-                                            <TableBody>
-                
-                                                <StyledTableRow>
-
-                                                    {timesheetClientReducer.map((timesheetItem, i) => {
-                                                        return (
-
-                                                            <ClientDetailsItem
-                                                                key={i}
-                                                                timesheetItem={timesheetItem} />
-
-                                                                );
-                                                            })}
-
-                                                    
-                                                            </StyledTableRow>
-                                            </TableBody>
-                                    
-                                            
-                                            
-                                        </Table>
-                                    </TableContainer>
-                                </div>
+                                                </TableHead>
+                                                <TableBody>
 
 
-                            </TabPanel>
-                            <TabPanel
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    window.location.href = `https://www.google.com/maps?q=${item.address}`;
-                                }}
-                                value={value} index={1}>
-                                {item.address}
-                                <Divider />
-                                Mobile: {item.phone}
-                            </TabPanel>
-                            <TabPanel value={value} index={2}>
-                                {item.history}
-                            </TabPanel>
-                            <TabPanel value={value} index={3}>
-                                {item.hobbies}
-                            </TabPanel>
+                                                        {timesheetClientReducer.map((timesheetItem, i) => {
+                                                            return (
+                                                                <StyledTableRow>
+                                                                
+                                                                <ClientDetailsItem
+                                                                    key={i}
+                                                                    timesheetItem={timesheetItem} />
 
-                        </Box>
+                                                    </StyledTableRow>
+                                                            );
+                                                        })}
+
+
+                                                </TableBody>
+
+
+
+                                            </Table>
+                                        </TableContainer>
+
+
+
+
+
+
+
+                                    </div>
+
+
+                                </TabPanel>
+                                <TabPanel
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        window.location.href = `https://www.google.com/maps?q=${item.address}`;
+                                    }}
+                                    value={value} index={1}>
+                                    {item.address}
+                                    <Divider />
+                                    Mobile: {item.phone}
+                                </TabPanel>
+                                <TabPanel value={value} index={2}>
+                                    {item.history}
+                                </TabPanel>
+                                <TabPanel value={value} index={3}>
+                                    {item.hobbies}
+                                </TabPanel>
+
+                            </Box>
                         </>
-            );
+                    );
                 })}
 
-            <Footer />
-        </div>
+                <Footer />
+            </div>
 
 
 

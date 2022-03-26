@@ -66,18 +66,15 @@ export default function ClientDetailsItems({ timesheetItem }) {
 
         <div>
             {timesheetItem.to_char}
-
-        
+    
             <StyledTableCell component="th" scope="row">
-                HELLO
+            {timesheetItem.notes}
             </StyledTableCell>
-
             <StyledTableCell
                 align="center"
             >
                 <ColorButton
                     variant="contained"
-
                 >
                     View Enterprise Questionnaire
                 </ColorButton>
