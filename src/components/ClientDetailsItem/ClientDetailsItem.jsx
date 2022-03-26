@@ -14,7 +14,7 @@ export default function ClientDetailsItems({timesheetItem}) {
     }; // end of handleEdit
 
     const handleDelete = () => {
-
+        // dispatch({ type: 'DELETE_TIMESHEET', payload: timesheetItem })
     }; // end of handleDelete
 
     console.log('inside this', timesheetItem)
