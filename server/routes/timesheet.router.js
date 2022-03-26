@@ -87,7 +87,7 @@ router.post('/', (req, res) => {
     }
 });
 
-
+// update for general client
 router.put('/:id', (req, res) => {
     console.log('timesheet form put route', req.body);
     const queryText = `update timesheet set 
@@ -110,8 +110,9 @@ router.put('/:id', (req, res) => {
 });
 
 
+// update for specific client
 router.put('/clienttimesheet/:id', (req, res) => {
-    console.log('timesheet form put route', req.body);
+    console.log('timesheet form client put route', req.body);
     const queryText = ` update timesheet set 
     "date" = $1,
     "client_name" = $2,
@@ -136,6 +137,29 @@ router.put('/clienttimesheet/:id', (req, res) => {
  * Delete an item if it's something the logged in user added
  */
 router.delete("/:id", (req, res) => {
+    let queryText = `DELETE FROM timesheet WHERE id = $1;`;
+    let queryInsert = req.params.id;
+    console.log('this is params.id', req.params.id);
+
+    if (req.isAuthenticated()) {
+        pool
+            .query(queryText, [queryInsert])
+            .then((results) => {
+                console.log("Success on delete", results);
+                res.sendStatus(200);
+            })
+            .catch((err) => {
+                console.log("Error on delete,", err);
+                res.sendStatus(500);
+            });
+    } else {
+        res.sendStatus(403);
+    }
+});
+
+
+// delete on client page
+router.delete("/clienttimesheet/:id", (req, res) => {
     let queryText = `DELETE FROM timesheet WHERE id = $1;`;
     let queryInsert = req.params.id;
     console.log('this is params.id', req.params.id);
