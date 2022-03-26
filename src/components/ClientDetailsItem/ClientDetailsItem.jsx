@@ -75,8 +75,9 @@ export default function ClientDetailsItems({ timesheetItem }) {
             >
                 <ColorButton
                     variant="contained"
+                    onClick={handleEdit}
                 >
-                    View Enterprise Questionnaire
+                    Edit
                 </ColorButton>
             </StyledTableCell>
 

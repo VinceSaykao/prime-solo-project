@@ -207,7 +207,6 @@ export default function ClientDetails() {
             </TableContainer> */}
 
 
-
                                         <TableContainer component={Paper}>
                                             <Table sx={{ minWidth: 700 }} aria-label="customized table" className='adminTable'>
                                                 <TableHead>
