@@ -85,10 +85,6 @@ export default function ClientTimesheetForm() {
 
     };
 
-    // clicking exit pushes you to timesheet
-    const handleClick = () => {
-        history.push('/timesheet')
-    }
 
     console.log('THIS Is FIRE', timesheetClientTimesheetReducer[0].client_id);
     return (
@@ -101,7 +97,7 @@ export default function ClientTimesheetForm() {
         </Helmet>
             <CloseIcon
                 id='form-exit'
-                onClick={handleClick}
+                onClick={() => history.goBack()}
             />
 
             <div id='TimeSheetForm'>
