@@ -47,7 +47,6 @@ export default function UpdateClientTimesheetForm() {
     // when submit is pressed, will post all input values
     function handleSubmit() {
 
-        console.log('clicked submit')
 
 
         if (clientName != ('') && date != ('') && mileage != ('') && notes != ('') && timeIn != ('') && timeOut != ('')) {
@@ -63,7 +62,7 @@ export default function UpdateClientTimesheetForm() {
                 if (result.isConfirmed) {
                     dispatch({ type: 'UPDATE_CLIENT_TIMESHEET', payload: { id: id, date: date, client_name: clientName, client_id: clientId, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
                     // clears input value after submit is pressed
-                    history.push('/timesheet');
+                    history.goBack()
 
                 }
             })
@@ -85,7 +84,7 @@ export default function UpdateClientTimesheetForm() {
     console.log('GARRRRRGHHHHH update client timesheet form', timesheetClientUpdateFormTimesheetReducer)
 
     const handleClick = () => {
-        history.push('/timesheet');
+        // history.push('/timesheet');
     }
 
 
@@ -99,7 +98,7 @@ export default function UpdateClientTimesheetForm() {
         </Helmet>
             <CloseIcon
                 id='form-exit'
-                onClick={handleClick}
+                onClick={() => history.goBack()}
             />
 
             <div id='TimeSheetForm'>

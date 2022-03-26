@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link, useParams } from 'react-router-dom';
 
-
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -36,7 +35,6 @@ export default function ClientTimesheetForm() {
     useEffect(() => {
         dispatch({ type: 'FETCH_CLIENT' })
         dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
-        dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
     }, [location]) // end of useEffect
 
 
@@ -64,7 +62,8 @@ export default function ClientTimesheetForm() {
                 if (result.isConfirmed) {
                     dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, client_id: clientId, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })
                     // clears input value after submit is pressed
-                    history.push('/timesheet');
+                    // history.push('/timesheet');
+                    history.goBack()
 
                 }
             })
@@ -85,12 +84,8 @@ export default function ClientTimesheetForm() {
 
     };
 
-    // clicking exit pushes you to timesheet
-    const handleClick = () => {
-        history.push('/timesheet')
-    }
 
-    console.log('THIS Is FIRE', timesheetClientTimesheetReducer[0].client_id);
+    console.log('THIS Is FIRE', timesheetClientTimesheetReducer);
     return (
         <> <Helmet>
             <style>{`body { height: 100%; background-color: #544e88; 
@@ -101,7 +96,7 @@ export default function ClientTimesheetForm() {
         </Helmet>
             <CloseIcon
                 id='form-exit'
-                onClick={handleClick}
+                onClick={() => history.goBack()}
             />
 
             <div id='TimeSheetForm'>
@@ -144,6 +139,7 @@ export default function ClientTimesheetForm() {
                         />
 
                         <TextField
+                        autoComplete="off" 
                             label='Mileage'
                             id="standard-basic"
                             variant="outlined"
@@ -168,7 +164,7 @@ export default function ClientTimesheetForm() {
             <button
                 id='submit-form'
                 onClick={handleSubmit}
-            // onClick={handleClick}
+                
             >
                 Submit
             </button>

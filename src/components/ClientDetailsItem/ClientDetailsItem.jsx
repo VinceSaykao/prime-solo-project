@@ -14,10 +14,10 @@ export default function ClientDetailsItems({timesheetItem}) {
     }; // end of handleEdit
 
     const handleDelete = () => {
-
+        dispatch({ type: 'DELETE_CLIENT_TIMESHEET', payload: timesheetItem.id })
     }; // end of handleDelete
 
-    console.log('inside this', timesheetItem)
+    console.log('inside this', timesheetItem.id)
     return (
 
         <div>

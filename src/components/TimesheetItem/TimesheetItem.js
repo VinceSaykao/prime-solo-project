@@ -17,7 +17,6 @@ export default function TimesheetItem({ timesheetItem }) {
     const history = useHistory();
     const dispatch = useDispatch();
 
-
     const handleEdit = () => {
         console.log('this is id', timesheetItem.id)
         dispatch({ type: 'SET_UPDATE_TIMESHEET', payload: timesheetItem })
@@ -42,7 +41,6 @@ export default function TimesheetItem({ timesheetItem }) {
         }
         setOpen(false);
     };
-
 
     console.log('fixing', timesheetItem);
     return (
