@@ -33,7 +33,7 @@ router.get('/clientdetails/:id', (req, res) => {
             from timesheet 
             join clients on clients.id = timesheet.client_id 
             where clients.client_fullname = $1 
-            order by date desc;`, [id])
+            order by id desc;`, [id])
             .then((results) => res.send(results.rows))
             .catch((error) => {
                 console.log('Error making SELECT for get timesheet:', error);

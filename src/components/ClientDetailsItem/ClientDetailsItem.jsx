@@ -13,6 +13,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import TablePagination from '@mui/material/TablePagination';
 
 export default function ClientDetailsItems({ timesheetItem }) {
 
@@ -61,15 +62,26 @@ export default function ClientDetailsItems({ timesheetItem }) {
         },
     }));
 
-
     return (
 
         <div>
-            {timesheetItem.to_char}
-    
+
             <StyledTableCell component="th" scope="row">
-            {timesheetItem.notes}
+                {timesheetItem.to_char}
             </StyledTableCell>
+            <StyledTableCell component="th" scope="row">
+                {timesheetItem.in}
+            </StyledTableCell>
+            <StyledTableCell component="th" scope="row">
+                {timesheetItem.out}
+            </StyledTableCell>
+            <StyledTableCell component="th" scope="row">
+                {timesheetItem.mileage}
+            </StyledTableCell>
+            <StyledTableCell component="th" scope="row">
+                {timesheetItem.notes}
+            </StyledTableCell>
+
             <StyledTableCell
                 align="center"
             >
@@ -79,21 +91,8 @@ export default function ClientDetailsItems({ timesheetItem }) {
                 >
                     Edit
                 </ColorButton>
+
             </StyledTableCell>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

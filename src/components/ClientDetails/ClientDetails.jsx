@@ -116,6 +116,10 @@ export default function ClientDetails() {
         },
     }));
 
+
+
+
+    console.log(timesheetClientReducer);
     return (
         <>
 
@@ -166,49 +170,62 @@ export default function ClientDetails() {
 
                                     <div className="adminView">
 
-                                        {/* 
-                                    <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 700}} aria-label="customized table" className='adminTable'>
-                    <TableHead>
-                        <TableRow>
-                            <StyledTableCell>Enterprise Name</StyledTableCell>
-                            <StyledTableCell align="center">Enterprise Logo</StyledTableCell>
-                            <StyledTableCell align="center">Point of Contact</StyledTableCell>
-                            <StyledTableCell></StyledTableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                            {timesheetClientReducer?.map(enterprise => (
-                            <StyledTableRow key={enterprise.id}>
-                                <StyledTableCell component="th" scope="row">
-                                    {timesheetClientReducer[0].to_char}
-                                </StyledTableCell>
-                                <StyledTableCell align="center">
-                                {timesheetClientReducer[0].notes}
-                                </StyledTableCell>
-                                <StyledTableCell component="th" scope="row">
-                                    {enterprise.email}
-                                </StyledTableCell>
-                                <StyledTableCell 
-                                    align="center"
-                                >
-                                    <ColorButton 
-                                        variant="contained"
-                                        onClick={() => handleClick(enterprise.id)}
-                                    >
-                                        View Enterprise Questionnaire
-                                    </ColorButton>
-                                </StyledTableCell>
-                            </StyledTableRow>
-                            ))}
-
-                    </TableBody>
-                </Table>
-            </TableContainer> */}
-
 
                                         <TableContainer component={Paper}>
                                             <Table sx={{ minWidth: 700 }} aria-label="customized table" className='adminTable'>
+                                                <TableHead>
+                                                    <TableRow>
+                                                        <StyledTableCell>Date</StyledTableCell>
+                                                        <StyledTableCell align="center">Time In</StyledTableCell>
+                                                        <StyledTableCell align="center">Time Out</StyledTableCell>
+                                                        <StyledTableCell align="center">Mileage</StyledTableCell>
+                                                        <StyledTableCell align="center">Notes</StyledTableCell>
+                                                        <StyledTableCell></StyledTableCell>
+                                                    </TableRow>
+                                                </TableHead>
+                                                <TableBody>
+                                                    {timesheetClientReducer?.map(timesheet => (
+                                                        <StyledTableRow key={timesheet.id}>
+                                                            <StyledTableCell scope="row">
+                                                                {timesheet.to_char}
+                                                            </StyledTableCell>
+                                                            <StyledTableCell scope="row">
+                                                                {timesheet.in}
+                                                            </StyledTableCell>
+                                                            <StyledTableCell align="center">
+                                                                {timesheet.out}
+                                                            </StyledTableCell>
+                                                            <StyledTableCell align="center">
+                                                                {timesheet.mileage}
+                                                            </StyledTableCell>
+                                                            <StyledTableCell scope="row">
+                                                                {timesheet.notes}
+                                                            </StyledTableCell>
+                                                            <StyledTableCell
+                                                                align="center"
+                                                            >
+                                                                <ColorButton
+                                                                    variant="contained"
+                                                                    className='client-edit-button'
+                                                                    onClick={() => handleClick(enterprise.id)}
+                                                                >
+                                                                    Edit
+                                                                </ColorButton>
+                                                            </StyledTableCell>
+                                                        </StyledTableRow>
+                                                    ))}
+
+                                                </TableBody>
+                                            </Table>
+                                        </TableContainer>
+
+
+
+                                        {/* <TableContainer component={Paper}>
+                                            <Table sx={{ minWidth: 700 }} aria-label="customized table" className='adminTable'>
+
+
+
                                                 <TableHead>
                                                     <TableRow>
                                                         <StyledTableCell>Date</StyledTableCell>
@@ -220,28 +237,26 @@ export default function ClientDetails() {
                                                     </TableRow>
 
                                                 </TableHead>
+
                                                 <TableBody>
 
 
-                                                        {timesheetClientReducer.map((timesheetItem, i) => {
-                                                            return (
-                                                                <StyledTableRow>
-                                                                
+                                                    {timesheetClientReducer.map((timesheetItem, i) => {
+                                                        return (
+                                                            <StyledTableRow key={i}>
                                                                 <ClientDetailsItem
                                                                     key={i}
                                                                     timesheetItem={timesheetItem} />
+                                                            </StyledTableRow>
 
-                                                    </StyledTableRow>
-                                                            );
-                                                        })}
-
+                                                        );
+                                                    })}
 
                                                 </TableBody>
 
-
-
                                             </Table>
-                                        </TableContainer>
+                                        </TableContainer> */}
+
 
 
 

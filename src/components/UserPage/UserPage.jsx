@@ -56,7 +56,7 @@ function UserPage() {
 
 
 
-
+<div id='badge'>
 
 
         <div className="shadow"></div>
@@ -89,6 +89,8 @@ function UserPage() {
           </div>
 
           <div className='liquid'></div>
+        </div>
+
         </div>
 
       </section>
