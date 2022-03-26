@@ -38,7 +38,7 @@ export default function ClientTimesheetForm() {
     }, [location]) // end of useEffect
 
 
-    // const [clientId, setClientId] = useState(timesheetClientTimesheetReducer[0].client_id);
+    const [clientId, setClientId] = useState(timesheetClientTimesheetReducer[0].client_id);
     const [clientName, setClientName] = useState(client);
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
@@ -138,6 +138,7 @@ export default function ClientTimesheetForm() {
                         />
 
                         <TextField
+                        autoComplete="off" 
                             label='Mileage'
                             id="standard-basic"
                             variant="outlined"
