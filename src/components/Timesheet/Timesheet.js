@@ -77,7 +77,7 @@ export default function Timesheet() {
             field: 'notes',
             headerName: 'Notes',
             description: 'This column has a value getter and is not sortable.',
-            sortable: false,
+            // sortable: false,
             width: 250,
             editable: true
             
@@ -110,7 +110,7 @@ export default function Timesheet() {
             </div>
 
             <div id="timesheet-div">
-                <div style={{ height: 450, width: '100%'}}>
+                <div style={{ height: '72%', width: '100%'}}>
 
 
                     <DataGrid
@@ -126,7 +126,7 @@ export default function Timesheet() {
 
 
 
-                    <div className='tablestuff'>
+                    {/* <div className='tablestuff'>
                         <h3 className='history'>History</h3>
                         <table>
                             <tr>
@@ -139,7 +139,7 @@ export default function Timesheet() {
                                 })}
                             </tr>
                         </table>
-                    </div>
+                    </div> */}
 
 
                 </div>
