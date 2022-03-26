@@ -35,11 +35,10 @@ export default function ClientTimesheetForm() {
     useEffect(() => {
         dispatch({ type: 'FETCH_CLIENT' })
         dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
-        dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
     }, [location]) // end of useEffect
 
 
-    const [clientId, setClientId] = useState(timesheetClientTimesheetReducer[0].client_id);
+    // const [clientId, setClientId] = useState(timesheetClientTimesheetReducer[0].client_id);
     const [clientName, setClientName] = useState(client);
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
@@ -85,7 +84,7 @@ export default function ClientTimesheetForm() {
     };
 
 
-    console.log('THIS Is FIRE', timesheetClientTimesheetReducer[0].client_id);
+    console.log('THIS Is FIRE', timesheetClientTimesheetReducer);
     return (
         <> <Helmet>
             <style>{`body { height: 100%; background-color: #544e88; 
