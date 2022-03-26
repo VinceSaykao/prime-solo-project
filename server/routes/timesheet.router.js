@@ -29,11 +29,11 @@ router.get('/clientdetails/:id', (req, res) => {
     let id = req.params.id;
     if (req.isAuthenticated()) {
         pool
-            .query(`select timesheet.client_id, TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes 
+            .query(`select timesheet.id, timesheet.client_id, TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes 
             from timesheet 
             join clients on clients.id = timesheet.client_id 
             where clients.client_fullname = $1 
-            order by date desc;`,[id])
+            order by date desc;`, [id])
             .then((results) => res.send(results.rows))
             .catch((error) => {
                 console.log('Error making SELECT for get timesheet:', error);
@@ -52,7 +52,7 @@ router.get('/clienttimesheet/:id', (req, res) => {
 
     if (req.isAuthenticated()) {
         pool
-            .query(`select client_id, client_name from timesheet join clients on clients.id = timesheet.client_id where client_name = $1 limit 1;`,[id])
+            .query(`select timesheet.id, client_id, client_name from timesheet join clients on clients.id = timesheet.client_id where client_name = $1 limit 1;`, [id])
             .then((results) => res.send(results.rows))
             .catch((error) => {
                 console.log('Error making SELECT for get timesheet:', error);
@@ -89,7 +89,7 @@ router.post('/', (req, res) => {
 
 
 router.put('/:id', (req, res) => {
-    console.log('/shelf put route', req.body);
+    console.log('timesheet form put route', req.body);
     const queryText = `update timesheet set 
     "date" = $1,
     "client_name" = $2,
@@ -109,9 +109,10 @@ router.put('/:id', (req, res) => {
     })
 });
 
+
 router.put('/clienttimesheet/:id', (req, res) => {
-    console.log('/shelf put route', req.body);
-    const queryText = `update timesheet set 
+    console.log('timesheet form put route', req.body);
+    const queryText = ` update timesheet set 
     "date" = $1,
     "client_name" = $2,
     "client_id" = $3,

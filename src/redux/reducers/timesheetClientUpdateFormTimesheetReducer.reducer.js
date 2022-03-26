@@ -1,4 +1,4 @@
-const timesheetFormUpdateReducer = (state = {
+const timesheetClientUpdateFormTimesheetReducer = (state = {
     id: '',
     date: '',
     client_name: '',
@@ -9,13 +9,13 @@ const timesheetFormUpdateReducer = (state = {
     notes: ''
 },action) => {
     switch (action.type) {
-        case 'SET_UPDATE_TIMESHEET':
-            console.log('This set-update-timesheet is:', action.payload);
+        case 'SET_CLIENT_UPDATE_TIMESHEET':
+            console.log('This client-timesheet update in reducer is:', action.payload);
             return {...state,
                 id: action.payload.id,
                 to_char: action.payload.to_char,
                 client_name: action.payload.client_name,
-                client_id: action.payload.cliend_id,
+                client_id: action.payload.client_id,
                 in: action.payload.in,
                 out: action.payload.out,
                 mileage: action.payload.mileage,
@@ -26,4 +26,4 @@ const timesheetFormUpdateReducer = (state = {
     }
 }
 
-export default timesheetFormUpdateReducer;
+export default timesheetClientUpdateFormTimesheetReducer;
