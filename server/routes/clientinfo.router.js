@@ -21,7 +21,9 @@ router.get('/:id', (req,res) => {
     let id = req.params.id;
     if (req.isAuthenticated()) {
         pool
-        .query(`select * from timesheet where id = $1;`, [id])
+        .query(`select timesheet.id, TO_CHAR
+        ("date",'MM-DD YYYY'),client_name,"in","out",mileage,notes
+        from timesheet where id = $1;`, [id])
         .then((results) => res.send(results.rows))
         .catch((error) => {
             console.log('Error making select for get client info', error);

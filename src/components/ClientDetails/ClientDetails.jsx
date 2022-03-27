@@ -73,7 +73,6 @@ export default function ClientDetails() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({ type: 'FETCH_CLIENT' })
-        // dispatch({ type: 'FETCH_CLIENT_TIMESHEET' })
         dispatch({ type: 'FETCH_CLIENT_SHEET', payload: client })
         dispatch({ type: 'FETCH_CLIENT_TIMESHEET', payload: client })
     }, [location]) // end of useEffect
@@ -121,9 +120,13 @@ export default function ClientDetails() {
         },
     }));
 
+    const handleClicked = (timesheet) => {
+        console.log(timesheet.id)
+        dispatch({ type: 'FETCH_SPECIFIC_CLIENT', payload: timesheet.id });
+        history.push('/client');
+    }
 
 
-    console.log(timesheetClientReducer);
     return (
         <>
 
@@ -150,10 +153,10 @@ export default function ClientDetails() {
                             </div>
 
 
-                            <Box sx={{ width: '100%'}}>
+                            <Box sx={{ width: '100%' }}>
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                                        
+
                                         <Tab label={"Timesheet"} {...a11yProps(0)} />
                                         <Tab label={"Info"} {...a11yProps(2)} />
                                         <Tab label="History" {...a11yProps(3)} />
@@ -192,14 +195,12 @@ export default function ClientDetails() {
                                                 <TableBody>
 
                                                     {timesheetClientReducer?.map(timesheet => (
-                                                        <div onClick={(handleClicked) => {
-                                                            console.log(timesheet.id);
-                                                            
 
-                                                        }}>
-                                                        
+
                                                         <StyledTableRow key={timesheet.id}>
-                                                            <StyledTableCell scope="row">
+                                                            <StyledTableCell scope="row"
+                                                                onClick={() => handleClicked(timesheet)}
+                                                            >
                                                                 {timesheet.to_char}
                                                             </StyledTableCell>
                                                             <StyledTableCell scope="row">
@@ -231,7 +232,7 @@ export default function ClientDetails() {
 
                                                             </StyledTableCell>
                                                         </StyledTableRow>
-                                                        </div>
+
                                                     ))}
 
                                                 </TableBody>
