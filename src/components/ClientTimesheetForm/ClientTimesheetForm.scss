@@ -1,0 +1,12 @@
+@import '../Variables/Variables.scss';
+
+#submit-form {
+    color: white;
+    margin: 0 auto;
+    display: flex;
+    width: 95%;
+    border: 3px solid $whiteColor;
+    font-size: 30px;
+    bottom: 5px;
+    height: 60px;
+}

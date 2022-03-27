@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 
+import './ClientDetailsItem.scss';
+
 
 
 
@@ -14,6 +16,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import TablePagination from '@mui/material/TablePagination';
+import EditIcon from '@mui/icons-material/Edit';
+import { Icon } from '@mui/material';
 
 export default function ClientDetailsItems({ timesheet }) {
 
@@ -26,52 +30,42 @@ export default function ClientDetailsItems({ timesheet }) {
         history.push('/updateClientTimesheetForm');
     }; // end of handleEdit
 
-    const handleDelete = () => {
-        dispatch({ type: 'DELETE_CLIENT_TIMESHEET', payload: timesheetItem.id })
-    }; // end of handleDelete
 
 
 
 
-    const StyledTableCell = styled(TableCell)(({ theme }) => ({
-        [`&.${tableCellClasses.head}`]: {
-            backgroundColor: '#78e194',
-            color: '#000000',
-        },
-        [`&.${tableCellClasses.body}`]: {
-            fontSize: 18,
-        },
-    }));
+    const ButtonEdit = styled(Button)({
+        boxShadow: 'none',
+        textTransform: 'none',
+        fontSize: 30,
+        padding: '6px 12px',
+        border: '1px solid',
+        lineHeight: 1.5,
+        backgroundColor: '#f0f0f0',
+        borderColor: '#fff',
+        color: '#683aff',
+    });
 
-    const ColorButton = styled(Button)(({ theme }) => ({
-        color: '#ffffff',
-        backgroundColor: '#a18de1',
-        '&:hover': {
-            backgroundColor: '#bdb4d8',
-        },
-    }));
 
-    const StyledTableRow = styled(TableRow)(({ theme }) => ({
-        '&:nth-of-type(odd)': {
-            backgroundColor: theme.palette.action.hover,
-        },
-        // hide last border
-        '&:last-child td, &:last-child th': {
-            border: 0,
-        },
-    }));
 
     return (
 
-        <div>
+        <div className='edit-client'>
 
-                <ColorButton
-                    variant="contained"
+
+            <ButtonEdit
+                fontSize='large'
+            >
+
+                <EditIcon
                     onClick={handleEdit}
-                >
-                    Edit
-                </ColorButton>
-                
+                    fontSize='large'
+
+                />
+            </ButtonEdit>
+
+
+
 
         </div>
     )

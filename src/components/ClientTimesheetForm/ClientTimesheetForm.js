@@ -43,8 +43,8 @@ export default function ClientTimesheetForm() {
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
     const [date, setDate] = React.useState(new Date());
-    const [timeIn, setTimeIn] = React.useState(new Date());
-    const [timeOut, setTimeOut] = React.useState(new Date());
+    const [timeIn, setTimeIn] = React.useState(new Date(), 'hh:mm:ss');
+    const [timeOut, setTimeOut] = React.useState(new Date(), 'hh:mm:ss');
 
     // when submit is pressed, will post all input values
     function handleSubmit() {
@@ -123,6 +123,7 @@ export default function ClientTimesheetForm() {
 
                         <MobileTimePicker
                             label="Time In"
+                            // inputFormat="HH:mm:ss"
                             value={timeIn}
                             onChange={(newValue) => {
                                 setTimeIn(newValue);
@@ -132,6 +133,7 @@ export default function ClientTimesheetForm() {
 
                         <MobileTimePicker
                             label="Time Out"
+                            // inputFormat="HH:mm:ss"
                             value={timeOut}
                             onChange={(newValue2) => {
                                 setTimeOut(newValue2);
@@ -162,13 +164,14 @@ export default function ClientTimesheetForm() {
                     </Stack>
                 </LocalizationProvider>
             </div>
-            <button
+            <Button
+                variant='outlined'
                 id='submit-form'
                 onClick={handleSubmit}
 
             >
                 Submit
-            </button>
+            </Button>
 
         </>
     )

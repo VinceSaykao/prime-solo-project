@@ -26,11 +26,15 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 import Footer from '../Footer/Footer';
 
 import './ClientDetails.scss';
+
+
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -145,9 +149,10 @@ export default function ClientDetails() {
                             </div>
 
 
-                            <Box sx={{ width: '100%' }}>
+                            <Box sx={{ width: '100%'}}>
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                                        
                                         <Tab label={"Timesheet"} {...a11yProps(0)} />
                                         <Tab label={"Info"} {...a11yProps(2)} />
                                         <Tab label="History" {...a11yProps(3)} />
@@ -204,18 +209,18 @@ export default function ClientDetails() {
                                                             <StyledTableCell
                                                                 align="center"
                                                             >
-                                                                <ClientDetailsItem 
-                                                                timesheet={timesheet}
+                                                                <ClientDetailsItem
+                                                                    timesheet={timesheet}
                                                                 />
-                                                        
+
                                                             </StyledTableCell>
                                                             <StyledTableCell
                                                                 align="center"
                                                             >
-                                                                <ClientDetailsItemDelete 
-                                                                timesheet={timesheet}
+                                                                <ClientDetailsItemDelete
+                                                                    timesheet={timesheet}
                                                                 />
-                                                        
+
                                                             </StyledTableCell>
                                                         </StyledTableRow>
                                                     ))}
@@ -226,7 +231,7 @@ export default function ClientDetails() {
 
 
 
-                            
+
 
 
 
@@ -240,28 +245,34 @@ export default function ClientDetails() {
 
                                 </TabPanel>
                                 <div className='client-details-info'>
-                                <TabPanel
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        window.location.href = `https://www.google.com/maps?q=${item.address}`;
-                                    }}
-                                    value={value} index={1}>
-                                    {item.address}
-                                    <Divider />
-                                    Mobile: {item.phone}
-                                </TabPanel>
-                                <TabPanel value={value} index={2}>
-                                    {item.history}
-                                </TabPanel>
-                                <TabPanel value={value} index={3}>
-                                    {item.hobbies}
-                                </TabPanel>
+                                    <TabPanel
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            window.location.href = `https://www.google.com/maps?q=${item.address}`;
+                                        }}
+                                        value={value} index={1}>
+                                        {item.address}
+                                        <Divider />
+                                        Mobile: {item.phone}
+                                    </TabPanel>
+                                    <TabPanel value={value} index={2}>
+                                        {item.history}
+                                    </TabPanel>
+                                    <TabPanel value={value} index={3}>
+                                        {item.hobbies}
+                                    </TabPanel>
                                 </div>
 
                             </Box>
                         </>
                     );
                 })}
+
+                {/* <Box sx={{ display: 'flex' }}>
+                    <CircularProgress
+                        color="success"
+                    />
+                </Box> */}
 
                 <Footer />
             </div>

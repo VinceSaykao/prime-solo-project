@@ -30,18 +30,20 @@ function UserPage() {
   }
 
   return (
-    <>
+    <div 
+    style={{width: '414px'}}
+    >
   
       <Helmet>
         <style>{`body { height: 2000px; width: 100%; background-image: url("https://images.unsplash.com/photo-1540458638618-893e9fb35c07?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGdhbGF4eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"); 
-                background-size: cover; background-position:-50px 0px; background-repeat: no-repeat; 
+                background-size: auto; background-position:-50px 0px; background-repeat: no-repeat;  
                 }`}
 
         </style>
       </Helmet>
       <Footer />
       <div className="contain">
-        <h2 id='welcome-header'>Welcome | {user.username}!</h2>
+        <h2 id='welcome-header'>Welcome {user.username}!</h2>
 
 
         <Avatar
@@ -101,7 +103,7 @@ function UserPage() {
 
 
 
-      <Card sx={{ maxWidth: 390 }}
+      <Card sx={{ minWidth: '100%' }}
         id='card1'
       >
         <CardActionArea>
@@ -128,7 +130,7 @@ function UserPage() {
       >I'm Feeling Lucky!</Button>
 
   
-    </>
+    </div>
   );
 }
 

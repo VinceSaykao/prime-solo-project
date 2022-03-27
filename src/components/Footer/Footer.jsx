@@ -166,7 +166,7 @@ export default function Footer() {
 
 
 
-<Box sx={{ width: 390 }}>
+<Box sx={{ width: '414px' }}>
       <BottomNavigation
         showLabels
         value={value}
