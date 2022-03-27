@@ -18,8 +18,21 @@ import Button from '@mui/material/Button';
 import TablePagination from '@mui/material/TablePagination';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import DeleteIcon from '@mui/icons-material/Delete';
+import * as React from 'react';
+
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+
+
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export default function ClientDetailsItemsDelete({ timesheet }) {
+
+    const [open, setOpen] = React.useState(false);
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -28,6 +41,7 @@ export default function ClientDetailsItemsDelete({ timesheet }) {
 
     const handleDelete = () => {
         dispatch({ type: 'DELETE_CLIENT_TIMESHEET', payload: timesheet.id })
+        setOpen(true);
     }; // end of handleDelete
 
 
@@ -43,17 +57,34 @@ export default function ClientDetailsItemsDelete({ timesheet }) {
         color: '#683aff',
     });
 
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
+
+
 
 
     return (
 
+        <>
+          <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+                <Alert id='alert-delete' onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                    You Successfully Deleted!
+                </Alert>
+            </Snackbar>
+
         <div className='client-delete-icon'>
-            <ButtonDelete variant="contained">
+            <ButtonDelete variant="contained" onClick={handleDelete}>
+                
                 <DeleteIcon
                     fontSize='large'
-                />
+                    />
             </ButtonDelete>
         </div>
+                    </>
     )
 
 
