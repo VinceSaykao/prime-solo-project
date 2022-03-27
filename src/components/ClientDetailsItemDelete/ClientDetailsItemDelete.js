@@ -3,20 +3,7 @@ import { useHistory, Link } from 'react-router-dom';
 
 import './ClientDetailsItemDelete.scss';
 
-
-
-
 import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
-import TablePagination from '@mui/material/TablePagination';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import DeleteIcon from '@mui/icons-material/Delete';
 import * as React from 'react';
 
@@ -70,21 +57,21 @@ export default function ClientDetailsItemsDelete({ timesheet }) {
     return (
 
         <>
-          <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+            <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
                 <Alert id='alert-delete' onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                     You Successfully Deleted!
                 </Alert>
             </Snackbar>
 
-        <div className='client-delete-icon'>
-            <ButtonDelete variant="contained" onClick={handleDelete}>
-                
-                <DeleteIcon
-                    fontSize='large'
+            <div className='client-delete-icon'>
+                <ButtonDelete variant="contained" onClick={handleDelete}>
+
+                    <DeleteIcon
+                        fontSize='large'
                     />
-            </ButtonDelete>
-        </div>
-                    </>
+                </ButtonDelete>
+            </div>
+        </>
     )
 
 
