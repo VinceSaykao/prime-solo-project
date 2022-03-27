@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 
+import './ClientDetailsItemDelete.scss';
+
 
 
 
@@ -14,6 +16,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import TablePagination from '@mui/material/TablePagination';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 export default function ClientDetailsItemsDelete({ timesheet }) {
 
@@ -39,34 +42,16 @@ export default function ClientDetailsItemsDelete({ timesheet }) {
         },
     }));
 
-    const ColorButton = styled(Button)(({ theme }) => ({
-        color: '#ffffff',
-        backgroundColor: '#a18de1',
-        '&:hover': {
-            backgroundColor: '#bdb4d8',
-        },
-    }));
-
-    const StyledTableRow = styled(TableRow)(({ theme }) => ({
-        '&:nth-of-type(odd)': {
-            backgroundColor: theme.palette.action.hover,
-        },
-        // hide last border
-        '&:last-child td, &:last-child th': {
-            border: 0,
-        },
-    }));
 
     return (
 
         <div>
 
-                <ColorButton
-                    variant="contained"
-                    onClick={handleDelete}
-                >
-                    Delete
-                </ColorButton>
+
+            <DeleteOutlineIcon
+                onClick={handleDelete}
+            />
+
 
         </div>
     )
