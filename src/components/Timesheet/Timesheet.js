@@ -212,7 +212,7 @@ export default function Timesheet() {
                     <DataGrid
                         rows={timesheetReducer}
                         columns={columns}
-                        pageSize={8}
+                        pageSize={6}
                         rowsPerPageOptions={[10]}
                         checkboxSelection
                         disableSelectionOnClick

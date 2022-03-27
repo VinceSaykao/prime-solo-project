@@ -6,6 +6,7 @@ import './ClientDetailsItemDelete.scss';
 import { styled } from '@mui/material/styles';
 import DeleteIcon from '@mui/icons-material/Delete';
 import * as React from 'react';
+import Button from '@mui/material/Button';
 
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
