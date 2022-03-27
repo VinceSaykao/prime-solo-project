@@ -2,10 +2,10 @@
 
 
 #submit-form {
-    border: 2px solid white;
+    border: 2px solid $whiteColor;
     border-radius: 5px;
     background-color: transparent;
-    color: white;
+    color: $whiteColor;
     font-weight: 900;
     font-size: 20px;
     text-shadow: 1px 1px 1px black;
@@ -13,7 +13,7 @@
     height: 50px;
     width: 340px;
     
-    margin-left: 25px;
+    margin-left: 40px;
     position: absolute;
     bottom: 20px;
     

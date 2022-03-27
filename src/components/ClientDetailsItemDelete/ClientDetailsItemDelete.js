@@ -38,31 +38,19 @@ export default function ClientDetailsItemsDelete({ timesheet }) {
         padding: '6px 12px',
         border: '1px solid',
         lineHeight: 1.5,
-        backgroundColor: '#c4c4c488',
+        backgroundColor: '#f0f0f0',
         borderColor: '#fff',
         color: '#683aff',
     });
 
 
 
-
-    const StyledTableCell = styled(TableCell)(({ theme }) => ({
-        [`&.${tableCellClasses.head}`]: {
-            backgroundColor: '#78e194',
-            color: '#000000',
-        },
-        [`&.${tableCellClasses.body}`]: {
-            fontSize: 18,
-        },
-    }));
-
-
     return (
 
         <div className='client-delete-icon'>
             <ButtonDelete variant="contained">
-                <DeleteIcon 
-                  fontSize='large'
+                <DeleteIcon
+                    fontSize='large'
                 />
             </ButtonDelete>
         </div>
