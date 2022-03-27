@@ -23,6 +23,8 @@ import GroupIcon from '@mui/icons-material/Group';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import GroupsIcon from '@mui/icons-material/Groups';
 import AddIcon from '@mui/icons-material/Add';
+import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 
 import Fab from '@mui/material/Fab';
@@ -103,6 +105,19 @@ export default function Footer() {
         ))}
       </List>
       <Divider />
+
+      <List id='second-footer-list'>
+        {[<p id='footer-add-label'>Feedback</p>, <p id='footer-chat-label'>Settings</p>].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <ContactSupportIcon id='footer-add'/> : <SettingsIcon id='footer-chat'/>}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+
+      <Divider />
       <List id='footer-footer'>
         {[<h4 id='logout-footer'><LogOutButton /></h4>].map((text, index) => (
           <ListItem button key={text}>
@@ -116,6 +131,8 @@ export default function Footer() {
           </ListItem>
         ))}
       </List>
+    
+      
     </Box>
   );
 

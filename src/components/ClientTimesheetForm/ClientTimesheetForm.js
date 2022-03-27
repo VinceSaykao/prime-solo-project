@@ -105,6 +105,7 @@ export default function ClientTimesheetForm() {
                     <Stack spacing={5}>
 
                         <TextField
+                            autoComplete="off"
                             label='Client Name'
                             id="standard-basic"
                             variant="outlined"
@@ -139,7 +140,7 @@ export default function ClientTimesheetForm() {
                         />
 
                         <TextField
-                        autoComplete="off" 
+                            autoComplete="off"
                             label='Mileage'
                             id="standard-basic"
                             variant="outlined"
@@ -164,7 +165,7 @@ export default function ClientTimesheetForm() {
             <button
                 id='submit-form'
                 onClick={handleSubmit}
-                
+
             >
                 Submit
             </button>
