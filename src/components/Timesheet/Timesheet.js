@@ -21,6 +21,23 @@ import Footer from '../Footer/Footer';
 
 import { Helmet } from 'react-helmet';
 
+
+
+
+
+
+
+import { useTheme } from '@mui/material/styles';
+import MobileStepper from '@mui/material/MobileStepper';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+// import SwipeableViews from 'react-swipeable-views';
+// import { autoPlay } from 'react-swipeable-views-utils';
+
+// const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
 export default function Timesheet() {
 
     const location = useLocation();
@@ -89,8 +106,7 @@ export default function Timesheet() {
 
     
     
-    console.log('this is new', timesheetReducer.client_name);
-    console.log('timesheet is', timesheetReducer);
+
     return (
         <div>
             <Helmet>
@@ -104,9 +120,7 @@ export default function Timesheet() {
 
 
             <div id='timesheet-header-div'>
-                {/* <p
-                    className='timesheet-header'
-                >Timesheet</p> */}
+                
             </div>
 
             <div id="timesheet-div">
