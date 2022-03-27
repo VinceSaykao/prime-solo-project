@@ -4,7 +4,8 @@
 
     text-align: center;
     // background-image: url('');
-    background-color: rgba(68, 68, 68, 0.253);
+
+    background-image: linear-gradient(rgba(20, 20, 20, 0.171),rgb(163, 131, 163),$mainPurple, black);
     margin-top: -29px;
     // border: 5px solid rgb(255, 253, 132);
     border-bottom: 10px solid $mainPurple;
@@ -37,5 +38,12 @@
     text-shadow: 1px 1px 1px black;
 }
 
+.client-details-info {
+    color: white;
+    font-size: 40px;
+    text-shadow: 1px 1px 1px black;
+    height: 400px;
+
+}
 
 

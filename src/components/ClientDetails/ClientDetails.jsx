@@ -239,6 +239,7 @@ export default function ClientDetails() {
 
 
                                 </TabPanel>
+                                <div className='client-details-info'>
                                 <TabPanel
                                     onClick={(e) => {
                                         e.preventDefault();
@@ -255,6 +256,7 @@ export default function ClientDetails() {
                                 <TabPanel value={value} index={3}>
                                     {item.hobbies}
                                 </TabPanel>
+                                </div>
 
                             </Box>
                         </>
