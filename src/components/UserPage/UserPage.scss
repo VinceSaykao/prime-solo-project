@@ -4,16 +4,17 @@
   // position: absolute;
   color: rgb(165, 219, 250);
   margin: 0 auto;
+  text-align: center;
   letter-spacing: 1px;
   text-transform: uppercase;
   width: 100%;
   font-family: 'Pacifico';
-  z-index: 1;
+  text-shadow: 1px 1px 1px white;
 }
 
 #welcome-header {
   margin-top: 0px;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
   text-align: center;
   color: white;
   font-size: 30px;
@@ -35,7 +36,7 @@
 #card2 {
   background-image: url("https://images.unsplash.com/photo-1525253086316-d0c936c814f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cHVwcGllc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60");
   position: absolute;
-  width: 385px;
+  width: 100%;
   margin-top: 780px;
   height: 530px;
   background-repeat: no-repeat;
@@ -67,6 +68,7 @@ section {
   transform-origin: bottom center;
   animation: animate 5s linear infinite;
   border: 1px solid rgb(235, 204, 204);
+  margin-top: 300px;
 }
 
 #badge:hover {
