@@ -162,13 +162,14 @@ export default function ClientTimesheetForm() {
                     </Stack>
                 </LocalizationProvider>
             </div>
-            <button
+            <Button
+                variant='outlined'
                 id='submit-form'
                 onClick={handleSubmit}
 
             >
                 Submit
-            </button>
+            </Button>
 
         </>
     )

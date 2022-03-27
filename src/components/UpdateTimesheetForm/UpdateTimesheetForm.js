@@ -21,6 +21,7 @@ import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import CloseIcon from '@mui/icons-material/Close';
 import MobileTimePicker from '@mui/lab/MobileTimePicker';
+import Button from '@mui/material/Button';
 
 
 import Swal from 'sweetalert2';
@@ -170,12 +171,12 @@ export default function UpdateTimesheetForm() {
                     </Stack>
                 </LocalizationProvider>
             </div>
-            <button
+            <Button
                 id='submit-form'
                 onClick={handleSubmit}
             >
                 Submit
-            </button>
+            </Button>
 
         </>
     )
