@@ -34,14 +34,17 @@ export default function ClientDetailsItems({ timesheet }) {
 
 
 
-
-    // const EditIcon = styled(Icon)(({ theme }) => ({
-    //     color: '#fff',
-    //     backgroundColor: '#a18de1',
-    //     '&:hover': {
-    //         backgroundColor: '#bdb4d8',
-    //     },
-    // }));
+    const ButtonEdit = styled(Button)({
+        boxShadow: 'none',
+        textTransform: 'none',
+        fontSize: 30,
+        padding: '6px 12px',
+        border: '1px solid',
+        lineHeight: 1.5,
+        backgroundColor: '#c4c4c488',
+        borderColor: '#fff',
+        color: '#683aff',
+    });
 
 
 
@@ -49,9 +52,18 @@ export default function ClientDetailsItems({ timesheet }) {
 
         <div className='edit-client'>
 
-            <EditIcon
-                onClick={handleEdit}
-            />
+
+            <ButtonEdit
+                fontSize='large'
+            >
+
+                <EditIcon
+                    onClick={handleEdit}
+                    fontSize='large'
+
+                />
+            </ButtonEdit>
+
 
 
 

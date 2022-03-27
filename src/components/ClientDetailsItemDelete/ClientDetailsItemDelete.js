@@ -17,6 +17,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import TablePagination from '@mui/material/TablePagination';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function ClientDetailsItemsDelete({ timesheet }) {
 
@@ -28,6 +29,19 @@ export default function ClientDetailsItemsDelete({ timesheet }) {
     const handleDelete = () => {
         dispatch({ type: 'DELETE_CLIENT_TIMESHEET', payload: timesheet.id })
     }; // end of handleDelete
+
+
+    const ButtonDelete = styled(Button)({
+        boxShadow: 'none',
+        textTransform: 'none',
+        fontSize: 16,
+        padding: '6px 12px',
+        border: '1px solid',
+        lineHeight: 1.5,
+        backgroundColor: '#c4c4c488',
+        borderColor: '#fff',
+        color: '#683aff',
+    });
 
 
 
@@ -46,9 +60,11 @@ export default function ClientDetailsItemsDelete({ timesheet }) {
     return (
 
         <div className='client-delete-icon'>
-            <DeleteOutlineIcon
-                onClick={handleDelete}
-            />
+            <ButtonDelete variant="contained">
+                <DeleteIcon 
+                  fontSize='large'
+                />
+            </ButtonDelete>
         </div>
     )
 
