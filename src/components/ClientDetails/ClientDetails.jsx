@@ -122,6 +122,7 @@ export default function ClientDetails() {
     }));
 
 
+
     console.log(timesheetClientReducer);
     return (
         <>
@@ -189,7 +190,14 @@ export default function ClientDetails() {
                                                     </TableRow>
                                                 </TableHead>
                                                 <TableBody>
+
                                                     {timesheetClientReducer?.map(timesheet => (
+                                                        <div onClick={(handleClicked) => {
+                                                            console.log(timesheet.id);
+                                                            
+
+                                                        }}>
+                                                        
                                                         <StyledTableRow key={timesheet.id}>
                                                             <StyledTableCell scope="row">
                                                                 {timesheet.to_char}
@@ -223,6 +231,7 @@ export default function ClientDetails() {
 
                                                             </StyledTableCell>
                                                         </StyledTableRow>
+                                                        </div>
                                                     ))}
 
                                                 </TableBody>

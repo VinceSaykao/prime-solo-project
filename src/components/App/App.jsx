@@ -29,6 +29,7 @@ import WelcomePage from '../WelcomePage/WelcomePage';
 import ClientDetails from '../ClientDetails/ClientDetails';
 import ClientTimesheetForm from '../ClientTimesheetForm/ClientTimesheetForm';
 import UpdateClientTimesheetForm from '../UpdateClientTimesheetForm/UpdateClientTimesheetForm'; 
+import SpecificClient from '../SpecificClient/SpecificClient';
 
 import './App.css';
 
@@ -101,6 +102,15 @@ function App() {
           >
             <ClientPage />
           </ProtectedRoute>
+
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/client/:id"
+          >
+            <SpecificClient />
+            </ProtectedRoute>
 
 
           <ProtectedRoute
