@@ -149,7 +149,7 @@ export default function ClientDetails() {
                             </div>
 
 
-                            <Box sx={{ width: '100%' }}>
+                            <Box sx={{ width: '100%'}}>
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                                         <Tab label={"Timesheet"} {...a11yProps(0)} />
