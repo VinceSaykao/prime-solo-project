@@ -45,14 +45,10 @@ export default function ClientDetailsItemsDelete({ timesheet }) {
 
     return (
 
-        <div>
-
-
+        <div className='client-delete-icon'>
             <DeleteOutlineIcon
                 onClick={handleDelete}
             />
-
-
         </div>
     )
 
