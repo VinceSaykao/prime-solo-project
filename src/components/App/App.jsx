@@ -30,6 +30,7 @@ import ClientDetails from '../ClientDetails/ClientDetails';
 import ClientTimesheetForm from '../ClientTimesheetForm/ClientTimesheetForm';
 import UpdateClientTimesheetForm from '../UpdateClientTimesheetForm/UpdateClientTimesheetForm'; 
 import SpecificClient from '../SpecificClient/SpecificClient';
+import Feedback from '../Feedback/Feedback';
 
 import './App.css';
 
@@ -85,6 +86,15 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows timesheet
+            exact
+            path="/feedback"
+          >
+            <Feedback />
           </ProtectedRoute>
 
           <ProtectedRoute

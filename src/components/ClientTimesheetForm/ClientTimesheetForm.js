@@ -53,12 +53,12 @@ export default function ClientTimesheetForm() {
         if (clientName != ('') && date != ('') && mileage != ('') && notes != ('') && timeIn != ('') && timeOut != ('')) {
             return Swal.fire({
                 title: 'Add Timesheet?',
-                text: 'You are submitting a timesheet',
+                text: 'You are submitting a timesheet. This will be emailed to you, admins and client',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: 'green',
                 cancelButtonColor: 'red',
-                confirmButtonText: 'Yes, add them!',
+                confirmButtonText: 'Yes, Submit!',
             }).then((result) => {
                 if (result.isConfirmed) {
                     dispatch({ type: 'ADD_TIMESHEET', payload: { date: date, client_name: clientName, client_id: clientId, in: timeIn, out: timeOut, mileage: mileage, notes: notes } })

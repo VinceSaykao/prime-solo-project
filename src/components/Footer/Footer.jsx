@@ -107,7 +107,7 @@ export default function Footer() {
       <Divider />
 
       <List id='second-footer-list'>
-        {[<p id='footer-add-label'>Feedback</p>, <p id='footer-chat-label'>Settings</p>].map((text, index) => (
+        {[<p id='footer-add-label' onClick={handleFeedback}>Feedback</p>, <p id='footer-chat-label'>Settings</p>].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <ContactSupportIcon id='footer-add'/> : <SettingsIcon id='footer-chat'/>}
@@ -158,6 +158,10 @@ export default function Footer() {
                 }
                 const timesheetPush = () => {
                   history.push('/timesheet');
+                }
+
+                const handleFeedback = () => {
+                  history.push('/feedback');
                 }
 
                 const [value, setValue] = React.useState(0);

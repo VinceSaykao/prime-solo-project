@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
     };
 }); // end of GET
 
-// this will GET the Bilbo Baggins timesheet from the database
+// this will GET the client's timesheet from the database
 router.get('/clientdetails/:id', (req, res) => {
     // GET route code here
     let id = req.params.id;
@@ -32,8 +32,8 @@ router.get('/clientdetails/:id', (req, res) => {
             .query(`select timesheet.id, timesheet.client_id, TO_CHAR("date",'MM-DD-YYYY'),client_name,"in","out",mileage,notes 
             from timesheet 
             join clients on clients.id = timesheet.client_id 
-            where clients.client_fullname = $1 
-            order by id asc;`, [id])
+            where clients.client_fullname = $1
+            order by to_char desc;`, [id])
             .then((results) => res.send(results.rows))
             .catch((error) => {
                 console.log('Error making SELECT for get timesheet:', error);

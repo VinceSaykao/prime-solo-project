@@ -7,6 +7,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import './SpecificClient.scss';
 import Footer from '../Footer/Footer';
 import logo from './octopulate.png';
+import Avatar from '@mui/material/Avatar';
 
 
 
@@ -47,6 +48,7 @@ export default function SpecificClient() {
         <div
             style={{ backgroundColor: '#b1e0ff3f', maxHeight: '736px', maxWidth: '414px', marginTop: '-30px', overflow: 'hidden', }}
         >
+
             <img
                 className='logo-client'
                 src={logo} />
@@ -61,7 +63,6 @@ export default function SpecificClient() {
                 let timeOut = new Date(client.out);
                 return (
                     <div key={i}>
-
 
                         <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={2}>

@@ -34,8 +34,6 @@ import Footer from '../Footer/Footer';
 import './ClientDetails.scss';
 
 
-
-
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -114,7 +112,7 @@ export default function ClientDetails() {
         '&:nth-of-type(odd)': {
             backgroundColor: theme.palette.action.hover,
         },
-        // hide last border
+
         '&:last-child td, &:last-child th': {
             border: 0,
         },
@@ -126,9 +124,6 @@ export default function ClientDetails() {
         history.push('/client');
     }
 
-
-
-    let timeIn = (new Date('hello'));
 
     return (
         <>
