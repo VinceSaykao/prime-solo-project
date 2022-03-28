@@ -127,7 +127,7 @@ export default function Feedback() {
                 <Stack direction="row" spacing={1}>
                     <Chip label="HTML/CSS" variant="outlined" id='chips' />
                     <Chip label="MUI" variant="outlined" id='chips' />
-                    <Chip label="HTML/CSS" variant="outlined" id='chips' />
+
                 </Stack>
                 <br></br>
             </div>
@@ -162,6 +162,11 @@ export default function Feedback() {
                 </AutoPlaySwipeableViews>
 
             </Box>
+            <br></br>
+            <h3>Linkedin | Github  </h3>
+            <Divider id='divide' />
+            <h3> Vince Saykao </h3>
+
         </div>
     )
 }
