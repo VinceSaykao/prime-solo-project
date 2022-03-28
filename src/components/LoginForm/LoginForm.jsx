@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './LoginForm.scss';
 import img1 from './logo3.png';
+import logo from './octopulate.png';
 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -83,10 +84,10 @@ function LoginForm() {
     >
       <h2
         id="welcome"
-      >Welcome</h2>
+      >Octopulate</h2>
       <img
         className='logo'
-        src={img1} />
+        src={logo} />
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
