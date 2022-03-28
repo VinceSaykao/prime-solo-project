@@ -6,6 +6,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 import './SpecificClient.scss';
 import Footer from '../Footer/Footer';
+import logo from './octopulate.png';
 
 
 
@@ -44,9 +45,12 @@ export default function SpecificClient() {
     const dispatch = useDispatch();
     return (
         <div
-            style={{ backgroundColor: '#a197ff', minHeight: '736px', marginTop: '-30px' }}
+            style={{ backgroundColor: '#b1e0ff3f', maxHeight: '736px', maxWidth: '414px', marginTop: '-30px', overflow: 'hidden', }}
         >
-                <CloseIcon
+            <img
+                className='logo-client'
+                src={logo} />
+            <CloseIcon
                 className='specific-client-exit'
                 fontSize='large'
                 onClick={() => history.goBack()}
