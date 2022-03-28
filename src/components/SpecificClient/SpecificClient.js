@@ -17,6 +17,8 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import CloseIcon from '@mui/icons-material/Close';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function SpecificClient() {
 
@@ -84,6 +86,10 @@ export default function SpecificClient() {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <Item>{client.notes}</Item>
+                                </Grid>
+                                <Grid item xs={12} id='client-buttons'>
+                                   <EditIcon fontSize='large'/>
+                                   <DeleteIcon fontSize='large'/>
                                 </Grid>
                             </Grid>
                         </Box>

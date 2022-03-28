@@ -127,6 +127,7 @@ export default function Feedback() {
                 <Stack direction="row" spacing={1}>
                     <Chip label="HTML/CSS" variant="outlined" id='chips' />
                     <Chip label="MUI" variant="outlined" id='chips' />
+                    <Chip label="SASS" variant="outlined" id='chips' />
 
                 </Stack>
                 <br></br>
