@@ -74,10 +74,6 @@ export default function TimesheetForm() {
 
     };
 
-    // clicking exit pushes you to timesheet
-    const handleClick = () => {
-        history.push('timesheet')
-    }
 
 
     return (
@@ -91,7 +87,7 @@ export default function TimesheetForm() {
         </Helmet>
             <CloseIcon
                 id='form-exit'
-                onClick={handleClick}
+                onClick={() => history.goBack()}
             />
 
             <div id='TimeSheetForm'>

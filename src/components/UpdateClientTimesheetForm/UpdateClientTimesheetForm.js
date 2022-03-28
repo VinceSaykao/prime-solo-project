@@ -82,7 +82,6 @@ export default function UpdateClientTimesheetForm() {
         setDate(newValue);
     };
 
-    console.log('GARRRRRGHHHHH update client timesheet form', timesheetClientUpdateFormTimesheetReducer)
 
     const handleClick = () => {
         // history.push('/timesheet');
