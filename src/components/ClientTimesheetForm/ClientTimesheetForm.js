@@ -43,8 +43,9 @@ export default function ClientTimesheetForm() {
     const [mileage, setMileage] = useState('');
     const [notes, setNotes] = useState('');
     const [date, setDate] = React.useState(new Date());
-    const [timeIn, setTimeIn] = React.useState(new Date(), 'hh:mm:ss');
-    const [timeOut, setTimeOut] = React.useState(new Date(), 'hh:mm:ss');
+    const [timeIn, setTimeIn] = React.useState(new Date());
+    const [timeOut, setTimeOut] = React.useState(new Date());
+
 
     // when submit is pressed, will post all input values
     function handleSubmit() {

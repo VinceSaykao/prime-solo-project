@@ -127,6 +127,9 @@ export default function ClientDetails() {
     }
 
 
+
+    let timeIn = (new Date('hello'));
+
     return (
         <>
 
@@ -176,11 +179,11 @@ export default function ClientDetails() {
                                         <ClientDetailsAddButton />
                                     </Link>
 
-                                    <div className="adminView">
+                                    <div className="client-view">
 
 
                                         <TableContainer component={Paper}>
-                                            <Table sx={{ minWidth: 1000 }} aria-label="customized table" className='adminTable'>
+                                            <Table sx={{ minWidth: 1250 }} aria-label="customized table" className='adminTable'>
                                                 <TableHead>
                                                     <TableRow>
                                                         <StyledTableCell>Date</StyledTableCell>
@@ -194,46 +197,77 @@ export default function ClientDetails() {
                                                 </TableHead>
                                                 <TableBody>
 
-                                                    {timesheetClientReducer?.map(timesheet => (
+                                                    {timesheetClientReducer?.map((timesheet, i) => {
+                                                        let timeIn = new Date(timesheet.in);
+                                                        let timeOut = new Date(timesheet.out);
+
+                                                        return (
 
 
-                                                        <StyledTableRow key={timesheet.id}>
-                                                            <StyledTableCell scope="row"
-                                                                onClick={() => handleClicked(timesheet)}
-                                                            >
-                                                                {timesheet.to_char}
-                                                            </StyledTableCell>
-                                                            <StyledTableCell scope="row">
-                                                                {timesheet.in}
-                                                            </StyledTableCell>
-                                                            <StyledTableCell align="center">
-                                                                {timesheet.out}
-                                                            </StyledTableCell>
-                                                            <StyledTableCell align="center">
-                                                                {timesheet.mileage}
-                                                            </StyledTableCell>
-                                                            <StyledTableCell scope="row">
-                                                                {timesheet.notes}
-                                                            </StyledTableCell>
-                                                            <StyledTableCell
-                                                                align="center"
-                                                            >
-                                                                <ClientDetailsItem
-                                                                    timesheet={timesheet}
-                                                                />
+                                                            <StyledTableRow key={timesheet.id}>
+                                                                <StyledTableCell
+                                                                    sx={{ maxWidth: 80 }}
+                                                                    scope="row"
+                                                                    onClick={() => handleClicked(timesheet)}
 
-                                                            </StyledTableCell>
-                                                            <StyledTableCell
-                                                                align="center"
-                                                            >
-                                                                <ClientDetailsItemDelete
-                                                                    timesheet={timesheet}
-                                                                />
+                                                                >
+                                                                    {timesheet.to_char}
+                                                                </StyledTableCell>
+                                                                <StyledTableCell
+                                                                    onClick={() => handleClicked(timesheet)}
+                                                                    sx={{ maxWidth: 10 }}
+                                                                    scope="row">
+                                                                    {/* {timeIn.toLocaleString()} */}
+                                                                    {timeIn.toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })}
+                                                                    {/* {timesheet.in} */}
 
-                                                            </StyledTableCell>
-                                                        </StyledTableRow>
 
-                                                    ))}
+                                                                </StyledTableCell>
+                                                                <StyledTableCell
+                                                                    onClick={() => handleClicked(timesheet)}
+                                                                    sx={{ maxWidth: 10 }}
+                                                                    align="center">
+                                                                    {/* {timeOut.toLocaleString()} */}
+                                                                    {timeOut.toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })}
+                                                                    {/* {timesheet.out} */}
+                                                                </StyledTableCell>
+                                                                <StyledTableCell
+                                                                    onClick={() => handleClicked(timesheet)}
+                                                                    sx={{ maxWidth: 10 }}
+                                                                    align="center">
+                                                                    {timesheet.mileage}
+                                                                </StyledTableCell>
+                                                                <StyledTableCell
+                                                                    onClick={() => handleClicked(timesheet)}
+                                                                    sx={{ maxWidth: 200 }}
+                                                                    scope="row">
+                                                                    {timesheet.notes}
+                                                                </StyledTableCell>
+                                                                <StyledTableCell
+
+                                                                    sx={{ maxWidth: 50 }}
+                                                                    align="center"
+
+                                                                >
+                                                                    <ClientDetailsItem
+                                                                        timesheet={timesheet}
+                                                                    />
+
+                                                                </StyledTableCell>
+                                                                <StyledTableCell
+
+                                                                    sx={{ maxWidth: 50 }}
+                                                                    align="center"
+                                                                >
+                                                                    <ClientDetailsItemDelete
+                                                                        timesheet={timesheet}
+                                                                    />
+
+                                                                </StyledTableCell>
+                                                            </StyledTableRow>
+
+                                                        )
+                                                    })}
 
                                                 </TableBody>
                                             </Table>

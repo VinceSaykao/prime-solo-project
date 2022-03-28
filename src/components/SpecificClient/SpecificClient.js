@@ -5,10 +5,13 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import './SpecificClient.scss';
+import Footer from '../Footer/Footer';
 
 export default function SpecificClient() {
 
     const location = useLocation();
+
+  
 
     // useEffect(() => {
     //     dispatch({ type: 'FETCH_SPECIFIC_CLIENT' })
@@ -20,7 +23,9 @@ export default function SpecificClient() {
     console.log('specific', specificClientReducer);
     const dispatch = useDispatch();
     return (
-        <div>
+        <div
+        style={{backgroundColor: 'red', minHeight: '736px', marginTop: '-30px'}}
+        >
 
             {specificClientReducer.map((client, i) => {
                 return (
@@ -31,6 +36,7 @@ export default function SpecificClient() {
                     </div>
                 );
             })}
+            <Footer />
 
 
         </div>
